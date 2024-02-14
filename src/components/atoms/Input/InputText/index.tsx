@@ -4,7 +4,6 @@ interface InputTextProps {
   width?: string;
   value?: any;
   name?: string;
-  layout: string;
   onChange?: any;
   size: string;
   placeholder?: string;
@@ -17,7 +16,6 @@ export const InputText = ({
   width,
   value,
   name,
-  layout,
   onChange,
   size,
   placeholder,
@@ -26,7 +24,7 @@ export const InputText = ({
   errors,
 }: InputTextProps) => {
   return (
-    <S.InputCommon layout={layout} size={size} width={width}>
+    <S.InputCommon size={size} width={width}>
       <label>
         {label && label}
         <input
