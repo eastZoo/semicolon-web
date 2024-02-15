@@ -51,7 +51,6 @@ export const LoginBox = () => {
         width="100%"
         height={45}
         color="primary"
-        layout="solid"
         label="로그인"
       />
       <Line label="또는"/>
@@ -60,7 +59,6 @@ export const LoginBox = () => {
         width="100%"
         height={45}
         color="kakaoBg"
-        layout="solid"
         label="카카오 로그인"
       >
         <Image
@@ -79,7 +77,6 @@ export const LoginBox = () => {
         width="100%"
         height={45}
         color="GoogleBg"
-        layout="solid"
         label="구글 로그인"
       >
         {/* 요론 식으로 next에서 제공하는 Image컴포넌트를 사용해서 style을 맥이는 방법 */}

@@ -5,14 +5,10 @@ interface ButtonProps {
   height?: number;
   size?: string;
   color: string;
-  layout: string;
   type: "button" | "submit" | "reset" | undefined;
   label?: string;
-  onClick?: any;
   form?: string;
   children?: any;
-  disabled?: boolean;
-  rotate?: string;
   className?: any;
 }
 

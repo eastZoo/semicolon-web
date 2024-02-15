@@ -20,7 +20,7 @@ export const SignupBox = () =>{
                 }}
                 />
             </InputText>
-            <InputText size="md" width="100%" type={"text"} placeholder="비밀번호">
+            <InputText size="md" width="100%" type={"password"} placeholder="비밀번호">
                 <Image
                 alt="pw"
                 src="/assets/svg/pw.svg"
@@ -33,7 +33,7 @@ export const SignupBox = () =>{
                 }}
                 />
             </InputText>
-            <InputText size="md" width="100%" type={"text"} placeholder="비밀번호 확인">
+            <InputText size="md" width="100%" type={"password"} placeholder="비밀번호 확인">
                 <Image
                 alt="pwOk"
                 src="/assets/svg/pw.svg"
@@ -77,7 +77,6 @@ export const SignupBox = () =>{
             width="100%"
             height={50}
             color="primary"
-            layout="solid"
             label="회원가입"
             />
             </S.SignupInputBox>

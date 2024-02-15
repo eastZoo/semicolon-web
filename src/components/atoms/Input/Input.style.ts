@@ -5,7 +5,6 @@ interface InputProps {
   size?: string;
   layout?: string;
   themeType?: string;
-  icon?:any;
 }
 
 export const InputCommon = styled.div<InputProps>`
@@ -17,11 +16,6 @@ export const InputCommon = styled.div<InputProps>`
     font-size: 1.1rem;
     align-items: center;
     gap: 6px 10px;
-
-    .dispalyValue {
-      font-size: 1.1rem;
-      cursor: pointer;
-    }
   }
 
   input,
