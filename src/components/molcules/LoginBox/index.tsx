@@ -22,7 +22,7 @@ export const LoginBox = () => {
             position: "absolute",
             marginLeft:"12px",
             marginTop:"15px",
-          }}
+        }}
         />
         </InputText>
       
@@ -41,7 +41,7 @@ export const LoginBox = () => {
             position: "absolute",
             marginLeft:"12px",
             marginTop:"15px",
-          }}
+        }}
         />
         </InputText>
       </S.LoginInputBox>
@@ -49,7 +49,7 @@ export const LoginBox = () => {
       <Button
         type="submit"
         width="100%"
-        height={45 }
+        height={45}
         color="primary"
         layout="solid"
         label="로그인"

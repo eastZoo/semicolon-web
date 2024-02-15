@@ -51,4 +51,5 @@ export const InputCommon = styled.div<InputProps>`
     padding-left: 40px;
   }
 
+
 `;

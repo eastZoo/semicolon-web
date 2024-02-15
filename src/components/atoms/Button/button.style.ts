@@ -30,7 +30,6 @@ export const Button = styled.button<ButtonProps>`
   transform: ${(props) => (props.rotate ? `rotate(180deg)` : "")};
   background-color: #A9D0F5;
   color: #0B0B3B;
-  margin: 5px;
   
 
   ${(props) =>
@@ -77,16 +76,6 @@ export const Button = styled.button<ButtonProps>`
           background-color: #EFEFEF;
           color: black;
         `}
-
-    ${(props) =>
-      props.layout === "function" &&
-      css`
-        opacity: 1;
-
-        &:disabled {
-          opacity: 0;
-        }
-      `}
   }
 
   &:disabled {
