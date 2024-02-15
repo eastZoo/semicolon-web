@@ -12,14 +12,20 @@ export const LoginBox = () => {
   return (
     <S.LoginBox>
       <S.LoginInputBox>
-        <InputText size="md" width="100%" type={"text"} placeholder="이메일" color="email" />
+        <InputText size="md" width="100%" type={"text"} placeholder="이메일">
         <Image
           alt="email"
           src="/assets/svg/email.svg"
           width={20}
           height={20}
+          style={{
+            position: "absolute",
+            marginLeft:"12px",
+            marginTop:"15px",
+          }}
         />
-        
+        </InputText>
+      
         <InputText
           size="md"
           width="100%"
@@ -29,11 +35,12 @@ export const LoginBox = () => {
           <Image
           alt="pw"
           src="/assets/svg/pw.svg"
-          width={26}
-          height={26}
+          width={20}
+          height={20}
           style={{
-            display: "inline-flex",
-            marginRight: "10px",
+            position: "absolute",
+            marginLeft:"12px",
+            marginTop:"15px",
           }}
         />
         </InputText>
@@ -62,7 +69,7 @@ export const LoginBox = () => {
           width={26}
           height={26}
           style={{
-            display: "inline-flex",
+            display: "inline-block",
             marginRight: "10px",
           }}
         />

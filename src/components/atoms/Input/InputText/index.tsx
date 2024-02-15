@@ -11,7 +11,7 @@ interface InputTextProps {
   type?: string;
   children?: any;
   errors?: any;
-  color?: any;
+  icon?:any;
 
 }
 
@@ -26,6 +26,7 @@ export const InputText = ({
   type,
   children,
   errors,
+  icon,
 }: InputTextProps) => {
   return (
     <S.InputCommon size={size} width={width}>

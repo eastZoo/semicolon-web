@@ -5,7 +5,7 @@ interface InputProps {
   size?: string;
   layout?: string;
   themeType?: string;
-  color?:any;
+  icon?:any;
 }
 
 export const InputCommon = styled.div<InputProps>`
@@ -44,28 +44,11 @@ export const InputCommon = styled.div<InputProps>`
     font-size: ${(props) => (props.size === "lg" ? "1.5rem" : "1.0rem")};
     border-radius: 10px;
     justify-content: center;
+    border: solid #D8D8D8
   }
 
-  ${(props) =>
-    props.color === "email" &&
-    css`
-    type: text;
-    background-repeat: no-repeat;
-    background-size: 26px;
-    background-image: url('/assets/svg/email.svg');
-    background-size: cover;
-    display: flex;
+  input{
+    padding-left: 40px;
+  }
 
-      
-    `}
-
-  ${(props) =>
-    props.color === "pw" &&
-    css`
-      font-size: 1.0rem;
-      font-weight: 500;
-      background-color: #F7E600;
-      color: #3A1D1D;
-      
-    `}
 `;
