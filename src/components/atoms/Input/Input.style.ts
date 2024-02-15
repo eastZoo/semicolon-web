@@ -1,10 +1,11 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
 interface InputProps {
   width?: string;
   size?: string;
   layout?: string;
   themeType?: string;
+  color?:any;
 }
 
 export const InputCommon = styled.div<InputProps>`
@@ -44,4 +45,27 @@ export const InputCommon = styled.div<InputProps>`
     border-radius: 10px;
     justify-content: center;
   }
+
+  ${(props) =>
+    props.color === "email" &&
+    css`
+    type: text;
+    background-repeat: no-repeat;
+    background-size: 26px;
+    background-image: url('/assets/svg/email.svg');
+    background-size: cover;
+    display: flex;
+
+      
+    `}
+
+  ${(props) =>
+    props.color === "pw" &&
+    css`
+      font-size: 1.0rem;
+      font-weight: 500;
+      background-color: #F7E600;
+      color: #3A1D1D;
+      
+    `}
 `;

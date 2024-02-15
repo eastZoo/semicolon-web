@@ -9,7 +9,10 @@ interface InputTextProps {
   placeholder?: string;
   label?: string;
   type?: string;
+  children?: any;
   errors?: any;
+  color?: any;
+
 }
 
 export const InputText = ({
@@ -21,10 +24,12 @@ export const InputText = ({
   placeholder,
   label,
   type,
+  children,
   errors,
 }: InputTextProps) => {
   return (
     <S.InputCommon size={size} width={width}>
+      {children && children}
       <label>
         {label && label}
         <input

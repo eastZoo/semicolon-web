@@ -13,6 +13,7 @@ export const Button = styled.button<ButtonProps>`
   display: flex;
   width: ${(props) => (props.width ? props.width : "auto")};
   height: ${(props) => (props.height ? props.height + "px" : "initial")};
+  font-weight: 450;
   font-size: ${(props) =>
     props.height && props.height >= 38
       ? "1.0rem"
@@ -27,14 +28,15 @@ export const Button = styled.button<ButtonProps>`
   cursor: pointer;
   transition: background 0.1s ease-in-out;
   transform: ${(props) => (props.rotate ? `rotate(180deg)` : "")};
-  background-color: black;
-  color: white;
+  background-color: #A9D0F5;
+  color: #0B0B3B;
+  margin: 5px;
   
 
   ${(props) =>
     props.size === "sm" &&
     css`
-      height: 24px;
+      height: 20px;
       padding: 0 10px;
       font-size: 0.9rem;
     `}
@@ -42,7 +44,7 @@ export const Button = styled.button<ButtonProps>`
   ${(props) =>
     props.size === "md" &&
     css`
-      height: 32px;
+      height: 25px;
       padding: 0 10px;
       font-size: 1.0rem;
     `}
@@ -75,14 +77,6 @@ export const Button = styled.button<ButtonProps>`
           background-color: #EFEFEF;
           color: black;
         `}
-    ${(props) =>
-        props.color === "GoogleBg" &&
-        css`
-            font-size: 1.0rem;
-            font-weight: 500;
-            background-color: #EFEFEF;
-            color: black;
-            `}
 
     ${(props) =>
       props.layout === "function" &&
