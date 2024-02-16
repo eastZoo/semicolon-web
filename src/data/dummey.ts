@@ -33,7 +33,7 @@ export const menuListDum = {
     },
 
     {
-      oid: "board",
+      oid: "calendar",
       parentOid: "0system",
       sortNo: 20,
       depth: 1,
@@ -49,7 +49,7 @@ export const menuListDum = {
     },
 
     {
-      oid: "0system_1auth",
+      oid: "kanban",
       parentOid: "0system",
       sortNo: 30,
       depth: 1,
@@ -65,7 +65,7 @@ export const menuListDum = {
     },
 
     {
-      oid: "0system_1duties",
+      oid: "gantt",
       parentOid: "0system",
       sortNo: 50,
       depth: 1,
@@ -80,7 +80,7 @@ export const menuListDum = {
       remark: null,
     },
     {
-      oid: "0system_1company",
+      oid: "chat",
       parentOid: "0system",
       sortNo: 60,
       depth: 1,
@@ -95,7 +95,7 @@ export const menuListDum = {
       remark: null,
     },
     {
-      oid: "0system_1user",
+      oid: "board",
       parentOid: "0system",
       sortNo: 70,
       depth: 1,

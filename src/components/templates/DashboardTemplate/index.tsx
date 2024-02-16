@@ -6,10 +6,8 @@ import { ToastContainer } from "react-toastify";
 import Content from "@/components/molcules/Content";
 import TabList from "@/components/atoms/Tabs/TabList";
 
-export const DashboardPage = ({ children }: any) => {
-  const [passwordModalVisible, setPasswordModalVisible] =
-    useState<boolean>(false);
-  const [isOpen, setOpen] = useState(false);
+export const DashboardTemplate = ({ children }: any) => {
+  const [isOpen, setOpen] = useState(true);
 
   const toggleMenu = () => {
     if (window.innerWidth <= 600) {

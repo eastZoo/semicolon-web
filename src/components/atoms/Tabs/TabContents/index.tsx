@@ -6,6 +6,7 @@ import { openTabsState } from "@/recoil/menu";
 export default function TabContents() {
   const openTabs: any = useRecoilValue(openTabsState);
 
+  console.log(openTabs);
   return (
     <>
       {openTabs.map((tab: Tab) => (

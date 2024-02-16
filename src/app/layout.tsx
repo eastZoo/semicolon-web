@@ -16,8 +16,8 @@ import { queryCacheOnError } from "@/error/errorState";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import { usePathname } from "next/navigation";
-import { DashboardPage } from "@/components/templates/DashboardPage";
 import TabContents from "@/components/atoms/Tabs/TabContents";
+import { DashboardTemplate } from "@/components/templates/DashboardTemplate";
 
 export default function RootLayout({
   children,
@@ -55,9 +55,9 @@ export default function RootLayout({
                       <GlobalStyle />
                       {router.includes("dashboard") ? (
                         //dashboard/* 로 시작하는 주소 일때
-                        <DashboardPage>
+                        <DashboardTemplate>
                           <TabContents />
-                        </DashboardPage>
+                        </DashboardTemplate>
                       ) : (
                         <>{children}</>
                       )}

@@ -1,11 +1,11 @@
 // 대시보드 관리
 
-import { DashboardPage } from "@/components/templates/DashboardPage";
-import BoardPage from "@/components/templates/DashboardPage/BoardPage";
-import CalendarPage from "@/components/templates/DashboardPage/CalendarPage";
-import ChatPage from "@/components/templates/DashboardPage/ChatPage";
-import GanttPage from "@/components/templates/DashboardPage/GanttPage";
-import KanbanPage from "@/components/templates/DashboardPage/KanbanPage";
+import BoardPage from "@/components/templates/DashboardTemplate/BoardPage";
+import CalendarPage from "@/components/templates/DashboardTemplate/CalendarPage";
+import ChatPage from "@/components/templates/DashboardTemplate/ChatPage";
+import DashboardPage from "@/components/templates/DashboardTemplate/DashboardPage";
+import GanttPage from "@/components/templates/DashboardTemplate/GanttPage";
+import KanbanPage from "@/components/templates/DashboardTemplate/KanbanPage";
 
 export interface MenuComponent {
   id: string;
