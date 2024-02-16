@@ -1,9 +1,10 @@
 import { useRecoilValue } from "recoil";
-import { openTabsState } from "../../../states/menu";
-import { Tab } from "../../../types/menu";
+
+import { Tab } from "@/types/menu";
+import { openTabsState } from "@/recoil/menu";
 
 export default function TabContents() {
-  const openTabs = useRecoilValue(openTabsState);
+  const openTabs: any = useRecoilValue(openTabsState);
 
   return (
     <>
