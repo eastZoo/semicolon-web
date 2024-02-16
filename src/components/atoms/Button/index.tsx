@@ -3,11 +3,9 @@ import * as S from "./button.style";
 interface ButtonProps {
   width?: string;
   height?: number;
-  size?: string;
   color: string;
   type: "button" | "submit" | "reset" | undefined;
   label?: string;
-  form?: string;
   children?: any;
   className?: any;
 }

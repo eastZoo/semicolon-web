@@ -4,11 +4,10 @@ interface InputProps {
   width?: string;
   size?: string;
   layout?: string;
-  themeType?: string;
 }
 
 export const InputCommon = styled.div<InputProps>`
-  display: felx;
+  display: flex;
 
   label {
     display: flex;
