@@ -1,9 +1,11 @@
+"use client"
+
 import styled, { css } from "styled-components";
 
 interface ButtonProps {
   width?: string;
   height?: number;
-  color: string;
+  color?: string;
 }
 
 export const Button = styled.button<ButtonProps>`
@@ -32,6 +34,24 @@ export const Button = styled.button<ButtonProps>`
         css`
           background-color: #EFEFEF;
           color: black;
+        `}
+    ${(props) =>
+        props.color === "findColony" &&
+        css`
+          width: 150px;
+          height: 40px;
+          border-radius: 50px;
+          font-size: 15px;
+          font-weight: normal;
+          margin-top: auto;
+        `}
+    ${(props) =>
+        props.color === "themeBtn" &&
+        css`
+          background-color: white;
+          border-radius: 100%;
+          font-size: 15px;
+          margin-top: auto;
         `}
   }
 `;

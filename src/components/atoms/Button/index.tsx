@@ -3,7 +3,7 @@ import * as S from "./button.style";
 interface ButtonProps {
   width?: string;
   height?: number;
-  color: string;
+  color?: string;
   type: "button" | "submit" | "reset" | undefined;
   label?: string;
   children?: any;
