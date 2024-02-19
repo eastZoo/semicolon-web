@@ -16,5 +16,20 @@ export const BannerCard = styled.div`
     width: 70%;
     height: 100%;
     align-items: center;
-    justify-content: space-between;
+
+    .swiper{
+        width: 100%;
+    }
+
+    .swiper-slide{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 40px;
+    }
+
+    .swiper-pagination-bullet-active {
+        color: #fff;
+        background: #A9D0F5;
+    }
 `
