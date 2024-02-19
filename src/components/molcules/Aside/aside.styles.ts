@@ -103,11 +103,12 @@ export const TitleHeader = styled.h1`
 export const MenuNavigator = styled.nav`
   overflow-y: auto;
   display: flex;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 130px);
   margin-top: 20px;
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   font-weight: 400;
   flex-direction: column;
+  justify-content: space-between;
 
   // Level-1 메뉴 설정
   .m-dept01 {
@@ -231,6 +232,7 @@ export const MenuNavigator = styled.nav`
       padding: 0 20px;
       align-items: center;
       cursor: pointer;
+      font-size: 1rem;
 
       // Level-2 메뉴 Hover 시 설정
       &:hover {

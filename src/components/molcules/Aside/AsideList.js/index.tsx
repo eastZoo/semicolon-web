@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-// import MovePageIcon from "../../../../assets/svg/Angle-right.svg";
-// import D02Icon from "../../../../assets/svg/File.svg";
-// import D01Icon from "../../../../assets/svg/Group-folders.svg";
-
+import Image from "next/image";
 import { groupBy } from "../../../../lib/common.fn";
 
 import { Menu } from "../../../../types/menu";
@@ -54,13 +51,11 @@ export default function AsideList(props: any) {
     const resultComponent = [];
 
     for (const menu of mList) {
-      if (menuGroup[depth + 1] && menu.menuType === "2") {
+      if (menuGroup[depth + 1] && menu.menuType === "1") {
         resultComponent.push(
           <div key={menu.oid}>
             <div
-              className={`m-dept01 ${
-                menuParent === menu.oid ? "page-now" : ""
-              } ${menu.isOpen ? "open" : ""}`}
+              className={`m-dept01`}
               onClick={() => toggleMenu(menu.oid, menu.isOpen)}
             >
               <span>
@@ -99,7 +94,13 @@ export default function AsideList(props: any) {
               {[...Array(depth)].map((num: any) => {
                 return <>&nbsp;&nbsp;&nbsp;</>;
               })}
-              {/* <D02Icon className="d02-icon" /> */}
+              <Image
+                src={menu.iconUrl}
+                alt={menu.menuName}
+                width={15}
+                height={15}
+                className="d02-icon"
+              />
               <span>{menu.menuName}</span>
             </span>
           </div>
@@ -110,5 +111,46 @@ export default function AsideList(props: any) {
     return resultComponent;
   };
 
-  return <>{renderMenu(menuGroup[0], 0, "0")}</>;
+  return (
+    <>
+      <div>{renderMenu(menuGroup[0], 0, "0")}</div>
+      <div>
+        <div className="m-dept01">
+          <span>
+            <span>SETTINGS</span>
+          </span>
+        </div>
+        <div className="m-dept02-list open">
+          <div className="m-dept02 ">
+            <span>
+              &nbsp;&nbsp;&nbsp;
+              <Image
+                src="/assets/svg/setting.svg"
+                alt="setting"
+                width={15}
+                height={15}
+                className="d02-icon"
+              />
+              <span>Setting</span>
+            </span>
+          </div>
+        </div>
+        <div className="m-dept02-list open">
+          <div className="m-dept02 ">
+            <span>
+              &nbsp;&nbsp;&nbsp;
+              <Image
+                src="/assets/svg/logout.svg"
+                alt="setting"
+                width={15}
+                height={15}
+                className="d02-icon"
+              />
+              <span>Logout</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@svgr/webpack": "^8.1.0",
     "@tanstack/react-query": "^4.33.0",
     "axios": "^1.6.5",
     "next": "13.4.12",
