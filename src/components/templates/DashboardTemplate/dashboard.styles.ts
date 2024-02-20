@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 /**
  * Layout
- * CT = MainHeader
+ * MH = MainHeader
  * AS = Aside
  * CT = Content
  */
@@ -13,7 +13,7 @@ export const Grid = styled.div`
     grid-template-columns: 230px auto;
     grid-template-rows: 40px auto;
     grid-template-areas:
-      "AS CT"
+      "AS MH"
       "AS CT";
 
     height: 100vh;
@@ -25,7 +25,7 @@ export const Grid = styled.div`
     grid-template-rows: 40px auto;
 
     grid-template-areas:
-      "AS CT"
+      "AS MH"
       "AS CT";
 
     height: 100vh;
@@ -49,7 +49,7 @@ export const Grid = styled.div`
       grid-template-rows: 40px auto;
 
       grid-template-areas:
-        "AS CT"
+        "AS MH"
         "AS CT";
     }
   }
