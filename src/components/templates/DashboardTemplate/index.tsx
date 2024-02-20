@@ -32,7 +32,7 @@ export const DashboardTemplate = ({ children }: any) => {
         />
         <Content isOpen={isOpen}>
           <ToastContainer />
-          <TabList />
+          {/* <TabList /> */}
           {children}
         </Content>
       </S.Grid>
