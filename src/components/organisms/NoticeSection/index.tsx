@@ -2,7 +2,11 @@ import { NoticeList } from "@/components/molcules/ListBlock";
 import Link from "next/link";
 import * as S from "./NoticeSection.style"
 
+import {noticeData} from "../../../data/dummey"
+
 function NoticeSection({ }: any): React.JSX.Element{
+    const showNotice = 3;
+
     return (
         <S.NoticeSection>
             <S.NoticeHeader>
@@ -11,12 +15,12 @@ function NoticeSection({ }: any): React.JSX.Element{
             </S.NoticeHeader>
             <div style={{borderTop: "1px solid #DFDFDF", margin:"13px 0px"}}/>
             <S.NoticeBody>
-                <NoticeList title={"공지사항 입니다."} date="23-01-27"/>
-                <div style={{ borderTop: "1px solid #DFDFDF", margin: "13px 0px" }} />
-                <NoticeList title={"공지사항 입니다."} date="23-01-27"/>
-                <div style={{ borderTop: "1px solid #DFDFDF", margin: "13px 0px" }} />
-                <NoticeList title={"공지사항 입니다."} date="23-01-27"/>
-                <div style={{borderTop: "1px solid #DFDFDF", margin:"13px 0px"}}/>
+                {noticeData.data.slice(0, showNotice).map((data, index) => (
+                    <div key={index}>
+                        <NoticeList title={data.title} date={data.date}/>
+                        <div style={{ borderTop: "1px solid #DFDFDF", margin: "13px 0px" }} />
+                    </div>
+                ))}
             </S.NoticeBody>
         </S.NoticeSection>
 

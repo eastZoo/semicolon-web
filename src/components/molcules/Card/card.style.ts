@@ -53,17 +53,21 @@ export const colonyCard = styled.div<CardProps>`
       align-items: center;
       justify-content: center;
       margin-bottom: 20px;
-      
-      img{
+
+      .mainImage{
         width: 100%;
-        margin-bottom: 10px;
+        z-index: 1;
       }
+
+      .viewImage{
+        z-index: 2;
+        position: relative;
+      }
+
     p{
       font-size: 13px;
     }
 `;
-
-
 export const ThemeCard = styled.div<CardProps>`
       width: 100%;
       height: auto;

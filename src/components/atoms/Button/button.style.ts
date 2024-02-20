@@ -50,8 +50,19 @@ export const Button = styled.button<ButtonProps>`
         css`
           background-color: white;
           border-radius: 100%;
-          font-size: 15px;
           margin-top: auto;
+        `}
+    ${(props) =>
+        props.color === "findColony_disable" &&
+        css`
+          width: 150px;
+          height: 40px;
+          border-radius: 50px;
+          font-size: 15px;
+          font-weight: normal;
+          margin-top: auto;
+          background-color: #F5F5F5;
+          color: #828282;
         `}
   }
 `;

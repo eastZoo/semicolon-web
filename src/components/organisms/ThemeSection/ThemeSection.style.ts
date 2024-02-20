@@ -34,7 +34,7 @@ export const ThemeButton = styled.div`
         align-items: center;
         margin: auto;
         font-size: 15px;
-        margin-right: 10px;
+        margin-right: 25px;
         color: #6E6E6E;
     }
 `

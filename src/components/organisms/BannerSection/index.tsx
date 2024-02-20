@@ -7,6 +7,8 @@ import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
+import { bannerCard } from "../../../data/dummey";
+
 export type BannerSection_props = {
     subtitle?: string;
     title?:string;
@@ -15,6 +17,16 @@ export type BannerSection_props = {
 }
 
 const BannerSection = () => {
+    const cardArray = (array: any[], cardSize: number) => {
+        const cards = [];
+        for (let i = 0; i < array.length; i += 3){
+            cards.push(array.slice(i, i + cardSize));
+        }
+        return cards;
+    }
+
+    const slideData = cardArray(bannerCard.data, 3);
+
     return (
         <S.BannerSection>
             <S.BannerCard>
@@ -26,16 +38,16 @@ const BannerSection = () => {
                     speed={400}
                     autoplay={{ delay: 4000, disableOnInteraction: false }}
                 >
-                    <SwiperSlide>
-                        <BannerCard title="오디션 자동신청 프로젝트 함께하실 프론트 구합니다.오디션 자동신청 프로젝트 함께하실 프론트 구합니다." className="bannerCard" subtitle="현재 가장 많은 신청자가 몰린 콜로니" />
-                        <BannerCard title="오디션 자동신청 프로젝트 함께하실 프론트 구합니다." className="bannerCard" subtitle="현재 가장 많은 신청자가 몰린 콜로니" />
-                        <BannerCard title="오디션 자동신청 프로젝트 함께하실 프론트 구합니다." className="bannerCard" subtitle="현재 가장 많은 신청자가 몰린 콜로니"/>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <BannerCard title="오디션 자동신청 프로젝트 함께하실 프론트 구합니다.오디션 자동신청 프로젝트 함께하실 프론트 구합니다." className="bannerCard" subtitle="현재 가장 많은 신청자가 몰린 콜로니" />
-                        <BannerCard title="오디션 자동신청 프로젝트 함께하실 프론트 구합니다." className="bannerCard" subtitle="현재 가장 많은 신청자가 몰린 콜로니" />
-                        <BannerCard title="오디션 자동신청 프로젝트 함께하실 프론트 구합니다." className="bannerCard" subtitle="현재 가장 많은 신청자가 몰린 콜로니"/>
-                    </SwiperSlide>
+                    {slideData.map((slide, index) => (
+                        <SwiperSlide key={index}>
+                            {slide.map((card, cardIndex) => (
+                                <BannerCard
+                                    key={cardIndex}
+                                    title={card.title}
+                                    subtitle={card.subtitle}/>
+                            ))}
+                        </SwiperSlide>
+                    ))}
                 </Swiper>
             </S.BannerCard>
         </S.BannerSection>
