@@ -15,12 +15,17 @@ import ErrorBoundary from "@/error/errorBoundary";
 import { queryCacheOnError } from "@/error/errorState";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import { usePathname } from "next/navigation";
+import TabContents from "@/components/atoms/Tabs/TabContents";
+import { DashboardTemplate } from "@/components/templates/DashboardTemplate";
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const router = usePathname();
+
   /** 리액트 쿼리 전역 세팅 */
   const queryClient = new QueryClient({
     defaultOptions: {
@@ -48,7 +53,12 @@ export default function RootLayout({
                   <StyledComponentsRegistry>
                     <>
                       <GlobalStyle />
-                      {children}
+                      {router.includes("dashboard") ? (
+                        //dashboard/* 로 시작하는 주소 일때
+                        <DashboardTemplate>{children}</DashboardTemplate>
+                      ) : (
+                        <>{children}</>
+                      )}
                     </>
                   </StyledComponentsRegistry>
                 </QueryClientProvider>
