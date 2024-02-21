@@ -1,6 +1,7 @@
 "use client"
 
 import styled from "styled-components"
+import {theme} from "../../../styles/theme"
 
 export const BannerSection = styled.section`
     display: flex;
@@ -30,6 +31,6 @@ export const BannerCard = styled.div`
 
     .swiper-pagination-bullet-active {
         color: #fff;
-        background: #A9D0F5;
+        background: ${theme.colors.primary};
     }
 `

@@ -47,18 +47,17 @@ export const ColonyCard = ({
     return (
         <S.colonyCardSection>
             <S.colonyCard width={width} height={height}>
-                <div >
+                <div className="viewImageP">
                     <ViewImageBox text={view} src={view_src} className="viewImage"/>
                     <img src={src} className="mainImage" />
                 </div>
                 <div>
-                    {category && <p style={{  marginBottom:'10px', height: "15px"}}>{category}</p>}
-                    {title && <p style={{ fontWeight: '500',  height: "33px" }}>{title}</p>}
-                    <p style={{ color: "#BDBDBD",  height: "20px"}}>{stack}</p>
+                    <S.Category>{category}</S.Category>
+                    <S.Title>{title}</S.Title>
+                    <S.Stack>{stack}</S.Stack>
                 </div>
-                <div style={{
-                    display: "flex", justifyContent: "space-between", height: "30px", lineHeight:"30px"}}>
-                    <p>by {user && <span style={{ fontSize: '15px', fontWeight: '450' }}>{user}</span>}</p>
+                <div className="bookmarkP">
+                    <p>by <S.User>{user}</S.User></p>
                     <BookmarkImageBox text={bookmark} src={book_src}/>
                 </div>
             </S.colonyCard>
@@ -76,8 +75,8 @@ export const BannerCard = ({
     return (
         <S.bannerCardSection width={width} height={height} className={className}>
             <S.bannerCard>
-                {subtitle && <p style={{ fontSize: '12px', marginBottom:'10px' }}>{subtitle}</p>}
-                {title && <p style={{ fontSize: '13px', fontWeight: '530' }}>{title}</p>}
+                <S.Subtitle>{subtitle}</S.Subtitle>
+                <S.Title>{title}</S.Title>
             </S.bannerCard>
         </S.bannerCardSection>
         

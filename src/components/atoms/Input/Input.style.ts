@@ -1,4 +1,5 @@
-import styled, {css} from "styled-components";
+import styled, { css } from "styled-components";
+import {theme} from "../../../styles/theme"
 
 interface InputProps {
   width?: string;
@@ -37,7 +38,7 @@ export const InputCommon = styled.div<InputProps>`
     font-size: ${(props) => (props.size === "lg" ? "1.5rem" : "1.0rem")};
     border-radius: 10px;
     justify-content: center;
-    border: solid #D8D8D8
+    border: solid ${theme.colors.light};
   }
 
   input{

@@ -1,6 +1,7 @@
 "use client"
 
 import styled, { css } from "styled-components";
+import { theme } from "../../../styles/theme"
 
 interface ButtonProps {
   width?: string;
@@ -18,8 +19,8 @@ export const Button = styled.button<ButtonProps>`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: #A9D0F5;
-  color: #000000;
+  background-color: ${theme.colors.primary};
+  color: ${theme.text_colors.black};
 
     ${(props) =>
     props.color === "kakaoBg" &&
@@ -61,8 +62,8 @@ export const Button = styled.button<ButtonProps>`
           font-size: 15px;
           font-weight: normal;
           margin-top: auto;
-          background-color: #F5F5F5;
-          color: #828282;
+          background-color: ${theme.colors.btnDisable};
+          color: ${theme.colors.gray};
         `}
   }
 `;
