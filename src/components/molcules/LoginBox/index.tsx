@@ -1,9 +1,9 @@
 import * as S from "./loginBox.style";
 import { InputText } from "@/components/atoms/Input/InputText";
 import { Button } from "@/components/atoms/Button";
-import { Link } from "@/components/atoms/Link";
 import Image from "next/image";
 import { Line } from "@/components/atoms/Line";
+import Link from "next/link"
 
 // 1. input에 value 추가
 // 2. onChange 추가
@@ -45,7 +45,7 @@ export const LoginBox = () => {
         />
         </InputText>
       </S.LoginInputBox>
-      <Link href={"/"} label="비밀번호를 잊어버리셨나요?" color="forgetPw"/>
+      <Link href="/" style={{color: "#A4A4A4"}}>비밀번호를 잊어버리셨나요?</Link>
       <Button
         type="submit"
         width="100%"
@@ -91,7 +91,7 @@ export const LoginBox = () => {
           }}
         />
       </Button>
-      <Link href={"/"} label="아직 계정이 없으신가요? 회원가입" color="signUp"/>
+      <span style={{marginTop:"20px", width:"100%", textAlign:"center", color: "#A4A4A4"}}>아직 계정이 없으신가요?<Link href="?" style={{color:"#81BEF7", marginLeft:"10px"}}>회원가입</Link></span>
     </S.LoginBox>
   );
 };
