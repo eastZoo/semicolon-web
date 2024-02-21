@@ -1,5 +1,5 @@
 import * as S from "./loginBox.style";
-import { InputText } from "@/components/atoms/Input/InputText";
+import { IconInputText } from "@/components/atoms/Input/InputText";
 import { Button } from "@/components/atoms/Button";
 import Image from "next/image";
 import { Line } from "@/components/atoms/Line";
@@ -12,38 +12,8 @@ export const LoginBox = () => {
   return (
     <S.LoginBox>
       <S.LoginInputBox>
-        <InputText size="md" width="100%" type={"text"} placeholder="이메일">
-        <Image
-          alt="email"
-          src="/assets/svg/email.svg"
-          width={20}
-          height={20}
-          style={{
-            position: "absolute",
-            marginLeft:"12px",
-            marginTop:"15px",
-        }}
-        />
-        </InputText>
-      
-        <InputText
-          size="md"
-          width="100%"
-          type={"password"}
-          placeholder="비밀번호"
-        >
-          <Image
-          alt="pw"
-          src="/assets/svg/pw.svg"
-          width={20}
-          height={20}
-          style={{
-            position: "absolute",
-            marginLeft:"12px",
-            marginTop:"15px",
-        }}
-        />
-        </InputText>
+        <IconInputText size="md" width="100%" type="text" placeholder="이메일" src="/assets/svg/email.svg" className="emailInput" alt="email"/>
+        <IconInputText size="md" width="100%" type="password" placeholder="비밀번호" src="/assets/svg/pw.svg" className="passwordInput" alt="password"/>
       </S.LoginInputBox>
       <Link href="/" style={{color: "#A4A4A4"}}>비밀번호를 잊어버리셨나요?</Link>
       <Button

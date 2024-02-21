@@ -9,12 +9,14 @@ interface InputTextProps {
   label?: string;
   type?: string;
   children?: any;
+  alt?: string;
+  className?: string;
+  src?: any;
 }
 
 export const InputText = ({
   width,
   value,
-  name,
   size,
   placeholder,
   label,
@@ -35,3 +37,25 @@ export const InputText = ({
     </S.InputCommon>
   );
 };
+
+export const IconInputText = ({
+  width,
+  value,
+  size,
+  placeholder,
+  type,
+  src,
+  alt,
+  className,
+  children,
+}: InputTextProps) => {
+  return (
+    <S.InputCommon>
+      <S.IconInputText className={className} >
+        {children && children}
+        <input type={type || "text"} placeholder={placeholder} value={value} />
+        <img src={src} alt={alt}/>
+      </S.IconInputText>
+    </S.InputCommon>
+  )
+}

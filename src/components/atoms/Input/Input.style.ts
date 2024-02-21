@@ -5,6 +5,7 @@ interface InputProps {
   width?: string;
   size?: string;
   layout?: string;
+  className?: string;
 }
 
 export const InputCommon = styled.div<InputProps>`
@@ -47,3 +48,21 @@ export const InputCommon = styled.div<InputProps>`
 
 
 `;
+
+
+export const IconInputText = styled.div`
+ width: 100%;
+ height: 50px;
+ display: flex;
+ img{
+  position:absolute;
+  margin-top: 15px;
+  margin-left: 12px;
+  width: 20px;
+  height: 20px;
+ }
+
+ input{
+   width: 100%;
+ }
+`
