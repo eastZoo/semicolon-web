@@ -17,6 +17,8 @@ export const theme: DefaultTheme = {
     white: "#ffffff",
 
     scrollBar: "#B3B3B3",
+
+    alternative: "#D6D6D6",
   },
   text_colors: {
     black: "#222222",

@@ -6,7 +6,7 @@ export const Container = styled.div`
   padding: 0 10px;
   align-items: center;
   justify-content: space-between;
-  background-color: ${(props) => props.theme.colors.secondary};
+  background-color: ${(props) => props.theme.colors.alternative};
 `;
 
 // 좌측 메뉴 Toggle 버튼
@@ -108,7 +108,7 @@ export const PopupBtn = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: ${(props) => props.theme.colors.whiteShade};
+    background-color: ${(props) => props.theme.colors.alternative};
     transition: all 0.2s ease;
 
     span {

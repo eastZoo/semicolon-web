@@ -4,6 +4,8 @@ import { Fragment, useRef, ElementRef } from "react";
 import format from "dayjs";
 import { Loader2, ServerCrash } from "lucide-react";
 import { ChatWelcome } from "../ChatWelcome";
+import { chatData } from "@/data/chat-dummey";
+import { ChatItem } from "../ChatItem";
 
 const DATE_FORMAT = "d MMM yyyy, HH:mm";
 
@@ -28,6 +30,9 @@ export const ChatMessages = ({
 
   const hasNextPage = true;
   const isFetchingNextPage = false;
+
+  const status: any = "success";
+  const data = chatData;
 
   if (status === "loading") {
     return (
@@ -70,9 +75,9 @@ export const ChatMessages = ({
         </div>
       )}
       <div className="flex flex-col-reverse mt-auto">
-        {/* {data?.pages?.map((group, i) => (
+        {data?.pages?.map((group, i) => (
           <Fragment key={i}>
-            {group.items.map((message: MessageWithMemberWithProfile) => (
+            {group.items.map((message: any) => (
               <ChatItem
                 key={message.id}
                 id={message.id}
@@ -81,14 +86,17 @@ export const ChatMessages = ({
                 content={message.content}
                 fileUrl={message.fileUrl}
                 deleted={message.deleted}
-                timestamp={format(new Date(message.createdAt), DATE_FORMAT)}
+                timestamp={format(
+                  new Date(message.createdAt),
+                  DATE_FORMAT
+                ).toString()}
                 isUpdated={message.updatedAt !== message.createdAt}
                 socketUrl={socketUrl}
                 socketQuery={socketQuery}
               />
             ))}
           </Fragment>
-        ))} */}
+        ))}
       </div>
       <div ref={bottomRef} />
     </div>

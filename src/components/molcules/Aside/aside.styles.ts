@@ -1,9 +1,5 @@
 import styled, { css } from "styled-components";
 
-type AsideTypeProps = {
-  menuIsOpen: boolean;
-};
-
 export const Container = styled.div`
   grid-area: AS;
   position: relative;
@@ -54,18 +50,18 @@ export const AsideBtn = styled.button`
 
   svg {
     path:first-of-type {
-      stroke: ${(props) => props.theme.colors.third};
+      stroke: ${(props) => props.theme.colors.alternative};
     }
 
     path:nth-of-type(2) {
-      fill: ${(props) => props.theme.colors.third};
+      fill: ${(props) => props.theme.colors.alternative};
     }
 
     &:hover {
       cursor: pointer;
 
       path:first-of-type {
-        fill: ${(props) => props.theme.colors.third};
+        fill: ${(props) => props.theme.colors.alternative};
       }
 
       path:nth-of-type(2) {
@@ -88,11 +84,10 @@ export const LogoImg = styled.img`
 // 사이드메뉴 임시 헤더 txt
 export const TitleHeader = styled.h1`
   margin-bottom: 2px;
-  color: ${(props) => props.theme.colors.third};
+  color: ${(props) => props.theme.colors.dark};
   font-size: 2rem;
 
-  @media (max - width: 600px) {
-    display: none;
+  @media (max-width: 600px) {
     width: 100px;
     margin-left: 5px;
     font-size: 2rem;
@@ -116,7 +111,7 @@ export const MenuNavigator = styled.nav`
     display: flex;
     height: 44px;
     padding: 0 20px;
-    color: ${(props) => props.theme.colors.third};
+    color: ${(props) => props.theme.colors.dark};
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
@@ -140,7 +135,7 @@ export const MenuNavigator = styled.nav`
 
         path:nth-of-type(2),
         path:nth-of-type(3) {
-          fill: ${(props) => props.theme.colors.third};
+          fill: ${(props) => props.theme.colors.dark};
           opacity: 0.7;
         }
       }
@@ -151,13 +146,13 @@ export const MenuNavigator = styled.nav`
       transition: all 0.2s ease;
 
       path:last-of-type {
-        fill: ${(props) => props.theme.colors.third};
+        fill: ${(props) => props.theme.colors.alternative};
       }
     }
 
     // 하위 Level-2 메뉴 선택 시 표기 설정
     &.page-now {
-      background: ${(props) => props.theme.colors.sideOpen};
+      background: ${(props) => props.theme.colors.alternative};
 
       &::before {
         position: absolute;
@@ -214,7 +209,7 @@ export const MenuNavigator = styled.nav`
   .m-dept02-list {
     overflow: hidden;
     max-height: 0;
-    background: ${(props) => props.theme.colors.sideBG};
+    background: ${(props) => props.theme.colors.white};
     transition: max-height 0.3s ease;
 
     // Level-2 메뉴 Open 시 설정
@@ -236,13 +231,13 @@ export const MenuNavigator = styled.nav`
 
       // Level-2 메뉴 Hover 시 설정
       &:hover {
-        background: ${(props) => props.theme.colors.side02Highlight};
+        background: ${(props) => props.theme.colors.primary};
       }
 
       // Level-2 메뉴 Open 시 설정
       &.page-now {
         position: relative;
-        background: ${(props) => props.theme.colors.side02Highlight};
+        background: ${(props) => props.theme.colors.white};
 
         &::before {
           position: absolute;
@@ -279,13 +274,13 @@ export const MenuNavigator = styled.nav`
           margin-right: 10px;
 
           path {
-            fill: ${(props) => props.theme.colors.third};
+            fill: ${(props) => props.theme.colors.white};
             opacity: 0.2;
           }
         }
 
         span {
-          color: ${(props) => props.theme.colors.third};
+          color: ${(props) => props.theme.colors.dark};
         }
       }
     }

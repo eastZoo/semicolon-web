@@ -17,6 +17,8 @@ declare module "styled-components" {
 
       white: string;
       scrollBar: string;
+
+      alternative: string;
     };
     text_colors: {
       black: string;
