@@ -55,9 +55,7 @@ export default function RootLayout({
                       <GlobalStyle />
                       {router.includes("dashboard") ? (
                         //dashboard/* 로 시작하는 주소 일때
-                        <DashboardTemplate>
-                          <TabContents />
-                        </DashboardTemplate>
+                        <DashboardTemplate>{children}</DashboardTemplate>
                       ) : (
                         <>{children}</>
                       )}

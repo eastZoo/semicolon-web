@@ -1,7 +1,9 @@
+"use client";
+import TabContents from "@/components/atoms/Tabs/TabContents";
 import React from "react";
 
 const DashBoard = () => {
-  return <div>DashBoard</div>;
+  return <TabContents />;
 };
 
 export default DashBoard;
