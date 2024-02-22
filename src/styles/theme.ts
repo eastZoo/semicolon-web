@@ -14,6 +14,9 @@ export const theme: DefaultTheme = {
     cardDefault: "#F2F2F2",
     cardTheme: "#FFA99F",
 
+    white: "#ffffff",
+
+    scrollBar: "#B3B3B3",
   },
   text_colors: {
     black: "#222222",

@@ -14,6 +14,9 @@ declare module "styled-components" {
 
       cardDefault: string;
       cardTheme: string;
+
+      white: string;
+      scrollBar: string;
     };
     text_colors: {
       black: string;

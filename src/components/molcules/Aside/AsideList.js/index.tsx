@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useState } from "react";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import Image from "next/image";
@@ -10,6 +11,7 @@ import {
   selectedMenuSelector,
 } from "@/recoil/menu";
 import { menuListDum } from "@/data/dummey";
+import Link from "next/link";
 
 export default function AsideList(props: any) {
   const [menuParent, setMenuParent] = useState();
@@ -74,36 +76,37 @@ export default function AsideList(props: any) {
         );
       } else {
         resultComponent.push(
-          <div
-            key={menu.oid}
-            className={`m-dept02 ${
-              menu.oid === selectedMenuId ? "page-now" : ""
-            }`}
-            onClick={(isOpen: any) => {
-              if (window.innerWidth <= 600) {
-                setMenu({ id: menu.oid });
-                setMenuParent(menu.parentOid);
-                props.openHandler(!isOpen);
-              } else {
-                setMenu({ id: menu.oid });
-                setMenuParent(menu.parentOid);
-              }
-            }}
-          >
-            <span>
-              {[...Array(depth)].map((num: any) => {
-                return <>&nbsp;&nbsp;&nbsp;</>;
-              })}
-              <Image
-                src={menu.iconUrl}
-                alt={menu.menuName}
-                width={15}
-                height={15}
-                className="d02-icon"
-              />
-              <span>{menu.menuName}</span>
-            </span>
-          </div>
+          <Link href={menu.path}>
+            <div
+              key={menu.oid}
+              className={`m-dept02 ${
+                menu.oid === selectedMenuId ? "page-now" : ""
+              }`}
+              onClick={(isOpen: any) => {
+                if (window.innerWidth <= 600) {
+                  setMenu({ id: menu.oid });
+                  setMenuParent(menu.parentOid);
+                } else {
+                  setMenu({ id: menu.oid });
+                  setMenuParent(menu.parentOid);
+                }
+              }}
+            >
+              <span>
+                {[...Array(depth)].map((num: any) => {
+                  return <>&nbsp;&nbsp;&nbsp;</>;
+                })}
+                <Image
+                  src={menu.iconUrl}
+                  alt={menu.menuName}
+                  width={15}
+                  height={15}
+                  className="d02-icon"
+                />
+                <span>{menu.menuName}</span>
+              </span>
+            </div>
+          </Link>
         );
       }
     }
