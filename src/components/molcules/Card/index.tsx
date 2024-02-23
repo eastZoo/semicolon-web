@@ -1,3 +1,4 @@
+import { ViewImageBox, BookmarkImageBox } from "../ImageBox"
 import * as S from "./card.style"
 
 interface Card{
@@ -6,11 +7,13 @@ interface Card{
     title?: string;
     subtitle?: string;
     src?: any;
-    cate?: string;
+    category?: string;
     user?: string;
     stack?: string;
-    view?: string;
+    view?: string
+    view_src?: any;
     bookmark?: string;
+    book_src?: any;
     children?: any;
     label?: string;
     className?: string;
@@ -33,21 +36,29 @@ export const ColonyCard = ({
     height,
     title,
     src,
-    cate,
+    category,
     user,
     stack,
     view,
-    className,
+    view_src,
+    bookmark,
+    book_src,
 }: Card) => {
     return (
         <S.colonyCardSection>
             <S.colonyCard width={width} height={height}>
-                <img src={src} />
+                <div className="viewImageP">
+                    <ViewImageBox text={view} src={view_src} className="viewImage"/>
+                    <img src={src} className="mainImage" />
+                </div>
                 <div>
-                    {cate && <p style={{  marginBottom:'10px' }}>{cate}</p>}
-                    {title && <p style={{ fontWeight: '530' }}>{title}</p>}
-                    <p style={{ color: "#BDBDBD" }}>{stack}</p>
-                    <p>by {user && <span style={{ fontSize: '15px', fontWeight: '530'}}>{user}</span>}</p>
+                    <S.Category>{category}</S.Category>
+                    <S.Title>{title}</S.Title>
+                    <S.Stack>{stack}</S.Stack>
+                </div>
+                <div className="bookmarkP">
+                    <p>by <S.User>{user}</S.User></p>
+                    <BookmarkImageBox text={bookmark} src={book_src}/>
                 </div>
             </S.colonyCard>
         </S.colonyCardSection>
@@ -64,8 +75,8 @@ export const BannerCard = ({
     return (
         <S.bannerCardSection width={width} height={height} className={className}>
             <S.bannerCard>
-                {subtitle && <p style={{ fontSize: '12px', marginBottom:'10px' }}>{subtitle}</p>}
-                {title && <p style={{ fontSize: '13px', fontWeight: '530' }}>{title}</p>}
+                <S.Subtitle>{subtitle}</S.Subtitle>
+                <S.Title>{title}</S.Title>
             </S.bannerCard>
         </S.bannerCardSection>
         

@@ -24,7 +24,7 @@ export const DashboardTemplate = ({ children }: any) => {
   return (
     <>
       <S.Grid className={`${isOpen ? "on" : "off"}`}>
-        <MainHeader toggleMenu={toggleMenu} isOpen={isOpen} />
+        {/* <MainHeader toggleMenu={toggleMenu} isOpen={isOpen} /> */}
         <Aside
           toggleMenu={toggleMenu}
           isOpen={isOpen}

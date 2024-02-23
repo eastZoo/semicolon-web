@@ -1,9 +1,9 @@
 import * as S from "./loginBox.style";
-import { InputText } from "@/components/atoms/Input/InputText";
+import { IconInputText } from "@/components/atoms/Input/InputText";
 import { Button } from "@/components/atoms/Button";
-import { Link } from "@/components/atoms/Link";
 import Image from "next/image";
 import { Line } from "@/components/atoms/Line";
+import Link from "next/link"
 
 // 1. input에 value 추가
 // 2. onChange 추가
@@ -12,40 +12,10 @@ export const LoginBox = () => {
   return (
     <S.LoginBox>
       <S.LoginInputBox>
-        <InputText size="md" width="100%" type={"text"} placeholder="이메일">
-        <Image
-          alt="email"
-          src="/assets/svg/email.svg"
-          width={20}
-          height={20}
-          style={{
-            position: "absolute",
-            marginLeft:"12px",
-            marginTop:"15px",
-        }}
-        />
-        </InputText>
-      
-        <InputText
-          size="md"
-          width="100%"
-          type={"password"}
-          placeholder="비밀번호"
-        >
-          <Image
-          alt="pw"
-          src="/assets/svg/pw.svg"
-          width={20}
-          height={20}
-          style={{
-            position: "absolute",
-            marginLeft:"12px",
-            marginTop:"15px",
-        }}
-        />
-        </InputText>
+        <IconInputText size="md" width="100%" type="text" placeholder="이메일" src="/assets/svg/email.svg" className="emailInput" alt="email"/>
+        <IconInputText size="md" width="100%" type="password" placeholder="비밀번호" src="/assets/svg/pw.svg" className="passwordInput" alt="password"/>
       </S.LoginInputBox>
-      <Link href={"/"} label="비밀번호를 잊어버리셨나요?" color="forgetPw"/>
+      <Link href="/" style={{color: "#A4A4A4"}}>비밀번호를 잊어버리셨나요?</Link>
       <Button
         type="submit"
         width="100%"
@@ -91,7 +61,7 @@ export const LoginBox = () => {
           }}
         />
       </Button>
-      <Link href={"/"} label="아직 계정이 없으신가요? 회원가입" color="signUp"/>
+      <span style={{marginTop:"20px", width:"100%", textAlign:"center", color: "#A4A4A4"}}>아직 계정이 없으신가요?<Link href="?" style={{color:"#81BEF7", marginLeft:"10px"}}>회원가입</Link></span>
     </S.LoginBox>
   );
 };

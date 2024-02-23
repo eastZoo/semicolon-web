@@ -1,6 +1,7 @@
 "use client"
 
 import styled from "styled-components"
+import { theme } from "../../../styles/theme";
 
 export const ThemeSection = styled.section`
     width: 70%;
@@ -34,7 +35,7 @@ export const ThemeButton = styled.div`
         align-items: center;
         margin: auto;
         font-size: 15px;
-        margin-right: 10px;
-        color: #6E6E6E;
+        margin-right: 25px;
+        color: ${theme.text_colors.dark};
     }
 `

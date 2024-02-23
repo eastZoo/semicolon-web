@@ -7,7 +7,7 @@ export const Container = styled.div`
   width: 100%;
   height: 40px;
   padding: 0 5px;
-  background: ${(props) => props.theme.colors.secondary};
+  background: ${(props) => props.theme.colors.alternative};
   white-space: nowrap;
   align-items: flex-end;
 
@@ -37,7 +37,7 @@ export const Container = styled.div`
 
       &:hover {
         border: 0 solid transparent;
-        background-color: ${(props) => props.theme.colors.scrollBarHover};
+        background-color: ${(props) => props.theme.colors.alternative};
         transition: all 0.2s ease;
       }
     }
@@ -54,10 +54,10 @@ export const Container = styled.div`
     display: flex;
     min-width: 140px;
     height: 30px;
-    color: ${(props) => props.theme.colors.tabTxt};
+    color: ${(props) => props.theme.colors.alternative};
     font-size: 1.3rem;
     border-radius: 4px 4px 0 0;
-    background: ${(props) => props.theme.colors.tab};
+    background: ${(props) => props.theme.colors.alternative};
     align-items: center;
     transition: background 0.2s ease;
 
@@ -75,7 +75,7 @@ export const Container = styled.div`
         height: 6px;
         margin-right: 8px;
         border-radius: 50%;
-        background: ${(props) => props.theme.colors.tabTxt};
+        background: ${(props) => props.theme.colors.alternative};
       }
     }
 
@@ -98,7 +98,7 @@ export const Container = styled.div`
 
       svg {
         path:last-of-type {
-          fill: ${(props) => props.theme.colors.tabTxt};
+          fill: ${(props) => props.theme.colors.alternative};
         }
       }
     }
@@ -110,14 +110,14 @@ export const Container = styled.div`
 
     // 탭메뉴 Hover 시 표기 설정
     &:hover {
-      color: ${(props) => props.theme.colors.tabTxtHover};
+      color: ${(props) => props.theme.colors.alternative};
       background: rgba(255, 255, 255, 0.7);
       cursor: default;
       transition: background 0.2s ease;
 
       svg {
         path:last-of-type {
-          fill: ${(props) => props.theme.colors.tabTxtHover};
+          fill: ${(props) => props.theme.colors.alternative};
         }
       }
     }

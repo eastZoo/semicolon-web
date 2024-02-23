@@ -1,6 +1,7 @@
 "use client"
 
-import styled, {css} from "styled-components";
+import styled, { css } from "styled-components";
+import { theme } from "../../../styles/theme";
 
 interface CardProps {
   subtitle?: string;
@@ -21,13 +22,13 @@ export const bannerCardSection = styled.div<CardProps>`
 `;
 
 export const bannerCard = styled.div<CardProps>`
-  background-color: #F2F2F2;
-  color: black;
+  background-color: ${theme.colors.cardDefault};
+  color: ${theme.text_colors.black};
   border-radius: 10px;
   border:none;
   padding: 15px;
   display: block;
-      
+
   p{
     overflow: hidden;
     text-overflow: ellipsis;
@@ -37,6 +38,33 @@ export const bannerCard = styled.div<CardProps>`
     letter-spacing: 1px
   }
 `;
+
+export const Subtitle = styled.p`
+  font-size: 12px;
+  margin-bottom: 10px;
+`
+
+export const Title = styled.p`
+  line-height: 130%;
+  font-size: 13px;
+  font-weight: 510;
+`
+
+export const Category = styled.p`
+  line-height: 150%;
+
+`
+
+export const Stack = styled.p`
+  line-height: 120%;
+`
+
+export const User = styled.span`
+  font-size: 15px;
+  font-weight: 430;
+`
+
+
 
 export const colonyCardSection = styled.div<CardProps>`
   width: 100%;
@@ -48,29 +76,43 @@ export const colonyCardSection = styled.div<CardProps>`
 export const colonyCard = styled.div<CardProps>`
       width: 100%;
       height: auto;
-      color: black;
+      color: ${theme.text_colors.black};
       border:none;
       align-items: center;
       justify-content: center;
       margin-bottom: 20px;
-      
-      img{
+
+      .mainImage{
         width: 100%;
-        margin-bottom: 10px;
+        z-index: 1;
       }
+
+      .viewImage{
+        z-index: 2;
+        position: relative;
+      }
+
     p{
       font-size: 13px;
     }
+    .viewImageP{
+      width: 100%;
+    }
+
+    .bookmarkP{
+      display: flex;
+      justify-content: space-between;
+      line-height: 150%;
+
+    }
 `;
-
-
 export const ThemeCard = styled.div<CardProps>`
       width: 100%;
       height: auto;
       border-radius: 10px;
       border:none;
       padding: 15px;
-      background-color: #FFBAC2;
+      background-color: ${theme.colors.cardTheme};
       align-items: center;
       justify-content: center;
       display: flex;

@@ -3,6 +3,9 @@ import { normalize } from "styled-normalize";
 
 export const GlobalStyle = createGlobalStyle`
 ${normalize}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 html,
 body {

@@ -1,6 +1,7 @@
 "use client"
 
 import styled from "styled-components"
+import { theme } from "../../../styles/theme";
 
 export const NoticeSection = styled.section`
     width: 70%;
@@ -18,7 +19,7 @@ export const NoticeHeader = styled.div`
     a{
         font-size: 13px;
         margin-top: auto;
-        color: #6E6E6E;
+        color: ${theme.text_colors.dark};
     }
 `
 

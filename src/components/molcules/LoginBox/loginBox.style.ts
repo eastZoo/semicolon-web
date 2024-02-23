@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const LoginBox = styled.form`
 display: flex;
-width: 420px;
-height: 100%;
+width: 30%;
+height: auto;
 padding: 50px 0px;
 align-items: center;
 flex-direction: column;

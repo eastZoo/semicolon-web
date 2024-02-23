@@ -8,6 +8,8 @@ interface ButtonProps {
   label?: string;
   children?: any;
   className?: any;
+  onClick?: () => void;
+  disabled?: boolean;
 }
 
 export const Button: React.FC<ButtonProps> = ({ children, ...props }) => {
