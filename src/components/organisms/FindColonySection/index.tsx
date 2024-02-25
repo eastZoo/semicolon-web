@@ -4,9 +4,7 @@ import * as S from "./FindColonySection.style"
 
 import { findColonyData } from "../../../data/dummey";
 
-function FindColonySection({ }: any): React.JSX.Element{
-    // 게시글 8개 이상이면 VIEW MORE 버튼 활성화
-    const showButton = 8;
+export const FindColonySection = () => {
 
     return (
         <S.FindColonySection>
@@ -16,13 +14,13 @@ function FindColonySection({ }: any): React.JSX.Element{
                     <p>현재 당신의 협력이 필요한 콜로니를 찾아 보세요.</p>
                     <p>당신의 능력을 마음껏  펼쳐보세요.</p>
                 </div>
-                {findColonyData.data.length >= showButton ? (
-                    <Button type={"button"} color={"findColony"} label={"VIEW MORE ➡️"}/>
-                ): <Button type={"button"} color={"findColony_disable"} label={"VIEW MORE ➡️"}/>}
+                {findColonyData.data.length >= 8 ? (
+                    <Button type={"button"} color={"findColony"} label={"VIEW MORE"}/>
+                ): <Button type={"button"} color={"findColony_disable"} label={"VIEW MORE"}/>}
             </S.FindColonyHeader>
             <div style={{borderTop: "1px solid #DFDFDF", margin:"30px 0px"}}/>
             <S.FindColonyCard>
-                {findColonyData.data.slice(0, showButton).map((data, index) => (
+                {findColonyData.data.slice(0, 8).map((data, index) => (
                     <ColonyCard
                         key={index}
                         title={data.title}

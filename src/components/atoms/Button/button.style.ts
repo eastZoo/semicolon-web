@@ -23,47 +23,56 @@ export const Button = styled.button<ButtonProps>`
   color: ${theme.text_colors.black};
 
     ${(props) =>
-    props.color === "kakaoBg" &&
-    css`
-      background-color: #F7E600;
-      color: #3A1D1D;
-      
-    `}
+      props.color === "kakaoBg" &&
+      css`
+        background-color: #f7e600;
+        color: #3a1d1d;
+      `}
 
     ${(props) =>
-        props.color === "GoogleBg" &&
-        css`
-          background-color: #EFEFEF;
-          color: black;
-        `}
+      props.color === "GoogleBg" &&
+      css`
+        background-color: #efefef;
+        color: black;
+      `}
     ${(props) =>
-        props.color === "findColony" &&
-        css`
-          width: 150px;
-          height: 40px;
-          border-radius: 50px;
-          font-size: 15px;
-          font-weight: normal;
-          margin-top: auto;
-        `}
+      props.color === "findColony" &&
+      css`
+        width: 150px;
+        height: 40px;
+        border-radius: 50px;
+        font-size: 15px;
+        font-weight: 500;
+        margin-top: auto;
+      `}]
+
     ${(props) =>
-        props.color === "themeBtn" &&
-        css`
-          background-color: white;
-          border-radius: 100%;
-          margin-top: auto;
-        `}
+      props.color === "themeBtnPrev" &&
+      css`
+        background-color: #efefef;
+        color: #ffffff;
+        margin-top: auto;
+      `}
+
     ${(props) =>
-        props.color === "findColony_disable" &&
-        css`
-          width: 150px;
-          height: 40px;
-          border-radius: 50px;
-          font-size: 15px;
-          font-weight: normal;
-          margin-top: auto;
-          background-color: ${theme.colors.btnDisable};
-          color: ${theme.colors.gray};
-        `}
+      props.color === "themeBtnNext" &&
+      css`
+        background-color: #efefef;
+        color: #ffffff;
+        margin-top: auto;
+        margin-left: 10px;
+      `}
+    ${(props) =>
+      props.color === "findColony_disable" &&
+      css`
+        width: 150px;
+        height: 40px;
+        border-radius: 50px;
+        font-size: 15px;
+        font-weight: normal;
+        margin-top: auto;
+        background-color: ${theme.colors.btnDisable};
+        color: ${theme.colors.gray};
+      `}
   }
 `;

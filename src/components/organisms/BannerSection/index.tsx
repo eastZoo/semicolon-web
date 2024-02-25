@@ -10,23 +10,19 @@ import "swiper/css/pagination";
 import { bannerCard } from "../../../data/dummey";
 
 export type BannerSection_props = {
-  subtitle?: string;
-  title?: string;
-  children?: any;
-  className?: string | any;
+  subtitle: string;
+  title: string;
+  children: any;
+  className: string | any;
 };
 
-const BannerSection = () => {
-  const cardArray = (array: any[], cardSize: number) => {
-    const cards = [];
-    for (let i = 0; i < array.length; i += 3) {
-      cards.push(array.slice(i, i + cardSize));
-    }
-    return cards;
-  };
+interface BannerSectionProps{
+  slideData: any[];
+}
 
-  const slideData = cardArray(bannerCard.data, 3);
-
+const BannerSection: React.FC<BannerSectionProps> = ({
+  slideData,
+}) => {
   return (
     <S.BannerSection>
       <S.BannerCard>
