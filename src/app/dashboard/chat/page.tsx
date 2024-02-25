@@ -1,86 +1,26 @@
-"use client";
+import { ServerSidebar } from "@/components/organisms/ChatServerSidebar";
+import { redirect } from "next/navigation";
+/**
+ * 작성자 : 신동주
+ *  "/chat" 페이지 경로로 들어왔을때 본 page의 역할은 화면을 렌더링 하는것이 아니라 채팅 서버중 첫번째 서버로 자동 리다이렉트 하는 역할이다.
+ */
 
-import { Fragment, useRef, ElementRef } from "react";
-import format from "dayjs";
-import { Loader2, ServerCrash } from "lucide-react";
+const MainLayout = async ({ children }: any) => {
+  const initialChannel = {
+    id: "f72caa76-8747-4277-9392-81b9d442d7e2",
+    name: "general",
+    type: "TEXT",
+    profileId: "d8085077-96fb-44fc-9fa6-d800204bad43",
+    serverId: "16b866c0-cc26-42ab-9a66-2fe9f64c7f0f",
+    createdAt: "2024-02-21T01:27:51.177Z",
+    updatedAt: "2024-02-21T01:27:51.177Z",
+  };
 
-// import { useChatQuery } from "@/hooks/use-chat-query";
-// import { useChatSocket } from "@/hooks/use-chat-socket";
-// import { useChatScroll } from "@/hooks/use-chat-scroll";
+  if (initialChannel?.name !== "general") {
+    return null;
+  }
 
-// import { ChatItem } from "./chat-item";
-import { ChatWelcome } from "@/components/molcules/Chat/ChatWelcome";
-import { ChatHeader } from "@/components/molcules/Chat/ChatHeader";
-import { channelData, channelMember } from "@/data/chat-dummey";
-import { ChatMessages } from "@/components/molcules/Chat/ChatMessage";
-import { ChatInput } from "@/components/molcules/Chat/ChatInputForm";
-
-const DATE_FORMAT = "d MMM yyyy, HH:mm";
-
-// type MessageWithMemberWithProfile = Message & {
-//   member: Member & {
-//     profile: Profile;
-//   };
-// };
-
-interface ChatMessagesProps {
-  name: string;
-  member: any;
-  chatId: string;
-  apiUrl: string;
-  socketUrl: string;
-  socketQuery: Record<string, string>;
-  paramKey: "channelId" | "conversationId";
-  paramValue: string;
-  type: "channel" | "conversation";
-}
-
-//채팅 부분
-const ChatPage = () => {
-  const channel = channelData;
-  const member = channelMember;
-  return (
-    <div className="bg-white dark:bg-[#313338] flex flex-col h-full">
-      <ChatHeader
-        name={channel.name}
-        serverId={channel.serverId}
-        type="channel"
-      />
-      {channel.type === "TEXT" && (
-        <>
-          <ChatMessages
-            member={member}
-            name={channel.name}
-            chatId={channel.id}
-            type="channel"
-            apiUrl="/api/messages"
-            socketUrl="/api/socket/messages"
-            socketQuery={{
-              channelId: channel.id,
-              serverId: channel.serverId,
-            }}
-            paramKey="channelId"
-            paramValue={channel.id}
-          />
-          <ChatInput
-            name={channel.name}
-            type="channel"
-            apiUrl="/api/socket/messages"
-            query={{
-              channelId: channel.id,
-              serverId: channel.serverId,
-            }}
-          />
-        </>
-      )}
-      {/* {channel.type === "AUDIO" && (
-        <MediaRoom chatId={channel.id} video={false} audio={true} />
-      )}
-      {channel.type === "VIDEO" && (
-        <MediaRoom chatId={channel.id} video={true} audio={true} />
-      )} */}
-    </div>
-  );
+  return redirect(`/dashboard/chat/channels/${initialChannel?.id}`);
 };
 
-export default ChatPage;
+export default MainLayout;
