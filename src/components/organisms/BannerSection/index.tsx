@@ -7,8 +7,6 @@ import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import { bannerCard } from "../../../data/dummey";
-
 export type BannerSection_props = {
   subtitle: string;
   title: string;
@@ -17,7 +15,7 @@ export type BannerSection_props = {
 };
 
 interface BannerSectionProps{
-  slideData: any[];
+  slideData: any[][];
 }
 
 const BannerSection: React.FC<BannerSectionProps> = ({
