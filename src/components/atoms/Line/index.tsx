@@ -17,3 +17,9 @@ export const Line = ({
         </S.Line>
     )
 }
+
+export const ContourLine = () => {
+    return (
+        <S.contour/>
+    )
+}

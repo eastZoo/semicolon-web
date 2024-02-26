@@ -37,6 +37,9 @@ export const ThemeButton = styled.div`
     font-size: 15px;
     margin-right: 25px;
   }
+  a:hover{
+    color: ${(props)=> props.theme.colors.primary}
+  }
   img{
     background-color: ${theme.colors.white};
   }

@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
 import styled, { css } from "styled-components";
-import { theme } from "../../../styles/theme"
+import { theme } from "../../../styles/theme";
 
 interface ButtonProps {
   width?: string;
@@ -19,8 +19,8 @@ export const Button = styled.button<ButtonProps>`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: ${theme.colors.primary};
-  color: ${theme.text_colors.black};
+  background-color: ${(props) => props.theme.colors.primary};;
+  color: ${(props) => props.theme.colors.white};;
 
     ${(props) =>
       props.color === "kakaoBg" &&
@@ -44,13 +44,17 @@ export const Button = styled.button<ButtonProps>`
         font-size: 15px;
         font-weight: 500;
         margin-top: auto;
+        &:hover {
+          background-color: ${(props) => props.theme.colors.white};
+          color: ${(props) => props.theme.colors.primary};
+        }
       `}]
 
     ${(props) =>
       props.color === "themeBtnPrev" &&
       css`
         background-color: #efefef;
-        color: #ffffff;
+        color: ${(props) => props.theme.colors.white};
         margin-top: auto;
       `}
 
@@ -58,7 +62,7 @@ export const Button = styled.button<ButtonProps>`
       props.color === "themeBtnNext" &&
       css`
         background-color: #efefef;
-        color: #ffffff;
+        color: ${(props) => props.theme.colors.white};
         margin-top: auto;
         margin-left: 10px;
       `}
@@ -71,8 +75,8 @@ export const Button = styled.button<ButtonProps>`
         font-size: 15px;
         font-weight: normal;
         margin-top: auto;
-        background-color: ${theme.colors.btnDisable};
-        color: ${theme.colors.gray};
+        background-color: ${(props) => props.theme.colors.btnDisable};
+        color: ${(props) => props.theme.colors.gray};
       `}
   }
 `;

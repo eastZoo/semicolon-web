@@ -25,6 +25,7 @@ export const BannerCard = styled.div`
   height: 100%;
   align-items: center;
 
+
   .swiper {
     width: 100%;
   }

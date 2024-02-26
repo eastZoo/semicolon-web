@@ -15,10 +15,10 @@ export const FindImageBox = styled.div<CardProps>`
   align-items: center;
   display: flex;
   position: absolute;
-  color: white;
+  color: ${(props) => props.theme.colors.white};
 
-  img{
-      margin: 5px;
+  img {
+    margin: 5px;
   }
 `;
 

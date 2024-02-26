@@ -1,7 +1,6 @@
 "use client"
 
 import styled, { css } from "styled-components";
-import { theme } from "../../../styles/theme";
 
 interface CardProps {
   subtitle?: string;
@@ -22,20 +21,20 @@ export const bannerCardSection = styled.div<CardProps>`
 `;
 
 export const bannerCard = styled.div<CardProps>`
-  background-color: ${theme.colors.cardDefault};
-  color: ${theme.text_colors.black};
+  background-color: ${(props) => props.theme.colors.cardDefault};
+  color: ${(props) => props.theme.text_colors.black};
   border-radius: 10px;
-  border:none;
+  border: none;
   padding: 15px;
   display: block;
 
-  p{
+  p {
     overflow: hidden;
     text-overflow: ellipsis;
-    display: -webkit-box; 
+    display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
-    letter-spacing: 1px
+    letter-spacing: 1px;
   }
 `;
 
@@ -74,55 +73,54 @@ export const colonyCardSection = styled.div<CardProps>`
 
 
 export const colonyCard = styled.div<CardProps>`
-      width: 100%;
-      height: auto;
-      color: ${theme.text_colors.black};
-      border:none;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
+  width: 100%;
+  height: auto;
+  color: ${(props) => props.theme.text_colors.black};
+  border: none;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
 
-      .mainImage{
-        width: 100%;
-        z-index: 1;
-      }
+  .mainImage {
+    width: 100%;
+    z-index: 1;
+  }
 
-      .viewImage{
-        z-index: 2;
-        position: relative;
-      }
+  .viewImage {
+    z-index: 2;
+    position: relative;
+  }
 
-    p{
-      font-size: 13px;
-    }
-    .viewImageP{
-      width: 100%;
-    }
+  p {
+    font-size: 13px;
+  }
+  .viewImageP {
+    width: 100%;
+  }
 
-    .bookmarkP{
-      display: flex;
-      justify-content: space-between;
-      line-height: 150%;
-
-    }
+  .bookmarkP {
+    display: flex;
+    justify-content: space-between;
+    line-height: 150%;
+  }
 `;
 export const ThemeCard = styled.div<CardProps>`
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-      border:none;
-      padding: 15px;
-      background-color: ${theme.colors.cardTheme};
-      align-items: center;
-      justify-content: center;
-      display: flex;
-      p{
-        font-size: 20px;
-        font-weight: bold;
-        margin: auto;
-      }
-      img{
-        width: 80px;
-        margin-left: auto;
-      }
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: none;
+  padding: 15px;
+  background-color: ${(props) => props.theme.colors.cardTheme};
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  p {
+    font-size: 20px;
+    font-weight: bold;
+    margin: auto;
+  }
+  img {
+    width: 80px;
+    margin-left: auto;
+  }
 `;

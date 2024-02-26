@@ -3,6 +3,7 @@ import { ColonyCard } from "@/components/molcules/Card"
 import * as S from "./FindColonySection.style"
 
 import { findColonyData } from "../../../data/dummey";
+import { ContourLine } from "@/components/atoms/Line";
 
 export const FindColonySection = () => {
 
@@ -18,7 +19,7 @@ export const FindColonySection = () => {
                     <Button type={"button"} color={"findColony"} label={"VIEW MORE"}/>
                 ): <Button type={"button"} color={"findColony_disable"} label={"VIEW MORE"}/>}
             </S.FindColonyHeader>
-            <div style={{borderTop: "1px solid #DFDFDF", margin:"30px 0px"}}/>
+            <ContourLine/>
             <S.FindColonyCard>
                 {findColonyData.data.slice(0, 8).map((data, index) => (
                     <ColonyCard
