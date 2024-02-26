@@ -11,7 +11,7 @@ import {
   UsernameWrapper,
   UserCompany,
   UserName,
-} from "./mainHeader.styles";
+} from "./dashHeader.styles";
 
 export default function MainHeader({ toggleMenu, isOpen }: any) {
   // const { data }: any = useSession();

@@ -7,6 +7,7 @@ import AdSection from "../../organisms/AdSection";
 import * as S from "./MainPage.style";
 import { bannerCard, themeCard } from "../../../data/dummey";
 import { useState } from "react";
+import { Footer } from "@/components/organisms/Footer";
 
 const cardArray = (array: any[], cardSize: number) => {
   const cards = [];
@@ -52,6 +53,7 @@ export default function Main() {
       />
       <NoticeSection />
       <AdSection />
+      <Footer/>
     </S.MainPage>
   );
 }
