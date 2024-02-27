@@ -18,7 +18,6 @@ import { ToastContainer } from "react-toastify";
 import { usePathname } from "next/navigation";
 import { DashboardTemplate } from "@/components/templates/DashboardTemplate";
 import "./globals.css";
-import { cn } from "@/lib/utils";
 
 export default function RootLayout({
   children,
@@ -48,9 +47,9 @@ export default function RootLayout({
       <RecoilRoot>
         <ThemeProvider theme={theme}>
           <body>
-            <AuthGuard>
-              <ErrorBoundary>
-                <QueryClientProvider client={queryClient}>
+            <ErrorBoundary>
+              <QueryClientProvider client={queryClient}>
+                <AuthGuard>
                   <StyledComponentsRegistry>
                     <>
                       <GlobalStyle />
@@ -62,9 +61,9 @@ export default function RootLayout({
                       )}
                     </>
                   </StyledComponentsRegistry>
-                </QueryClientProvider>
-              </ErrorBoundary>
-            </AuthGuard>
+                </AuthGuard>
+              </QueryClientProvider>
+            </ErrorBoundary>
             <ToastContainer />
           </body>
         </ThemeProvider>
