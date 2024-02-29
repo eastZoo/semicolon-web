@@ -1,7 +1,5 @@
 import React from "react";
 
-const BoardPage = () => {
+export default function BoardPage() {
   return <div>BoardPage</div>;
-};
-
-export default BoardPage;
+}

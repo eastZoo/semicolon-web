@@ -2,9 +2,9 @@ import { SocketIndicator } from "@/components/atoms/SocketIndicator";
 import { Hash } from "lucide-react";
 
 interface ChatHeaderProps {
-  serverId: string;
-  name: string;
-  type: "channel" | "conversation";
+  serverId?: string;
+  name?: string;
+  type?: "channel" | "conversation";
   imageUrl?: string;
 }
 

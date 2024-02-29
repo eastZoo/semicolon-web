@@ -7,10 +7,10 @@ import { Form, FormControl, FormField, FormItem } from "../ChatFrom";
 import { useForm } from "react-hook-form";
 
 interface ChatInputProps {
-  apiUrl: string;
-  query: Record<string, any>;
-  name: string;
-  type: "conversation" | "channel";
+  apiUrl?: string;
+  query?: Record<string, any>;
+  name?: string;
+  type?: "conversation" | "channel";
 }
 
 export const ChatInput = ({ apiUrl, query, name, type }: ChatInputProps) => {

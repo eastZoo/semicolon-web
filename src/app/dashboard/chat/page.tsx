@@ -1,26 +1,37 @@
-import { ServerSidebar } from "@/components/organisms/ChatServerSidebar";
+"use client";
+import { GET_CHANNEL } from "@/common/query-keys";
+import { request } from "@/lib/api";
+import { userState } from "@/recoil/user";
+import { redirectToSignIn } from "@clerk/nextjs";
+import { useQuery } from "@tanstack/react-query";
 import { redirect } from "next/navigation";
-/**
- * 작성자 : 신동주
- *  "/chat" 페이지 경로로 들어왔을때 본 page의 역할은 화면을 렌더링 하는것이 아니라 채팅 서버중 첫번째 서버로 자동 리다이렉트 하는 역할이다.
- */
+import { useRecoilValue } from "recoil";
 
-const MainLayout = async ({ children }: any) => {
-  const initialChannel = {
-    id: "f72caa76-8747-4277-9392-81b9d442d7e2",
-    name: "general",
-    type: "TEXT",
-    profileId: "d8085077-96fb-44fc-9fa6-d800204bad43",
-    serverId: "16b866c0-cc26-42ab-9a66-2fe9f64c7f0f",
-    createdAt: "2024-02-21T01:27:51.177Z",
-    updatedAt: "2024-02-21T01:27:51.177Z",
-  };
+const ChatPage = async () => {
+  const profile = useRecoilValue(userState);
 
-  if (initialChannel?.name !== "general") {
-    return null;
+  if (!profile) {
+    return redirectToSignIn();
   }
 
-  return redirect(`/dashboard/chat/channels/${initialChannel?.id}`);
+  console.log("profile  @@@@@@@@@@@:", profile);
+
+  /** 매장명 리스트 ( input select ) */
+
+  const server: any = await request({
+    method: "Get",
+    url: `chat/${profile.id}`,
+  });
+
+  const initialChannel = server?.channels[0];
+  console.log("initialChannel :", initialChannel);
+  // const initialChannel = server?.channels[0];
+  // console.log("initialChannel  @@@@@@@@@@@:", initialChannel);
+  // if (initialChannel?.name !== "general") {
+  //   return null;
+  // }
+
+  return redirect(`/dashboard/chat/${server.id}/${initialChannel?.id}`);
 };
 
-export default MainLayout;
+export default ChatPage;

@@ -10,7 +10,7 @@ import { ThemeProvider } from "styled-components";
 import { theme } from "@/styles/theme";
 import { GlobalStyle } from "@/styles/globals-style";
 import Head from "./head";
-import AuthGuard from "./authGuard";
+import AuthGuard from "../lib/provider/authGuard";
 import ErrorBoundary from "@/error/errorBoundary";
 import { queryCacheOnError } from "@/error/errorState";
 import "react-toastify/dist/ReactToastify.css";
