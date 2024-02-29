@@ -8,6 +8,7 @@ import * as S from "./MainPage.style";
 import { bannerCard, themeCard } from "../../../data/dummey";
 import { useState } from "react";
 import { Footer } from "@/components/organisms/Footer";
+import { MainHeader } from "@/components/molcules/MainHeaer";
 
 const cardArray = (array: any[], cardSize: number) => {
   const cards = [];
@@ -42,6 +43,7 @@ export default function Main() {
 
   return (
     <S.MainPage>
+      <MainHeader/>
       <BannerSection slideData={slideData} />
       <FindColonySection />
       <ThemeSection

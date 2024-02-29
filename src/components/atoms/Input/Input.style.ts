@@ -62,3 +62,30 @@ export const IconInputText = styled.div`
     width: 100%;
   }
 `;
+
+export const InputSearchBar = styled.form`
+  width: 100%;
+  height: 30px;
+  display: flex;
+  img {
+    width: 15px;
+    height: 15px;
+  }
+
+  input {
+    width: 250px;
+    border: solid 2px ${(props) => props.theme.colors.light};
+    font-size: 13px;
+    padding-left: 10px;
+    padding-right: 27px;
+  }
+
+  button {
+    position: absolute;
+    background-color: ${(props) => props.theme.colors.white};
+    width: 20px;
+    height: 20px;
+    margin-left: 220px;
+    margin-top: 4px;;
+  }
+`;

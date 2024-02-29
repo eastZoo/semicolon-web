@@ -1,5 +1,4 @@
 import * as S from "./button.style";
-
 interface ButtonProps {
   width?: string;
   height?: number;

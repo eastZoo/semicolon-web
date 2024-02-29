@@ -78,5 +78,12 @@ export const Button = styled.button<ButtonProps>`
         background-color: ${(props) => props.theme.colors.btnDisable};
         color: ${(props) => props.theme.colors.gray};
       `}
+    ${(props) =>
+      props.color === "searchbar_login" &&
+      css`
+        width: 100px;
+        height: 30px;
+        font-size: 12px;
+      `}
   }
 `;

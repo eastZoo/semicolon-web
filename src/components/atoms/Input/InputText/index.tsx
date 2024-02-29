@@ -1,3 +1,4 @@
+import { Button } from "../../Button/index";
 import * as S from "../Input.style";
 
 interface InputTextProps {
@@ -54,8 +55,31 @@ export const IconInputText = ({
       <S.IconInputText className={className} >
         {children && children}
         <input type={type || "text"} placeholder={placeholder} value={value} />
-        <img src={src} alt={alt}/>
+        <img src={src} alt={alt} />
       </S.IconInputText>
     </S.InputCommon>
   )
+};
+
+export const InputSearchBar = ({
+  width,
+  value,
+  placeholder,
+  type,
+  src,
+  alt,
+  className,
+  children,
+}: InputTextProps) => {
+  return (
+    <S.InputCommon>
+      <S.InputSearchBar className={className}>
+        {children && children}
+        <input type={type || "text"} placeholder={placeholder} value={value} />
+        <Button type="button" color="search_btn">
+          <img src={src} alt={alt} />
+        </Button>
+      </S.InputSearchBar>
+    </S.InputCommon>
+  );
 }
