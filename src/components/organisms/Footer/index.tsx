@@ -19,7 +19,9 @@ export const Footer = () => {
               12:00-13:00, 주말/공휴일 휴무)
             </p>
             <p>이메일: help@semicolon.co.kr</p>
-            <p> Copyright (c) (주) 세미콜론. All rights reserved</p>
+            <S.Copyright>
+              Copyright (c) (주) 세미콜론. All rights reserved
+            </S.Copyright>
           </S.FooterInfo>
           <S.FooterLink>
             <S.FooterLinkUl>
