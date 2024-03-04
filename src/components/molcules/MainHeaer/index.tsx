@@ -1,11 +1,11 @@
-import { IconButton } from "@/components/atoms/Button";
+import { IconButton, Button } from "@/components/atoms/Button";
 import { InputSearchBar } from "@/components/atoms/Input/InputText";
 import Link from "next/link";
 import * as S from "./MainHeader";
 import DropdownMenu from "../DropdownMenu";
 import Image from "next/image";
 
-export const MainHeader = ({ items, toggleDropdown, isOpen }: any) => {
+export const MainHeader = ({ items, toggleDropdown, isOpen, isLogin }: any) => {
   return (
     <S.Header>
       <S.HeaderBox>
@@ -29,20 +29,24 @@ export const MainHeader = ({ items, toggleDropdown, isOpen }: any) => {
             src="/assets/svg/search.svg"
             alt="검색"
           />
-
-          <DropdownMenu
-            items={items}
-            isOpen={isOpen}
-            toggleDropdown={toggleDropdown}
-          />
-          <IconButton type="button" src="/assets/svg/alarm.svg" />
-          <IconButton type="button" src="/assets/svg/profile.svg" />
-          {/* <Button
-            label="로그인"
-            type="button"
-            color="mainLogin"
-            width="100px"
-          /> */}
+          {isLogin ? (
+            <div>
+              <DropdownMenu
+                items={items}
+                isOpen={isOpen}
+                toggleDropdown={toggleDropdown}
+              />
+              <IconButton type="button" src="/assets/svg/alarm.svg" />
+              <IconButton type="button" src="/assets/svg/profile.svg" />
+            </div>
+          ) : (
+            <Button
+              label="로그인"
+              type="button"
+              color="mainLogin"
+              width="100px"
+            />
+          )}
         </S.functionGroup>
       </S.HeaderBox>
     </S.Header>

@@ -19,6 +19,8 @@ const cardArray = (array: any[], cardSize: number) => {
 };
 
 export default function Main() {
+  const [isLogin, setIsLogin] = useState(false);
+
   // 헤더
   const [isOpen, setIsOpen] = useState(false);
   const toggleDropdown = () => {
@@ -54,6 +56,7 @@ export default function Main() {
         items={items}
         isOpen={isOpen}
         toggleDropdown={toggleDropdown}
+        isLogin={isLogin}
       />
       <BannerSection slideData={slideData} />
       <FindColonySection />
