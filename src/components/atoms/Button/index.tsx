@@ -7,6 +7,7 @@ interface ButtonProps {
   label?: string;
   children?: any;
   className?: any;
+  src?: any;
   onClick?: () => void;
   disabled?: boolean;
 }
@@ -17,5 +18,14 @@ export const Button: React.FC<ButtonProps> = ({ children, ...props }) => {
       {children && children}
       {props.label && props.label}
     </S.Button>
+  );
+};
+
+export const IconButton: React.FC<ButtonProps> = ({children, ...props}) => { 
+  return (
+    <S.IconButton {...props}>
+      {children && children}
+      <img src={props.src} />
+    </S.IconButton>
   );
 };

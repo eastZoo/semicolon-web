@@ -1,11 +1,11 @@
-"use client"
+"use client";
 import BannerSection from "../../organisms/BannerSection";
 import FindColonySection from "../../organisms/FindColonySection";
 import ThemeSection from "../../organisms/ThemeSection";
 import NoticeSection from "../../organisms/NoticeSection";
 import AdSection from "../../organisms/AdSection";
 import * as S from "./MainPage.style";
-import { bannerCard, themeCard } from "../../../data/dummey";
+import { bannerCard, themeCard, myDashboard } from "../../../data/dummey";
 import { useState } from "react";
 import { Footer } from "@/components/organisms/Footer";
 import { MainHeader } from "@/components/molcules/MainHeaer";
@@ -19,8 +19,15 @@ const cardArray = (array: any[], cardSize: number) => {
 };
 
 export default function Main() {
+  // 헤더
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleDropdown = () => {
+    setIsOpen((prevState) => !prevState);
+  };
+  const items = myDashboard.data;
+
   // banner 데이터
-  const slideData= cardArray(bannerCard.data, 3);
+  const slideData = cardArray(bannerCard.data, 3);
 
   // themeCard 페이지네이션
   const [currentPage, setCurrentPage] = useState(1);
@@ -43,7 +50,11 @@ export default function Main() {
 
   return (
     <S.MainPage>
-      <MainHeader/>
+      <MainHeader
+        items={items}
+        isOpen={isOpen}
+        toggleDropdown={toggleDropdown}
+      />
       <BannerSection slideData={slideData} />
       <FindColonySection />
       <ThemeSection
@@ -55,7 +66,7 @@ export default function Main() {
       />
       <NoticeSection />
       <AdSection />
-      <Footer/>
+      <Footer />
     </S.MainPage>
   );
 }

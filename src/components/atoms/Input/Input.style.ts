@@ -73,7 +73,7 @@ export const InputSearchBar = styled.form`
   }
 
   input {
-    width: 250px;
+    width: 200px;
     border: solid 2px ${(props) => props.theme.colors.light};
     font-size: 13px;
     padding-left: 10px;
@@ -85,7 +85,7 @@ export const InputSearchBar = styled.form`
     background-color: ${(props) => props.theme.colors.white};
     width: 20px;
     height: 20px;
-    margin-left: 220px;
+    margin-left: 170px;
     margin-top: 4px;;
   }
 `;

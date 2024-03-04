@@ -1,7 +1,6 @@
 "use client";
 
 import styled, { css } from "styled-components";
-import { theme } from "../../../styles/theme";
 
 interface ButtonProps {
   width?: string;
@@ -19,8 +18,8 @@ export const Button = styled.button<ButtonProps>`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: ${(props) => props.theme.colors.primary};;
-  color: ${(props) => props.theme.colors.white};;
+  background-color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.white};
 
     ${(props) =>
       props.color === "kakaoBg" &&
@@ -79,11 +78,35 @@ export const Button = styled.button<ButtonProps>`
         color: ${(props) => props.theme.colors.gray};
       `}
     ${(props) =>
-      props.color === "searchbar_login" &&
+      props.color === "mainLogin" &&
       css`
         width: 100px;
         height: 30px;
         font-size: 12px;
       `}
+    ${(props) =>
+      props.color === "dropdown_dashboard" &&
+      css`
+        height: 30px;
+        font-size: 13px;
+        justify-content: space-between;
+        padding-left: 10px;
+        padding-right: 10px;
+      `}
   }
+`;
+
+export const IconButton = styled.button`
+  display: flex;
+  border: none;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: ${(props) => props.theme.colors.white};
+  ${(props) =>
+    props.color === "logoButton" &&
+    css`
+      width: 200px;
+    `}
 `;

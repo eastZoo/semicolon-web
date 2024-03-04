@@ -1,25 +1,22 @@
-import { Button } from "@/components/atoms/Button";
+import { IconButton } from "@/components/atoms/Button";
 import { InputSearchBar } from "@/components/atoms/Input/InputText";
-import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import * as S from "./MainHeader";
+import DropdownMenu from "../DropdownMenu";
+import Image from "next/image";
 
-export const MainHeader = () => {
-  const [isSearchClicked, setIsSearchClicked] = useState(false);
-
-  const handleSearchClick = () => {
-    setIsSearchClicked(prevState => !prevState);
-  }
+export const MainHeader = ({ items, toggleDropdown, isOpen }: any) => {
   return (
     <S.Header>
       <S.HeaderBox>
-        <Image
-          src="/assets/svg/sample_logo.svg"
-          alt="samle_logo"
-          width="200"
-          height="20"
-        />
+        <Link href="/">
+          <Image
+            src="/assets/svg/sample_logo.svg"
+            alt="세미콜론"
+            width="200"
+            height={30}
+          />
+        </Link>
         <S.LinkGroup>
           <Link href="/">Home</Link>
           <Link href="/">시작 가이드</Link>
@@ -32,7 +29,20 @@ export const MainHeader = () => {
             src="/assets/svg/search.svg"
             alt="검색"
           />
-          <Button label="로그인" type="button" color="searchbar_login" width="100px"/>
+
+          <DropdownMenu
+            items={items}
+            isOpen={isOpen}
+            toggleDropdown={toggleDropdown}
+          />
+          <IconButton type="button" src="/assets/svg/alarm.svg" />
+          <IconButton type="button" src="/assets/svg/profile.svg" />
+          {/* <Button
+            label="로그인"
+            type="button"
+            color="mainLogin"
+            width="100px"
+          /> */}
         </S.functionGroup>
       </S.HeaderBox>
     </S.Header>
