@@ -83,6 +83,10 @@ export const Button = styled.button<ButtonProps>`
         width: 100px;
         height: 30px;
         font-size: 12px;
+        &:hover {
+          background-color: ${(props) => props.theme.colors.white};
+          color: ${(props) => props.theme.colors.primary};
+        }
       `}
     ${(props) =>
       props.color === "dropdown_dashboard" &&
