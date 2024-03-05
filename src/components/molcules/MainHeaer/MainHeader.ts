@@ -6,7 +6,6 @@ export const Header = styled.div`
   height: 50px;
   align-items: center;
   justify-content: center;
-  
 `;
 
 export const HeaderBox = styled.div`
@@ -24,6 +23,11 @@ export const LinkGroup = styled.div`
   font-size: 13px;
   align-items: center;
   margin-left: 5%;
+  a {
+    &:hover {
+      color: ${(props) => props.theme.colors.primary};
+    }
+  }
 `;
 
 export const functionGroup = styled.div`
@@ -31,4 +35,4 @@ export const functionGroup = styled.div`
   gap: 15px;
   align-items: center;
   margin-left: auto;
-`
+`;

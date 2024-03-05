@@ -2,29 +2,35 @@ import { ViewImageBox } from "../ImageBox";
 import { IconButton } from "../../atoms/Button";
 import * as S from "./card.style";
 
-interface Card {
-  // 공통
+interface BaseCard {
   width?: string;
   height?: string;
   title?: string;
-  subtitle?: string;
   src?: any;
-  className?: string;
-  children?: any;
-  // 개별
+}
+
+interface ThemeCardProps extends BaseCard {
+  title: string;
+  src: any;
+}
+
+interface ColonyCardProps extends BaseCard {
   category?: string;
   user?: string;
   stack?: string;
   view?: string;
   view_src?: any;
-  label?: string;
-  book_src?: any;
   bookmark_count?: string;
-  // 데이터
   bookmarked?: boolean;
 }
 
-export const ThemeCard = ({ title, src }: Card) => {
+interface BannerCardProps extends BaseCard {
+  title: string;
+  subtitle: string;
+  className?: string;
+}
+
+export const ThemeCard = ({ title, src }: ThemeCardProps) => {
   return (
     <S.ThemeCard>
       <p>{title}</p>
@@ -45,7 +51,7 @@ export const ColonyCard = ({
   view_src,
   bookmark_count,
   bookmarked,
-}: Card) => {
+}: ColonyCardProps) => {
   return (
     <S.colonyCardSection>
       <S.colonyCard width={width} height={height}>
@@ -87,7 +93,7 @@ export const BannerCard = ({
   title,
   subtitle,
   className,
-}: Card) => {
+}: BannerCardProps) => {
   return (
     <S.bannerCardSection width={width} height={height} className={className}>
       <S.bannerCard>

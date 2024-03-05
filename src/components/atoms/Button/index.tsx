@@ -5,29 +5,41 @@ interface ButtonProps {
   color?: string;
   type: "button" | "submit" | "reset" | undefined;
   label?: string;
-  children?: any;
-  className?: any;
-  src?: any;
+  children?: React.ReactNode;
+  className?: string;
   onClick?: () => void;
   disabled?: boolean;
-  text?: string;
 }
 
-export const Button: React.FC<ButtonProps> = ({ children, ...props }) => {
+export const Button: React.FC<ButtonProps> = ({
+  children,
+  label,
+  ...props
+}) => {
   return (
     <S.Button {...props} className={props.className}>
       {children && children}
-      {props.label && props.label}
+      {label && label}
     </S.Button>
   );
 };
 
-export const IconButton: React.FC<ButtonProps> = ({children, ...props}) => { 
+interface IconButtonProps extends ButtonProps {
+  src?: string;
+  text?: string;
+}
+
+export const IconButton: React.FC<IconButtonProps> = ({
+  children,
+  src,
+  text,
+  ...props
+}) => {
   return (
     <S.IconButton {...props}>
-      {children && children}
-      <img src={props.src} />
-      {props.text && props.text}
+      {children}
+      {src && <img src={src} alt={text} />}
+      {text}
     </S.IconButton>
   );
 };

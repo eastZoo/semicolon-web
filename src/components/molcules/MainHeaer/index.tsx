@@ -25,7 +25,6 @@ export const MainHeader = ({ items, toggleDropdown, isOpen, isLogin }: any) => {
         <S.functionGroup>
           <InputSearchBar
             placeholder="키워드를 입력해주세요."
-            size="xlg"
             src="/assets/svg/search.svg"
             alt="검색"
           />
