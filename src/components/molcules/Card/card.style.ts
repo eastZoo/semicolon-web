@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import styled, { css } from "styled-components";
 
@@ -17,7 +17,6 @@ export const bannerCardSection = styled.div<CardProps>`
   font-weight: 300px;
   align-items: center;
   justify-content: center;
-
 `;
 
 export const bannerCard = styled.div<CardProps>`
@@ -41,36 +40,47 @@ export const bannerCard = styled.div<CardProps>`
 export const Subtitle = styled.p`
   font-size: 12px;
   margin-bottom: 10px;
-`
+`;
 
 export const Title = styled.p`
   line-height: 130%;
   font-size: 13px;
   font-weight: 510;
-`
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: normal;
+  text-align: left;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+`;
 
 export const Category = styled.p`
   line-height: 150%;
-
-`
+`;
 
 export const Stack = styled.p`
-  line-height: 120%;
-`
+  line-height: 180%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: normal;
+  text-align: left;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+`;
 
 export const User = styled.span`
   font-size: 15px;
   font-weight: 430;
-`
-
-
+`;
 
 export const colonyCardSection = styled.div<CardProps>`
   width: 100%;
   height: auto;
-      
 `;
-
 
 export const colonyCard = styled.div<CardProps>`
   width: 100%;
@@ -102,8 +112,12 @@ export const colonyCard = styled.div<CardProps>`
     display: flex;
     justify-content: space-between;
     line-height: 150%;
+    font-size: 13px;
+    margin-top: 10px;
   }
 `;
+
+
 export const ThemeCard = styled.div<CardProps>`
   width: 100%;
   height: auto;

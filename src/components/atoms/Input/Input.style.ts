@@ -77,7 +77,7 @@ export const InputSearchBar = styled.form`
     border: solid 2px ${(props) => props.theme.colors.light};
     font-size: 13px;
     padding-left: 10px;
-    padding-right: 27px;
+    padding-right: 30px;
   }
 
   button {

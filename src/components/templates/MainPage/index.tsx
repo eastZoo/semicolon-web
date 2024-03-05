@@ -21,6 +21,11 @@ const cardArray = (array: any[], cardSize: number) => {
 export default function Main() {
   const [isLogin, setIsLogin] = useState(false);
 
+  const [bookmarked, setBookmarked] = useState(false);
+  const toggleBookmark = () => {
+    setBookmarked((prevState) => !prevState);
+  };
+
   // 헤더
   const [isOpen, setIsOpen] = useState(false);
   const toggleDropdown = () => {
@@ -59,7 +64,7 @@ export default function Main() {
         isLogin={isLogin}
       />
       <BannerSection slideData={slideData} />
-      <FindColonySection />
+      <FindColonySection bookmarked={bookmarked}/>
       <ThemeSection
         currentPage={currentPage}
         totalPage={totalPage}

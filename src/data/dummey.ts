@@ -142,6 +142,7 @@ export const findColonyData = {
       bookmark: "300",
       stack: "HTML5 , CSS3, JavaScript, TypeScript",
       src: "/assets/svg/colonyCard.png",
+      bookmark_isTure: true,
     },
     {
       title: "오디션 자동신청 프로젝트 함께하실 프론트 구합니다.",
@@ -151,6 +152,7 @@ export const findColonyData = {
       bookmark: "300",
       stack: "HTML5 , CSS3, JavaScript, TypeScript",
       src: "/assets/svg/colonyCard.png",
+      bookmark_isTure: false,
     },
     {
       title:
@@ -161,6 +163,7 @@ export const findColonyData = {
       bookmark: "300",
       stack: "HTML5 , CSS3, JavaScript, TypeScript",
       src: "/assets/svg/colonyCard.png",
+      bookmark_isTure: true,
     },
     {
       title:
@@ -171,6 +174,7 @@ export const findColonyData = {
       bookmark: "300",
       stack: "HTML5 , CSS3, JavaScript, TypeScript",
       src: "/assets/svg/colonyCard.png",
+      bookmark_isTure: false,
     },
     {
       title:
@@ -181,6 +185,7 @@ export const findColonyData = {
       bookmark: "300",
       stack: "HTML5 , CSS3, JavaScript, TypeScript",
       src: "/assets/svg/colonyCard.png",
+      bookmark_isTure: false,
     },
     {
       title: "STRCAT: 글을 이어 만드는 롤링페이퍼! ",
@@ -190,6 +195,7 @@ export const findColonyData = {
       bookmark: "300",
       stack: "HTML5 , CSS3, JavaScript, TypeScript",
       src: "/assets/svg/colonyCard.png",
+      bookmark_isTure: true,
     },
     {
       title:
@@ -200,6 +206,7 @@ export const findColonyData = {
       bookmark: "300",
       stack: "HTML5 , CSS3, JavaScript, TypeScript",
       src: "/assets/svg/colonyCard.png",
+      bookmark_isTure: true,
     },
     {
       title:
@@ -210,6 +217,7 @@ export const findColonyData = {
       bookmark: "300",
       stack: "HTML5 , CSS3, JavaScript, TypeScript",
       src: "/assets/svg/colonyCard.png",
+      bookmark_isTure: false,
     },
     {
       title: "STRCAT: 글을 이어 만드는 롤링페이퍼! ",
@@ -219,6 +227,7 @@ export const findColonyData = {
       bookmark: "300",
       stack: "HTML5 , CSS3, JavaScript, TypeScript",
       src: "/assets/svg/colonyCard.png",
+      bookmark_isTure: false,
     },
   ],
 };

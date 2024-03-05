@@ -10,6 +10,7 @@ interface ButtonProps {
   src?: any;
   onClick?: () => void;
   disabled?: boolean;
+  text?: string;
 }
 
 export const Button: React.FC<ButtonProps> = ({ children, ...props }) => {
@@ -26,6 +27,7 @@ export const IconButton: React.FC<ButtonProps> = ({children, ...props}) => {
     <S.IconButton {...props}>
       {children && children}
       <img src={props.src} />
+      {props.text && props.text}
     </S.IconButton>
   );
 };
