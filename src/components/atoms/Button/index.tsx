@@ -33,6 +33,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
   children,
   src,
   text,
+  color,
   ...props
 }) => {
   return (

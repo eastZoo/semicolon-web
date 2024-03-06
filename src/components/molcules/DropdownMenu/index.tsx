@@ -1,17 +1,16 @@
 import { ContourLine } from "@/components/atoms/Line";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import { Button } from "../../atoms/Button";
+import React, { useState } from "react";
+import { Button, IconButton } from "../../atoms/Button";
 import * as S from "./DropdownMenu";
-
 interface dashDropdownProps {
   items?: any[];
   toggleDropdown?: () => void;
   isOpen?: boolean;
 }
 
-const DropdownMenu: React.FC<dashDropdownProps> = ({
+export const DropdownMenu: React.FC<dashDropdownProps> = ({
   items,
   toggleDropdown,
   isOpen,
@@ -69,4 +68,91 @@ const DropdownMenu: React.FC<dashDropdownProps> = ({
   );
 };
 
-export default DropdownMenu;
+interface categoryProps {
+  items?: string;
+  current_item?: string;
+  srcUp?: any;
+  srcDown?: any;
+  alt?: any;
+  category_items?: any[];
+  toggleDropdown?: () => void;
+  isOpen?: boolean;
+  className?: string;
+}
+
+export const DropdownCategory: React.FC<categoryProps> = ({
+  items,
+  srcUp,
+  srcDown,
+  alt,
+  category_items,
+  isOpen,
+  toggleDropdown,
+}) => {
+  return (
+    <S.DropdownMenu>
+      <IconButton
+        type="button"
+        width="100px"
+        height={30}
+        color="dropdown"
+        onClick={toggleDropdown}
+      >
+        {items}
+        {isOpen ? (
+          <Image src={srcDown} alt={alt} width="23" height={23} />
+        ) : (
+          <Image src={srcUp} alt={alt} width="23" height={23} />
+        )}
+      </IconButton>
+      {isOpen && (
+        <S.DropdownList>
+          {category_items?.map((item, index) => (
+            <S.DropdownItem key={index}>
+              <S.ItemGroup>
+                <S.ItemContent>
+                  <p>{item.group}</p>
+                </S.ItemContent>
+              </S.ItemGroup>
+              <ContourLine />
+            </S.DropdownItem>
+          ))}
+        </S.DropdownList>
+      )}
+    </S.DropdownMenu>
+  );
+};
+
+export const BaseDropdown: React.FC<categoryProps> = ({
+  items,
+  current_item,
+  category_items,
+  isOpen,
+}) => {
+  return (
+    <S.DropdownMenu>
+      <S.DropdownButton>
+        <p>{items}</p>
+        <Button type="button" color="baseDropdown" >
+          {isOpen ? `${current_item} ▲` : `${current_item} ▼`}
+        </Button>
+      </S.DropdownButton>
+
+      {isOpen && (
+        <S.DropdownList>
+          {category_items?.map((item, index) => (
+            <S.DropdownItem key={index}>
+              <S.ItemGroup>
+                <S.ItemContent>
+                  {item.group}
+                  <p>{item.decr}</p>
+                </S.ItemContent>
+              </S.ItemGroup>
+              <ContourLine />
+            </S.DropdownItem>
+          ))}
+        </S.DropdownList>
+      )}
+    </S.DropdownMenu>
+  );
+};

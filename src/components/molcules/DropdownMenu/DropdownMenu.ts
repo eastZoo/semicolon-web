@@ -1,11 +1,11 @@
 "use client";
 
+import { DropdownProps } from "react-bootstrap";
 import styled, { css } from "styled-components";
 
 export const DropdownMenu = styled.div`
   position: relative;
   display: inline-block;
-  
 `;
 export const DropdownList = styled.ul`
   width: 200%;
@@ -34,12 +34,31 @@ export const DropdownItem = styled.li`
 `;
 
 export const ItemGroup = styled.div`
-display: flex;
-`
+  display: flex;
+`;
 
 export const ItemContent = styled.div`
-margin-left: 10px;
-p{
+  margin-left: 10px;
+  p {
     font-size: 12px;
-}
-`
+  }
+`;
+
+export const DropdownCategory = styled.div<DropdownProps>`
+  margin: 10px;
+`;
+
+export const DropdownButton = styled.div`
+  display: flex;
+  border: 1px solid ${(props) => props.theme.colors.gray};
+  border-radius: 5px;
+  width: auto;
+  height: 40px;
+  margin: 10px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  p{
+    margin-right: 10px;
+  }
+`;

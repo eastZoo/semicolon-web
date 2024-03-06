@@ -340,3 +340,33 @@ export const myDashboard = {
     },
   ],
 };
+
+export const stackCategory = {
+  data: [
+    {
+      category_items: "팀 넘버버버버원1",
+      decr: "팀 설명입니다.",
+      src: "/assets/svg/default_profile.svg",
+    },
+    {
+      group: "팀 넘버버버버원2",
+      decr: "팀 설명입니다.",
+      src: "/assets/svg/default_profile.svg",
+    },
+    {
+      group: "팀 넘버버버버원3",
+      decr: "팀 설명입니다.",
+      src: "/assets/svg/paintkit.svg",
+    },
+    {
+      group: "팀 넘버버버버원4",
+      decr: "팀 설명입니다.",
+      src: "/assets/svg/default_profile.svg",
+    },
+    {
+      group: "팀 넘버버버버원5",
+      decr: "팀 설명입니다.",
+      src: "/assets/svg/paintkit.svg",
+    },
+  ],
+};

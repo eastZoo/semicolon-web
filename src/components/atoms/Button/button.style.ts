@@ -97,6 +97,14 @@ export const Button = styled.button<ButtonProps>`
         padding-left: 10px;
         padding-right: 10px;
       `}
+      ${(props) =>
+        props.color === "baseDropdown" &&
+        css`
+          width: auto;
+          color: black;
+          background-color: white;
+          font-size: 15px;
+        `}
   }
 `;
 
@@ -113,4 +121,7 @@ export const IconButton = styled.button`
     css`
       width: 200px;
     `}
+  img {
+    margin-left: 10px;
+  }
 `;

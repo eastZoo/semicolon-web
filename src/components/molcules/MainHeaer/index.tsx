@@ -2,7 +2,7 @@ import { IconButton, Button } from "@/components/atoms/Button";
 import { InputSearchBar } from "@/components/atoms/Input/InputText";
 import Link from "next/link";
 import * as S from "./MainHeader";
-import DropdownMenu from "../DropdownMenu";
+import { DropdownMenu } from "../DropdownMenu";
 import Image from "next/image";
 
 export const MainHeader = ({ items, toggleDropdown, isOpen, isLogin }: any) => {
@@ -29,7 +29,7 @@ export const MainHeader = ({ items, toggleDropdown, isOpen, isLogin }: any) => {
             alt="검색"
           />
           {isLogin ? (
-            <div>
+            <S.RightGroup>
               <DropdownMenu
                 items={items}
                 isOpen={isOpen}
@@ -37,7 +37,7 @@ export const MainHeader = ({ items, toggleDropdown, isOpen, isLogin }: any) => {
               />
               <IconButton type="button" src="/assets/svg/alarm.svg" />
               <IconButton type="button" src="/assets/svg/profile.svg" />
-            </div>
+            </S.RightGroup>
           ) : (
             <Button
               label="로그인"

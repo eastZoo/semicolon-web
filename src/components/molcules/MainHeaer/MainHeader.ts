@@ -36,3 +36,11 @@ export const functionGroup = styled.div`
   align-items: center;
   margin-left: auto;
 `;
+
+
+export const RightGroup = styled.div`
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-left: auto;
+`;
