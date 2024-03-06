@@ -5,7 +5,7 @@ import * as S from "./findColonyPage.style";
 import { myDashboard } from "../../../data/dummey";
 import { useState } from "react";
 
-export const FindColonyMain: React.FC = ({id, category}: any) => {
+export const FindColonyMain: React.FC = () => {
   const data = myDashboard.data;
 
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -13,11 +13,6 @@ export const FindColonyMain: React.FC = ({id, category}: any) => {
 
   const toggleDropdown = () => {
     setIsOpen((prev) => !prev);
-  };
-
-  const handleCategorySelect = (category) => {
-    setSelectedCategory(category);
-    setIsOpen(false); 
   };
     
   return (
