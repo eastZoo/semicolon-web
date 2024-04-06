@@ -21,6 +21,10 @@ export const NoticeHeader = styled.div`
         margin-top: auto;
         color: ${theme.text_colors.dark};
     }
+
+    a:hover{
+        color: ${(props) => props.theme.colors.primary};
+    }
 `
 
 export const NoticeBody = styled.div`

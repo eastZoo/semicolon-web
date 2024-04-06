@@ -1,7 +1,6 @@
-"use client"
+"use client";
 
 import styled, { css } from "styled-components";
-import { theme } from "../../../styles/theme"
 
 interface ButtonProps {
   width?: string;
@@ -19,51 +18,110 @@ export const Button = styled.button<ButtonProps>`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: ${theme.colors.primary};
-  color: ${theme.text_colors.black};
+  background-color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.white};
 
     ${(props) =>
-    props.color === "kakaoBg" &&
-    css`
-      background-color: #F7E600;
-      color: #3A1D1D;
-      
-    `}
+      props.color === "kakaoBg" &&
+      css`
+        background-color: #f7e600;
+        color: #3a1d1d;
+      `}
 
     ${(props) =>
-        props.color === "GoogleBg" &&
+      props.color === "GoogleBg" &&
+      css`
+        background-color: #efefef;
+        color: black;
+      `}
+    ${(props) =>
+      props.color === "findColony" &&
+      css`
+        width: 150px;
+        height: 40px;
+        border-radius: 50px;
+        font-size: 15px;
+        font-weight: 500;
+        margin-top: auto;
+        &:hover {
+          background-color: ${(props) => props.theme.colors.white};
+          color: ${(props) => props.theme.colors.primary};
+        }
+      `}]
+
+    ${(props) =>
+      props.color === "themeBtnPrev" &&
+      css`
+        background-color: #efefef;
+        color: ${(props) => props.theme.colors.white};
+        margin-top: auto;
+      `}
+
+    ${(props) =>
+      props.color === "themeBtnNext" &&
+      css`
+        background-color: #efefef;
+        color: ${(props) => props.theme.colors.white};
+        margin-top: auto;
+        margin-left: 10px;
+      `}
+    ${(props) =>
+      props.color === "findColony_disable" &&
+      css`
+        width: 150px;
+        height: 40px;
+        border-radius: 50px;
+        font-size: 15px;
+        font-weight: normal;
+        margin-top: auto;
+        background-color: ${(props) => props.theme.colors.btnDisable};
+        color: ${(props) => props.theme.colors.gray};
+      `}
+    ${(props) =>
+      props.color === "mainLogin" &&
+      css`
+        width: 100px;
+        height: 30px;
+        font-size: 12px;
+        &:hover {
+          background-color: ${(props) => props.theme.colors.white};
+          color: ${(props) => props.theme.colors.primary};
+        }
+      `}
+    ${(props) =>
+      props.color === "dropdown_dashboard" &&
+      css`
+        height: 30px;
+        font-size: 13px;
+        justify-content: space-between;
+        padding-left: 10px;
+        padding-right: 10px;
+      `}
+      ${(props) =>
+        props.color === "baseDropdown" &&
         css`
-          background-color: #EFEFEF;
+          width: auto;
           color: black;
-        `}
-    ${(props) =>
-        props.color === "findColony" &&
-        css`
-          width: 150px;
-          height: 40px;
-          border-radius: 50px;
-          font-size: 15px;
-          font-weight: normal;
-          margin-top: auto;
-        `}
-    ${(props) =>
-        props.color === "themeBtn" &&
-        css`
           background-color: white;
-          border-radius: 100%;
-          margin-top: auto;
-        `}
-    ${(props) =>
-        props.color === "findColony_disable" &&
-        css`
-          width: 150px;
-          height: 40px;
-          border-radius: 50px;
           font-size: 15px;
-          font-weight: normal;
-          margin-top: auto;
-          background-color: ${theme.colors.btnDisable};
-          color: ${theme.colors.gray};
         `}
+  }
+`;
+
+export const IconButton = styled.button`
+  display: flex;
+  border: none;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: ${(props) => props.theme.colors.white};
+  ${(props) =>
+    props.color === "logoButton" &&
+    css`
+      width: 200px;
+    `}
+  img {
+    margin-left: 10px;
   }
 `;

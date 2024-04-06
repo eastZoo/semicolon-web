@@ -1,20 +1,27 @@
+import { Button } from "../../Button/index";
 import * as S from "../Input.style";
 
-interface InputTextProps {
-  width?: string;
+interface BaseInputProps {
   value?: any;
-  name?: string;
-  size: string;
   placeholder?: string;
-  label?: string;
   type?: string;
-  children?: any;
+  children?: React.ReactNode;
   alt?: string;
   className?: string;
   src?: any;
 }
 
-export const InputText = ({
+interface InputTextProps extends BaseInputProps {
+  width?: string;
+  size: string;
+  label?: string;
+}
+
+interface IconInputTextProps extends BaseInputProps {}
+
+interface InputSearchBarProps extends BaseInputProps {}
+
+export const InputText: React.FC<InputTextProps> = ({
   width,
   value,
   size,
@@ -22,40 +29,54 @@ export const InputText = ({
   label,
   type,
   children,
-}: InputTextProps) => {
+}) => {
   return (
     <S.InputCommon size={size} width={width}>
-      {children && children}
-      <label>
-        {label && label}
-        <input
-          type={type || "text"}
-          placeholder={placeholder}
-          value={value}
-        />
-      </label>
+      {children}
+      {label && <label>{label}</label>}
+      <input type={type || "text"} placeholder={placeholder} value={value} />
     </S.InputCommon>
   );
 };
 
-export const IconInputText = ({
-  width,
+export const IconInputText: React.FC<IconInputTextProps> = ({
   value,
-  size,
   placeholder,
   type,
   src,
   alt,
   className,
   children,
-}: InputTextProps) => {
+}) => {
   return (
     <S.InputCommon>
-      <S.IconInputText className={className} >
-        {children && children}
+      <S.IconInputText className={className}>
+        {children}
         <input type={type || "text"} placeholder={placeholder} value={value} />
-        <img src={src} alt={alt}/>
+        <img src={src} alt={alt} />
       </S.IconInputText>
     </S.InputCommon>
-  )
-}
+  );
+};
+
+export const InputSearchBar: React.FC<InputSearchBarProps> = ({
+  value,
+  placeholder,
+  type,
+  src,
+  alt,
+  className,
+  children,
+}) => {
+  return (
+    <S.InputCommon>
+      <S.InputSearchBar className={className}>
+        {children}
+        <input type={type || "text"} placeholder={placeholder} value={value} />
+        <Button type="button" color="search_btn">
+          <img src={src} alt={alt} />
+        </Button>
+      </S.InputSearchBar>
+    </S.InputCommon>
+  );
+};

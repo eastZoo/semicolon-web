@@ -1,6 +1,6 @@
 import * as S from "./AdSection.style"
 
-function AdSection({ }: any): React.JSX.Element{
+export const AdSection = () => {
     return (
         <S.AdImage/>
     )

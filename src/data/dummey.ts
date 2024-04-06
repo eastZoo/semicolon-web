@@ -142,6 +142,7 @@ export const findColonyData = {
       bookmark: "300",
       stack: "HTML5 , CSS3, JavaScript, TypeScript",
       src: "/assets/svg/colonyCard.png",
+      bookmark_isTure: true,
     },
     {
       title: "오디션 자동신청 프로젝트 함께하실 프론트 구합니다.",
@@ -151,6 +152,7 @@ export const findColonyData = {
       bookmark: "300",
       stack: "HTML5 , CSS3, JavaScript, TypeScript",
       src: "/assets/svg/colonyCard.png",
+      bookmark_isTure: false,
     },
     {
       title:
@@ -161,6 +163,7 @@ export const findColonyData = {
       bookmark: "300",
       stack: "HTML5 , CSS3, JavaScript, TypeScript",
       src: "/assets/svg/colonyCard.png",
+      bookmark_isTure: true,
     },
     {
       title:
@@ -171,6 +174,7 @@ export const findColonyData = {
       bookmark: "300",
       stack: "HTML5 , CSS3, JavaScript, TypeScript",
       src: "/assets/svg/colonyCard.png",
+      bookmark_isTure: false,
     },
     {
       title:
@@ -181,6 +185,7 @@ export const findColonyData = {
       bookmark: "300",
       stack: "HTML5 , CSS3, JavaScript, TypeScript",
       src: "/assets/svg/colonyCard.png",
+      bookmark_isTure: false,
     },
     {
       title: "STRCAT: 글을 이어 만드는 롤링페이퍼! ",
@@ -190,6 +195,7 @@ export const findColonyData = {
       bookmark: "300",
       stack: "HTML5 , CSS3, JavaScript, TypeScript",
       src: "/assets/svg/colonyCard.png",
+      bookmark_isTure: true,
     },
     {
       title:
@@ -200,6 +206,7 @@ export const findColonyData = {
       bookmark: "300",
       stack: "HTML5 , CSS3, JavaScript, TypeScript",
       src: "/assets/svg/colonyCard.png",
+      bookmark_isTure: true,
     },
     {
       title:
@@ -210,6 +217,7 @@ export const findColonyData = {
       bookmark: "300",
       stack: "HTML5 , CSS3, JavaScript, TypeScript",
       src: "/assets/svg/colonyCard.png",
+      bookmark_isTure: false,
     },
     {
       title: "STRCAT: 글을 이어 만드는 롤링페이퍼! ",
@@ -219,6 +227,7 @@ export const findColonyData = {
       bookmark: "300",
       stack: "HTML5 , CSS3, JavaScript, TypeScript",
       src: "/assets/svg/colonyCard.png",
+      bookmark_isTure: false,
     },
   ],
 };
@@ -297,6 +306,66 @@ export const themeCard = {
     },
     {
       title: "같이 서버 관리할 동료 찾는 콜로니",
+      src: "/assets/svg/paintkit.svg",
+    },
+  ],
+};
+
+export const myDashboard = {
+  data: [
+    {
+      group: "팀 넘버버버버원1",
+      decr: "팀 설명입니다.",
+      src: "/assets/svg/default_profile.svg",
+    },
+    {
+      group: "팀 넘버버버버원2",
+      decr: "팀 설명입니다.",
+      src: "/assets/svg/default_profile.svg",
+    },
+    {
+      group: "팀 넘버버버버원3",
+      decr: "팀 설명입니다.",
+      src: "/assets/svg/paintkit.svg",
+    },
+    {
+      group: "팀 넘버버버버원4",
+      decr: "팀 설명입니다.",
+      src: "/assets/svg/default_profile.svg",
+    },
+    {
+      group: "팀 넘버버버버원5",
+      decr: "팀 설명입니다.",
+      src: "/assets/svg/paintkit.svg",
+    },
+  ],
+};
+
+export const stackCategory = {
+  data: [
+    {
+      category_items: "팀 넘버버버버원1",
+      decr: "팀 설명입니다.",
+      src: "/assets/svg/default_profile.svg",
+    },
+    {
+      group: "팀 넘버버버버원2",
+      decr: "팀 설명입니다.",
+      src: "/assets/svg/default_profile.svg",
+    },
+    {
+      group: "팀 넘버버버버원3",
+      decr: "팀 설명입니다.",
+      src: "/assets/svg/paintkit.svg",
+    },
+    {
+      group: "팀 넘버버버버원4",
+      decr: "팀 설명입니다.",
+      src: "/assets/svg/default_profile.svg",
+    },
+    {
+      group: "팀 넘버버버버원5",
+      decr: "팀 설명입니다.",
       src: "/assets/svg/paintkit.svg",
     },
   ],

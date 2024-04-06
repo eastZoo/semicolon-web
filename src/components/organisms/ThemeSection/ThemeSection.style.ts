@@ -1,6 +1,6 @@
 "use client"
 
-import styled from "styled-components"
+import styled, {css} from "styled-components"
 import { theme } from "../../../styles/theme";
 
 export const ThemeSection = styled.section`
@@ -27,15 +27,20 @@ export const ThemeCard = styled.div`
 `
 
 export const ThemeButton = styled.div`
-    font-size: 13px;
-    display: flex;
-    margin-top: auto;
-    a{
-        justify-content: center;
-        align-items: center;
-        margin: auto;
-        font-size: 15px;
-        margin-right: 25px;
-        color: ${theme.text_colors.dark};
-    }
-`
+  font-size: 13px;
+  display: flex;
+  margin-top: auto;
+  a {
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    font-size: 15px;
+    margin-right: 25px;
+  }
+  a:hover{
+    color: ${(props)=> props.theme.colors.primary}
+  }
+  img{
+    background-color: ${theme.colors.white};
+  }
+`;
