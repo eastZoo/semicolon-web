@@ -123,18 +123,18 @@ export const DropdownCategory: React.FC<categoryProps> = ({
   );
 };
 
-export const BaseDropdown: React.FC<categoryProps> = ({
+export const CheckboxDropdown: React.FC<categoryProps> = ({
   items,
-  current_item,
   category_items,
   isOpen,
+  toggleDropdown,
 }) => {
   return (
     <S.DropdownMenu>
       <S.DropdownButton>
         <p>{items}</p>
-        <Button type="button" color="baseDropdown" >
-          {isOpen ? `${current_item} ▲` : `${current_item} ▼`}
+        <Button type="button" color="baseDropdown" onClick={toggleDropdown}>
+          {isOpen ? `${items} ▲` : `${items} ▼`}
         </Button>
       </S.DropdownButton>
 
@@ -142,12 +142,10 @@ export const BaseDropdown: React.FC<categoryProps> = ({
         <S.DropdownList>
           {category_items?.map((item, index) => (
             <S.DropdownItem key={index}>
-              <S.ItemGroup>
-                <S.ItemContent>
-                  {item.group}
-                  <p>{item.decr}</p>
-                </S.ItemContent>
-              </S.ItemGroup>
+              <label>
+                <input type="checkbox" value={item.group} />
+                <span>{item.group}</span>
+              </label>
               <ContourLine />
             </S.DropdownItem>
           ))}

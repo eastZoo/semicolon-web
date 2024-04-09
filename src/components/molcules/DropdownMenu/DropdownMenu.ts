@@ -8,7 +8,7 @@ export const DropdownMenu = styled.div`
   display: inline-block;
 `;
 export const DropdownList = styled.ul`
-  width: 200%;
+  width: 200px;
   position: absolute;
   top: 100%;
   z-index: 2;
@@ -58,7 +58,10 @@ export const DropdownButton = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  p{
+  span{
+    margin-left: 5px;
+  }
+  p {
     margin-right: 10px;
   }
 `;
