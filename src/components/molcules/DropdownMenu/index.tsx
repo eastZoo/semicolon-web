@@ -78,6 +78,8 @@ interface categoryProps {
   toggleDropdown?: () => void;
   isOpen?: boolean;
   className?: string;
+  handleOptionChange?: (option: string) => void;
+  selectedOptions?: string[];
 }
 
 export const DropdownCategory: React.FC<categoryProps> = ({
@@ -128,13 +130,17 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
   category_items,
   isOpen,
   toggleDropdown,
+  selectedOptions,
+  handleOptionChange,
 }) => {
   return (
     <S.DropdownMenu>
       <S.DropdownButton>
         <p>{items}</p>
         <Button type="button" color="baseDropdown" onClick={toggleDropdown}>
-          {isOpen ? `${items} ▲` : `${items} ▼`}
+          {isOpen
+            ? `${selectedOptions?.join(" ")} ▲`
+            : `${selectedOptions?.join(" ")} ▼`}
         </Button>
       </S.DropdownButton>
 
@@ -143,7 +149,12 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
           {category_items?.map((item, index) => (
             <S.DropdownItem key={index}>
               <label>
-                <input type="checkbox" value={item.group} />
+                <input
+                  type="checkbox"
+                  value={item.group}
+                  checked={selectedOptions?.includes(item)}
+                  onChange={() => handleOptionChange(item)}
+                />
                 <span>{item.group}</span>
               </label>
               <ContourLine />

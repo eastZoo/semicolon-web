@@ -18,6 +18,14 @@ export const StackCategory = ({
   subDropdownCareer,
   subDropdownStack,
   subDropdownStatus,
+  handleOptionsArea,
+  handleOptionsCareer,
+  handleOptionsStack,
+  handleOptionsStatus,
+  selectedOptionsArea,
+  selectedOptionsCareer,
+  selectedOptionsStack,
+  selectedOptionsStatus,
 }: any) => {
   return (
     <S.category>
@@ -26,7 +34,7 @@ export const StackCategory = ({
           items="개발"
           srcUp="/assets/svg/dropdown_down.svg"
           srcDown="/assets/svg/dropdown_up.svg"
-          alt="카테고리"
+          alt="개발 카테고리"
           category_items={data}
           isOpen={isOpenMajor}
           toggleDropdown={toggleDropdownMajor}
@@ -35,7 +43,7 @@ export const StackCategory = ({
           items="개발 전체"
           srcUp="/assets/svg/dropdown_down.svg"
           srcDown="/assets/svg/dropdown_up.svg"
-          alt="카테고리"
+          alt="개발 전체 카테고리"
           category_items={data}
           isOpen={isOpenMajorDetail}
           toggleDropdown={toggleDropdownMajorDetail}
@@ -47,24 +55,33 @@ export const StackCategory = ({
           category_items={data}
           isOpen={isOpenSubArea}
           toggleDropdown={subDropdownArea}
+          handleOptionChange={handleOptionsArea}
+          selectedOptions={selectedOptionsArea}
         />
         <CheckboxDropdown
           items="경력"
           category_items={data}
           isOpen={isOpenSubCareer}
           toggleDropdown={subDropdownCareer}
+          handleOptionChange={handleOptionsCareer}
+          selectedOptions={selectedOptionsCareer}
         />
         <CheckboxDropdown
           items="기술스택"
           category_items={data}
           isOpen={isOpenSubStack}
           toggleDropdown={subDropdownStack}
+          handleOptionChange={handleOptionsStack}
+          selectedOptions={selectedOptionsStack}
         />
         <CheckboxDropdown
           items="모집상태"
           category_items={data}
           isOpen={isOpenSubStatus}
           toggleDropdown={subDropdownStatus}
+          handleOptionChange={handleOptionsStatus}
+          selectedOptions={selectedOptionsStatus}
+          
         />
       </S.subStack>
     </S.category>

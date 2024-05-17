@@ -334,7 +334,17 @@ export const myDashboard = {
       src: "/assets/svg/default_profile.svg",
     },
     {
-      group: "팀 넘버버버버원5",
+      group: "팀 넘버버버버원6",
+      decr: "팀 설명입니다.",
+      src: "/assets/svg/paintkit.svg",
+    },
+    {
+      group: "팀 넘버버버버원7",
+      decr: "팀 설명입니다.",
+      src: "/assets/svg/paintkit.svg",
+    },
+    {
+      group: "팀 넘버버버버원8",
       decr: "팀 설명입니다.",
       src: "/assets/svg/paintkit.svg",
     },

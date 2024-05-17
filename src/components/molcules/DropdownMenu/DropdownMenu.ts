@@ -29,8 +29,8 @@ export const DropdownList = styled.ul`
   }
 `;
 export const DropdownItem = styled.li`
-  display: block;
   z-index: 1;
+  height: auto;
 `;
 
 export const ItemGroup = styled.div`
