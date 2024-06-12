@@ -49,14 +49,23 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
   };
 
   const handleOptionsArea = (option: string) => {
+    let updateOption;
     if (selectedOptionsArea.includes(option)) {
-      setSelectedOptionsArea(
-        selectedOptionsArea.filter((item) => item !== option)
-      );
+      setSelectedOptionsArea(selectedOptionsArea.filter((item) => item !== option));
     } else {
       setSelectedOptionsArea([...selectedOptionsArea, option]);
     }
+    // areaRender(updateOption)
   };
+  // const areaRender = (updateOption: string[]) => {
+  //   if (updateOption.length > 2) {
+  //     console.log("updateOption ", updateOption);
+  //     const firstOption = updateOption[0];
+  //     const additionalCount = updateOption.length - 1;
+  //     const displayText = `${firstOption} 외 ${additionalCount}`;
+  //     setSelectedOptionsArea([displayText]);
+  //   }
+  // };
 
   const subDropdownCareer = () => {
     setIsOpenSubCareer(!isOpenSubCareer);
@@ -124,7 +133,7 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
           isOpenSubArea={isOpenSubArea}
           subDropdownArea={subDropdownArea}
           handleOptionChange={handleOptionsArea}
-          selectedOptions={selectedOptionsArea}
+          selectedOptions={setSelectedOptionsArea}
           // Career
           handleOptionsCareer={handleOptionsCareer}
           selectedOptionsCareer={selectedOptionsCareer}
@@ -149,7 +158,6 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
         />
       </S.CategorySection>
       <S.ColonyMainSection>
-        
         <SColonySection.FindColonyCard>
           {findColonyData.data.slice(0, 8).map((data, index) => (
             <ColonyCard
@@ -166,7 +174,7 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
             />
           ))}
         </SColonySection.FindColonyCard>
-        <AdSection/>
+        <AdSection />
       </S.ColonyMainSection>
     </S.FindColonyPage>
   );

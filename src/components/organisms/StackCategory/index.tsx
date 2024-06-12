@@ -67,7 +67,7 @@ export const StackCategory = ({
           selectedOptions={selectedOptionsCareer}
         />
         <CheckboxDropdown
-          items="기술스택"
+          items="기술"
           category_items={data}
           isOpen={isOpenSubStack}
           toggleDropdown={subDropdownStack}
@@ -75,13 +75,12 @@ export const StackCategory = ({
           selectedOptions={selectedOptionsStack}
         />
         <CheckboxDropdown
-          items="모집상태"
+          items="모집"
           category_items={data}
           isOpen={isOpenSubStatus}
           toggleDropdown={subDropdownStatus}
           handleOptionChange={handleOptionsStatus}
           selectedOptions={selectedOptionsStatus}
-          
         />
       </S.subStack>
     </S.category>

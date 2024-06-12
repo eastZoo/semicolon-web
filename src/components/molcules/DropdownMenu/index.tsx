@@ -113,7 +113,13 @@ export const DropdownCategory: React.FC<categoryProps> = ({
             <S.DropdownItem key={index}>
               <S.ItemGroup>
                 <S.ItemContent>
-                  <p>{item.group}</p>
+                  <p>
+                    <input
+                      type="checkbox"
+                      value={item.group}
+                    />
+                    <span>{item.group}</span>
+                  </p>
                 </S.ItemContent>
               </S.ItemGroup>
               <ContourLine />

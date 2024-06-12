@@ -97,14 +97,16 @@ export const Button = styled.button<ButtonProps>`
         padding-left: 10px;
         padding-right: 10px;
       `}
-      ${(props) =>
-        props.color === "baseDropdown" &&
-        css`
-          width: auto;
-          color: black;
-          background-color: white;
-          font-size: 15px;
-        `}
+    ${(props) =>
+      props.color === "baseDropdown" &&
+      css`
+        width: auto;
+        color: black;
+        font-weight: 300;
+        background-color: white;
+      `}
+      
+      
   }
 `;
 

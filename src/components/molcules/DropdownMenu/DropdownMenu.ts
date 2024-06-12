@@ -31,6 +31,10 @@ export const DropdownList = styled.ul`
 export const DropdownItem = styled.li`
   z-index: 1;
   height: auto;
+  font-weight: 300;
+  input{
+    color: green;
+  }
 `;
 
 export const ItemGroup = styled.div`
@@ -40,7 +44,7 @@ export const ItemGroup = styled.div`
 export const ItemContent = styled.div`
   margin-left: 10px;
   p {
-    font-size: 12px;
+    font-size: 15px;
   }
 `;
 
@@ -55,6 +59,7 @@ export const DropdownButton = styled.div`
   width: auto;
   height: 40px;
   margin: 10px;
+  font-weight: 300;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
