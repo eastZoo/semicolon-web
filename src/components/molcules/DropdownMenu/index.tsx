@@ -159,7 +159,7 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
                   type="checkbox"
                   value={item.group}
                   checked={selectedOptions?.includes(item)}
-                  onChange={() => handleOptionChange(item)}
+                  onChange={() => handleOptionChange?.(item)}
                 />
                 <span>{item.group}</span>
               </label>

@@ -2,13 +2,85 @@ import { StackCategory } from "@/components/organisms/StackCategory";
 import * as S from "./findColonyPage.style";
 import { myDashboard, findColonyData } from "../../../data/dummey";
 import * as SColonySection from "../../organisms/FindColonySection/FindColonySection.style";
-import { useState } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { ColonyCard } from "@/components/molcules/Card";
 import NoticeSection from "@/components/organisms/NoticeSection";
 import AdSection from "@/components/organisms/AdSection";
+import axios from "axios";
+
+interface CData {
+  id: string;
+  name: string;
+}
 
 export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
   const data = myDashboard.data;
+
+  // infinity scroll
+  const [cData, setCdata] = useState<CData[]>([]);
+  const [isLoad, setIsLoad] = useState(false);
+  const [offset, setOffset] = useState(0);
+  const [stop, setStop] = useState(false);
+  const observer = useRef<IntersectionObserver | null>(null);
+  const target = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (isLoad && !stop) {
+      axios
+        .get(` * 요청 url * `, {
+          params: {
+            offset,
+            limit: 8,
+          },
+          headers: {
+            Authorization: `data`,
+          },
+        })
+        .then((res) => {
+          setCdata((cData) => cData.concat(res.data));
+          setOffset((offset) => offset + res.data.length);
+          setIsLoad(false);
+
+          if (res.data.length < 8) {
+            setStop(true);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          setIsLoad(false);
+        });
+    }
+  }, [isLoad, stop]);
+
+  const getMoreItem = useCallback(() => {
+    setIsLoad(true);
+  }, []);
+
+  const onIntersect = useCallback(
+    async (
+      [entry]: IntersectionObserverEntry[],
+      observer: IntersectionObserver
+    ) => {
+      if (entry.isIntersecting && !isLoad) {
+        observer.unobserve(entry.target);
+        await getMoreItem();
+        observer.observe(entry.target);
+      }
+    },
+    [isLoad, getMoreItem]
+  );
+
+  useEffect(() => {
+    if (observer.current) observer.current.disconnect();
+    observer.current = new IntersectionObserver(onIntersect);
+    const { current: currentObserver } = observer;
+    if (target.current) currentObserver.observe(target.current);
+    return () => {
+      if (currentObserver) currentObserver.disconnect();
+    };
+  }, [onIntersect]);
+
+  // dropdown category
 
   const [isOpenMajor, setIsOpenMajor] = useState(false);
   const [isOpenMajorDetail, setIsOpenMajorDetail] = useState(false);
@@ -34,14 +106,24 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
   const toggleDropdownMajor = () => {
     setIsOpenMajor(!isOpenMajor);
     setIsOpenMajorDetail(false);
+    setIsOpenSubArea(false);
+    setIsOpenSubCareer(false);
+    setIsOpenSubStack(false);
+    setIsOpenSubStatus(false);
   };
 
   const toggleDropdownMajorDetail = () => {
     setIsOpenMajorDetail(!isOpenMajorDetail);
     setIsOpenMajor(false);
+    setIsOpenSubArea(false);
+    setIsOpenSubCareer(false);
+    setIsOpenSubStack(false);
+    setIsOpenSubStatus(false);
   };
 
   const subDropdownArea = () => {
+    setIsOpenMajor(false);
+    setIsOpenMajorDetail(false);
     setIsOpenSubArea(!isOpenSubArea);
     setIsOpenSubCareer(false);
     setIsOpenSubStack(false);
@@ -51,7 +133,9 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
   const handleOptionsArea = (option: string) => {
     let updateOption;
     if (selectedOptionsArea.includes(option)) {
-      setSelectedOptionsArea(selectedOptionsArea.filter((item) => item !== option));
+      setSelectedOptionsArea(
+        selectedOptionsArea.filter((item) => item !== option)
+      );
     } else {
       setSelectedOptionsArea([...selectedOptionsArea, option]);
     }
@@ -68,6 +152,8 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
   // };
 
   const subDropdownCareer = () => {
+    setIsOpenMajor(false);
+    setIsOpenMajorDetail(false);
     setIsOpenSubCareer(!isOpenSubCareer);
     setIsOpenSubArea(false);
     setIsOpenSubStack(false);
@@ -85,6 +171,8 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
   };
 
   const subDropdownStack = () => {
+    setIsOpenMajor(false);
+    setIsOpenMajorDetail(false);
     setIsOpenSubStack(!isOpenSubStack);
     setIsOpenSubCareer(false);
     setIsOpenSubArea(false);
@@ -102,6 +190,8 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
   };
 
   const subDropdownStatus = () => {
+    setIsOpenMajor(false);
+    setIsOpenMajorDetail(false);
     setIsOpenSubStatus(!isOpenSubStatus);
     setIsOpenSubCareer(false);
     setIsOpenSubStack(false);
@@ -158,8 +248,8 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
         />
       </S.CategorySection>
       <S.ColonyMainSection>
-        <SColonySection.FindColonyCard>
-          {findColonyData.data.slice(0, 8).map((data, index) => (
+        <SColonySection.FindColonyCard ref={target}>
+          {findColonyData.data.map((data, index) => (
             <ColonyCard
               bookmarked={bookmarked}
               key={index}
