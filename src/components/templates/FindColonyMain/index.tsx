@@ -1,84 +1,52 @@
 import { StackCategory } from "@/components/organisms/StackCategory";
 import * as S from "./findColonyPage.style";
-import { myDashboard, findColonyData } from "../../../data/dummey";
+import { myDashboard, findColonyData, ColonyData } from "../../../data/dummey";
 import * as SColonySection from "../../organisms/FindColonySection/FindColonySection.style";
 import { useState, useRef, useEffect, useCallback } from "react";
 import { ColonyCard } from "@/components/molcules/Card";
-import NoticeSection from "@/components/organisms/NoticeSection";
 import AdSection from "@/components/organisms/AdSection";
 import axios from "axios";
 
-interface CData {
-  id: string;
-  name: string;
-}
-
 export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
-  const data = myDashboard.data;
+  const dashdata = myDashboard.data;
 
   // infinity scroll
-  const [cData, setCdata] = useState<CData[]>([]);
-  const [isLoad, setIsLoad] = useState(false);
+  const [colonyData, setColonyData] = useState<ColonyData[]>([]);
   const [offset, setOffset] = useState(0);
-  const [stop, setStop] = useState(false);
-  const observer = useRef<IntersectionObserver | null>(null);
-  const target = useRef<HTMLDivElement | null>(null);
+  const [isFetch, setIsFetch] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
 
   useEffect(() => {
-    if (isLoad && !stop) {
-      axios
-        .get(` * 요청 url * `, {
-          params: {
-            offset,
-            limit: 8,
-          },
-          headers: {
-            Authorization: `data`,
-          },
-        })
-        .then((res) => {
-          setCdata((cData) => cData.concat(res.data));
-          setOffset((offset) => offset + res.data.length);
-          setIsLoad(false);
-
-          if (res.data.length < 8) {
-            setStop(true);
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-          setIsLoad(false);
-        });
-    }
-  }, [isLoad, stop]);
-
-  const getMoreItem = useCallback(() => {
-    setIsLoad(true);
+    fetchColonyData();
   }, []);
 
-  const onIntersect = useCallback(
-    async (
-      [entry]: IntersectionObserverEntry[],
-      observer: IntersectionObserver
-    ) => {
-      if (entry.isIntersecting && !isLoad) {
-        observer.unobserve(entry.target);
-        await getMoreItem();
-        observer.observe(entry.target);
-      }
-    },
-    [isLoad, getMoreItem]
-  );
+  const fetchColonyData = async () => {
+    setIsFetch(true);
+    const newData = findColonyData.slice(offset, offset + 10);
+    console.log(newData);
+    console.log(offset);
+    setColonyData((prevData) => [...prevData, ...newData]);
+    setOffset(offset + 10);
+    if (offset + 10 >= findColonyData.length) {
+      setHasMore(false);
+    }
+    setIsFetch(false);
+  };
+  const handleScroll = () => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop !==
+        document.documentElement.offsetHeight ||
+      isFetch ||
+      !hasMore
+    )
+      return;
+    fetchColonyData();
+  };
 
   useEffect(() => {
-    if (observer.current) observer.current.disconnect();
-    observer.current = new IntersectionObserver(onIntersect);
-    const { current: currentObserver } = observer;
-    if (target.current) currentObserver.observe(target.current);
-    return () => {
-      if (currentObserver) currentObserver.disconnect();
-    };
-  }, [onIntersect]);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []); 
 
   // dropdown category
 
@@ -212,7 +180,7 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
     <S.FindColonyPage>
       <S.CategorySection>
         <StackCategory
-          data={data}
+          data={dashdata}
           isOpenMajor={isOpenMajor}
           isOpenMajorDetail={isOpenMajorDetail}
           toggleDropdownMajor={toggleDropdownMajor}
@@ -248,8 +216,8 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
         />
       </S.CategorySection>
       <S.ColonyMainSection>
-        <SColonySection.FindColonyCard ref={target}>
-          {findColonyData.data.map((data, index) => (
+        <SColonySection.FindColonyCard>
+          {colonyData.map((data, index) => (
             <ColonyCard
               bookmarked={bookmarked}
               key={index}
@@ -265,6 +233,8 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
           ))}
         </SColonySection.FindColonyCard>
         <AdSection />
+        {isFetch && <p>Loading...</p>}
+        {!hasMore && <p>end</p>}
       </S.ColonyMainSection>
     </S.FindColonyPage>
   );
