@@ -38,14 +38,14 @@ export const bannerCard = styled.div<CardProps>`
 `;
 
 export const Subtitle = styled.p`
-  font-size: 12px;
+  font-size: 14px;
   margin-bottom: 10px;
 `;
 
 export const Title = styled.p`
   line-height: 130%;
-  font-size: 13px;
-  font-weight: 510;
+  font-size: 16px;
+  font-weight: 500;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: normal;
