@@ -5,7 +5,7 @@ import * as SColonySection from "../../organisms/FindColonySection/FindColonySec
 import { useState, useRef, useEffect, useCallback } from "react";
 import { ColonyCard } from "@/components/molcules/Card";
 import AdSection from "@/components/organisms/AdSection";
-import axios from "axios";
+import * as React from "react";
 
 export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
   const dashdata = myDashboard.data;
@@ -16,37 +16,45 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
   const [isFetch, setIsFetch] = useState(false);
   const [hasMore, setHasMore] = useState(true);
 
+  const observerRef = useRef<IntersectionObserver>();
+  const targetRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     fetchColonyData();
   }, []);
 
+  useEffect(() => {
+    observerRef.current = new IntersectionObserver(intersectionObserver);
+    if (targetRef.current) {
+      observerRef.current.observe(targetRef.current);
+    }
+    return () => observerRef.current && observerRef.current.disconnect();
+  }, [colonyData]);
+
   const fetchColonyData = async () => {
     setIsFetch(true);
-    const newData = findColonyData.slice(offset, offset + 10);
-    console.log(newData);
-    console.log(offset);
+    // axios 사용시 해당 부분에 데이터 요청 url
+    const newData = findColonyData.slice(offset, offset + 12);
     setColonyData((prevData) => [...prevData, ...newData]);
-    setOffset(offset + 10);
-    if (offset + 10 >= findColonyData.length) {
+    setOffset(offset + 12);
+    console.log(offset);
+    if (offset >= findColonyData.length) {
       setHasMore(false);
     }
     setIsFetch(false);
   };
-  const handleScroll = () => {
-    if (
-      window.innerHeight + document.documentElement.scrollTop !==
-        document.documentElement.offsetHeight ||
-      isFetch ||
-      !hasMore
-    )
-      return;
-    fetchColonyData();
-  };
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []); 
+  const intersectionObserver = (
+    entries: IntersectionObserverEntry[],
+    io: IntersectionObserver
+  ) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && !isFetch && hasMore) {
+        io.unobserve(entry.target);
+        fetchColonyData();
+      }
+    });
+  };
 
   // dropdown category
 
@@ -216,7 +224,7 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
         />
       </S.CategorySection>
       <S.ColonyMainSection>
-        <SColonySection.FindColonyCard>
+        <SColonySection.FindColonyCard color="findColonyPage">
           {colonyData.map((data, index) => (
             <ColonyCard
               bookmarked={bookmarked}
@@ -233,8 +241,7 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
           ))}
         </SColonySection.FindColonyCard>
         <AdSection />
-        {isFetch && <p>Loading...</p>}
-        {!hasMore && <p>end</p>}
+        <div ref={targetRef}></div>
       </S.ColonyMainSection>
     </S.FindColonyPage>
   );

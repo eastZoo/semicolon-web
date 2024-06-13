@@ -14,7 +14,7 @@ export const FindColonySection = ({ bookmarked }: any) => {
           <p>현재 당신의 협력이 필요한 콜로니를 찾아 보세요.</p>
           <p>당신의 능력을 마음껏 펼쳐보세요.</p>
         </div>
-        {findColonyData.data.length >= 8 ? (
+        {findColonyData.length >= 8 ? (
           <Button type={"button"} color={"findColony"} label={"VIEW MORE"} />
         ) : (
           <Button
@@ -26,7 +26,7 @@ export const FindColonySection = ({ bookmarked }: any) => {
       </S.FindColonyHeader>
       <ContourLine />
       <S.FindColonyCard>
-        {findColonyData.data.slice(0, 8).map((data, index) => (
+        {findColonyData.slice(0, 8).map((data, index) => (
           <ColonyCard
             bookmarked={bookmarked}
             key={index}
