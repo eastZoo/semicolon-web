@@ -44,7 +44,7 @@ export const Subtitle = styled.p`
 
 export const Title = styled.p`
   line-height: 130%;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -61,6 +61,7 @@ export const Category = styled.p`
 `;
 
 export const Stack = styled.p`
+  font-size: 14px;
   line-height: 180%;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -99,10 +100,6 @@ export const colonyCard = styled.div<CardProps>`
   .viewImage {
     z-index: 2;
     position: relative;
-  }
-
-  p {
-    font-size: 13px;
   }
   .viewImageP {
     width: 100%;

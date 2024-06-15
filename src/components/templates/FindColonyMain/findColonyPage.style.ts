@@ -12,14 +12,14 @@ export const FindColonyPage = styled.section`
 
 export const CategorySection = styled.div`
   display: flex;
-  width: 70%;
+  width: 80%;
   height: auto;
   align-items: center;
 `;
 
 export const ColonyMainSection = styled.section`
   margin-top: 20px;
-  width: 70%;
+  width: 80%;
   align-items: center;
   justify-content: center;
 `;
