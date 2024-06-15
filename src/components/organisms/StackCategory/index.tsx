@@ -18,6 +18,8 @@ export const StackCategory = ({
   subDropdownCareer,
   subDropdownStack,
   subDropdownStatus,
+  handleOptionsMajor,
+  handleOptionsMajorDetail,
   handleOptionsArea,
   handleOptionsCareer,
   handleOptionsStack,
@@ -38,6 +40,7 @@ export const StackCategory = ({
           category_items={data}
           isOpen={isOpenMajor}
           toggleDropdown={toggleDropdownMajor}
+          handleOptionChange={handleOptionsMajor}
         />
         <DropdownCategory
           items="개발 전체"
@@ -47,6 +50,7 @@ export const StackCategory = ({
           category_items={data}
           isOpen={isOpenMajorDetail}
           toggleDropdown={toggleDropdownMajorDetail}
+          handleOptionChange={handleOptionsMajorDetail}
         />
       </S.mainStack>
       <S.subStack>

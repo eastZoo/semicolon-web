@@ -59,7 +59,14 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
   // dropdown category
 
   const [isOpenMajor, setIsOpenMajor] = useState(false);
+  const [selectedOptionsMajor, setSelectedOptionsMajor] = useState<string[]>(
+    []
+  );
+
   const [isOpenMajorDetail, setIsOpenMajorDetail] = useState(false);
+  const [selectedOptionsMajorDetail, setSelectedOptionsMajorDetail] = useState<
+    string[]
+  >([]);
 
   const [isOpenSubArea, setIsOpenSubArea] = useState(false);
   const [selectedOptionsArea, setSelectedOptionsArea] = useState<string[]>([]);
@@ -106,12 +113,33 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
     setIsOpenSubStatus(false);
   };
 
+  const handleOptionsMajor = (option: string) => {
+    if (selectedOptionsMajor.includes(option)) {
+      setSelectedOptionsMajor(
+        selectedOptionsMajor.filter((item) => item !== option)
+      );
+    } else {
+      setSelectedOptionsMajor([...selectedOptionsMajor, option]);
+    }
+  };
+
+  const handleOptionsMajorDetail = (option: string) => {
+    if (selectedOptionsMajorDetail.includes(option)) {
+      setSelectedOptionsMajorDetail(
+        selectedOptionsMajorDetail.filter((item) => item !== option)
+      );
+    } else {
+      setSelectedOptionsMajorDetail([...selectedOptionsMajorDetail, option]);
+    }
+  };
+
   const handleOptionsArea = (option: string) => {
     let updateOption;
     if (selectedOptionsArea.includes(option)) {
       setSelectedOptionsArea(
         selectedOptionsArea.filter((item) => item !== option)
       );
+      console.log(option);
     } else {
       setSelectedOptionsArea([...selectedOptionsArea, option]);
     }
@@ -198,29 +226,21 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
           selectedOptionsArea={selectedOptionsArea}
           isOpenSubArea={isOpenSubArea}
           subDropdownArea={subDropdownArea}
-          handleOptionChange={handleOptionsArea}
-          selectedOptions={setSelectedOptionsArea}
           // Career
           handleOptionsCareer={handleOptionsCareer}
           selectedOptionsCareer={selectedOptionsCareer}
           isOpenSubCareer={isOpenSubCareer}
           subDropdownCareer={subDropdownCareer}
-          handleOptionChange={handleOptionsCareer}
-          selectedOptions={selectedOptionsCareer}
           // Stack
           handleOptionsStack={handleOptionsStack}
           selectedOptionsStack={selectedOptionsStack}
           isOpenSubStack={isOpenSubStack}
           subDropdownStack={subDropdownStack}
-          handleOptionChange={handleOptionsStack}
-          selectedOptions={selectedOptionsStack}
           // Status
           handleOptionsStatus={handleOptionsStatus}
           selectedOptionsStatus={selectedOptionsStatus}
           isOpenSubStatus={isOpenSubStatus}
           subDropdownStatus={subDropdownStatus}
-          handleOptionChange={handleOptionsStatus}
-          selectedOptions={selectedOptionsStatus}
         />
       </S.CategorySection>
       <S.ColonyMainSection>
