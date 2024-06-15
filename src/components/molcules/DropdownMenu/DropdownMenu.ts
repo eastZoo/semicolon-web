@@ -8,8 +8,11 @@ export const DropdownMenu = styled.div`
   display: inline-block;
 `;
 export const DropdownList = styled.ul`
-  width: 200px;
+  width: 400px;
+  height: auto;
   position: absolute;
+  display: flex;
+  justify-content: space-between;
   top: 100%;
   z-index: 2;
   background-color: #fff;
@@ -25,7 +28,7 @@ export const DropdownList = styled.ul`
     font-weight: 430;
   }
   span {
-    margin-left: 15px;
+    margin: 15px;
   }
 `;
 export const DropdownItem = styled.li`
@@ -43,8 +46,11 @@ export const ItemGroup = styled.div`
 
 export const ItemContent = styled.div`
   margin-left: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  justify-content: space-between;
   p {
-    font-size: 15px;
+    font-size: 16px;
   }
 `;
 

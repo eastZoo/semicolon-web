@@ -109,22 +109,35 @@ export const DropdownCategory: React.FC<categoryProps> = ({
       </IconButton>
       {isOpen && (
         <S.DropdownList>
-          {category_items?.map((item, index) => (
-            <S.DropdownItem key={index}>
-              <S.ItemGroup>
-                <S.ItemContent>
-                  <p>
-                    <input
-                      type="checkbox"
-                      value={item.group}
-                    />
-                    <span>{item.group}</span>
-                  </p>
-                </S.ItemContent>
-              </S.ItemGroup>
-              <ContourLine />
-            </S.DropdownItem>
-          ))}
+          <div>
+            {category_items?.map((item, index) => (
+              <S.DropdownItem key={index}>
+                <S.ItemGroup>
+                  <S.ItemContent>
+                    <p>
+                      <input type="checkbox" value={item.group} />
+                      <span>{item.group}</span>
+                      <span>&gt;</span>
+                    </p>
+                  </S.ItemContent>
+                </S.ItemGroup>
+              </S.DropdownItem>
+            ))}
+          </div>
+          <div>
+            {category_items?.map((item, index) => (
+              <S.DropdownItem key={index}>
+                <S.ItemGroup>
+                  <S.ItemContent>
+                    <p>
+                      <input type="checkbox" value={item.group} />
+                      <span>{item.group}</span>
+                    </p>
+                  </S.ItemContent>
+                </S.ItemGroup>
+              </S.DropdownItem>
+            ))}
+          </div>
         </S.DropdownList>
       )}
     </S.DropdownMenu>
