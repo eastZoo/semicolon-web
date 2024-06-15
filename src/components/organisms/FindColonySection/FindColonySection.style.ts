@@ -3,7 +3,7 @@
 import styled, { css } from "styled-components";
 
 export const FindColonySection = styled.section`
-  width: 70%;
+  width: 80%;
   align-items: center;
   justify-content: center;
 `;

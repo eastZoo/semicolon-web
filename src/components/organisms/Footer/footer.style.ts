@@ -10,7 +10,7 @@ export const Footer = styled.footer`
 `;
 
 export const FooterContainer = styled.div`
-  width: 70%;
+  width: 80%;
   height: 30vh;
 `;
 

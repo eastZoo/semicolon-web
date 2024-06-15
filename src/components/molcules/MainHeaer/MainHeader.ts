@@ -10,7 +10,7 @@ export const Header = styled.div`
 
 export const HeaderBox = styled.div`
   display: flex;
-  width: 70%;
+  width: 80%;
   height: 100%;
   margin-top: auto;
   margin-bottom: auto;

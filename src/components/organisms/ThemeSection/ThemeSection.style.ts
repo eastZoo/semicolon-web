@@ -4,7 +4,7 @@ import styled, {css} from "styled-components"
 import { theme } from "../../../styles/theme";
 
 export const ThemeSection = styled.section`
-    width: 70%;
+    width: 80%;
     height: auto;
     align-items: center;
     justify-content: center;
