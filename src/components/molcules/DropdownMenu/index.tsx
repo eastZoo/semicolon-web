@@ -108,37 +108,43 @@ export const DropdownCategory: React.FC<categoryProps> = ({
         )}
       </IconButton>
       {isOpen && (
-        <S.DropdownList>
-          <div>
-            {category_items?.map((item, index) => (
-              <S.DropdownItem key={index}>
-                <S.ItemGroup>
-                  <S.ItemContent>
-                    <p>
-                      <input type="checkbox" value={item.group} />
-                      <span>{item.group}</span>
-                      <span>&gt;</span>
-                    </p>
-                  </S.ItemContent>
-                </S.ItemGroup>
-              </S.DropdownItem>
-            ))}
-          </div>
-          <div>
-            {category_items?.map((item, index) => (
-              <S.DropdownItem key={index}>
-                <S.ItemGroup>
-                  <S.ItemContent>
-                    <p>
-                      <input type="checkbox" value={item.group} />
-                      <span>{item.group}</span>
-                    </p>
-                  </S.ItemContent>
-                </S.ItemGroup>
-              </S.DropdownItem>
-            ))}
-          </div>
-        </S.DropdownList>
+        <S.Dropdown>
+          <S.DropdownTop>
+            <p>직군 직무</p>
+            <IconButton src="/assets/svg/exist.svg" type="button"></IconButton>
+          </S.DropdownTop>
+          <S.DropdownMiddle>
+            <S.DropdownList>
+              {category_items?.map((item, index) => (
+                <S.DropdownItem key={index}>
+                  <S.ItemGroup>
+                    <S.ItemContent>
+                      <p>
+                        <input type="checkbox" value={item.group} />
+                        <span>{item.group}</span>
+                        <span>&gt;</span>
+                      </p>
+                    </S.ItemContent>
+                  </S.ItemGroup>
+                </S.DropdownItem>
+              ))}
+            </S.DropdownList>
+            <S.DropdownList>
+              {category_items?.map((item, index) => (
+                <S.DropdownItem key={index}>
+                  <S.ItemGroup>
+                    <S.ItemContent>
+                      <p>
+                        <input type="checkbox" value={item.group} />
+                        <span>{item.group}</span>
+                      </p>
+                    </S.ItemContent>
+                  </S.ItemGroup>
+                </S.DropdownItem>
+              ))}
+            </S.DropdownList>
+          </S.DropdownMiddle>
+        </S.Dropdown>
       )}
     </S.DropdownMenu>
   );
