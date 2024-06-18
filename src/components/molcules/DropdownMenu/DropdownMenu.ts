@@ -9,7 +9,7 @@ export const DropdownMenu = styled.div`
 `;
 
 export const Dropdown = styled.div`
-  width: 400px;
+  width: 500px;
   height: auto;
   position: absolute;
   top: 100%;
@@ -26,20 +26,23 @@ export const Dropdown = styled.div`
 export const DropdownTop = styled.div`
   display: flex;
   justify-content: space-between;
+  margin: 15px;
 `;
 
 export const DropdownMiddle = styled.div`
   display: flex;
+  justify-content: space-between;
 `;
 
 export const DropdownList = styled.ul`
+  overflow-y: auto;
+  height: 300px;
+  width: 50%;
+  padding: 0 8px;
   a {
     display: flex;
     font-size: 14px;
     font-weight: 430;
-  }
-  span {
-    margin: 15px;
   }
   ${(props) =>
     props.color === "middle" &&
@@ -52,7 +55,7 @@ export const DropdownList = styled.ul`
 export const DropdownItem = styled.li`
   z-index: 1;
   height: auto;
-  font-weight: 300;
+  width: 100%;
   input {
     color: green;
   }
@@ -63,12 +66,13 @@ export const ItemGroup = styled.div`
 `;
 
 export const ItemContent = styled.div`
-  margin-left: 10px;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  width: 100%;
   justify-content: space-between;
   p {
     font-size: 16px;
+  }
+  button{
+    justify-content: space-between;
   }
 `;
 

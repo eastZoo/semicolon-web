@@ -110,7 +110,7 @@ export const DropdownCategory: React.FC<categoryProps> = ({
       {isOpen && (
         <S.Dropdown>
           <S.DropdownTop>
-            <p>직군 직무</p>
+            <p>직군・직무</p>
             <IconButton src="/assets/svg/exist.svg" type="button"></IconButton>
           </S.DropdownTop>
           <S.DropdownMiddle>
@@ -119,11 +119,12 @@ export const DropdownCategory: React.FC<categoryProps> = ({
                 <S.DropdownItem key={index}>
                   <S.ItemGroup>
                     <S.ItemContent>
-                      <p>
-                        <input type="checkbox" value={item.group} />
-                        <span>{item.group}</span>
-                        <span>&gt;</span>
-                      </p>
+                      <Button type="button" color="mainDropdown" width="100%" height={50}>
+                        {item.group}
+                        <span>
+                          <img src="/assets/svg/next-right.svg" />
+                        </span>
+                      </Button>
                     </S.ItemContent>
                   </S.ItemGroup>
                 </S.DropdownItem>

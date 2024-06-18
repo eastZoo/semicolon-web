@@ -105,6 +105,25 @@ export const Button = styled.button<ButtonProps>`
         font-weight: 300;
         background-color: white;
       `}
+    ${(props) =>
+      props.color === "mainDropdown" &&
+      css`
+        font-size: 16px;
+        font-size: 16px;
+        font-weight: 400;
+        color: black;
+        background-color: white;
+        padding: 12px 12px 12px 12px;
+        img {
+          width: 25px;
+          height: 25px;
+          z-index: 1;
+        }
+        &:hover {
+          background-color: ${(props) => props.theme.colors.btnDisable};
+          color: ${(props) => props.theme.colors.black};
+        }
+      `}
       
       
   }
