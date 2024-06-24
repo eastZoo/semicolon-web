@@ -80,12 +80,12 @@ interface categoryProps {
   className?: string;
   handleOptionChange?: (option: string) => void;
   selectedOptions?: string[];
-  category: { name: string; sub: string[] }[];
-  selectedCategory: string;
-  onCategoryChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-  subcategories: string[];
-  selectedSubcategory: string;
-  onSubcategoryChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  category?: { name: string; sub: string[] }[];
+  selectedCategory?: string;
+  onCategoryChange?: (category: string) => void;
+  subcategories?: string[];
+  selectedSubcategory?: string;
+  onSubcategoryChange?: (subcategories: string) => void;
 }
 
 export const DropdownCategory: React.FC<categoryProps> = ({
@@ -177,8 +177,6 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
   toggleDropdown,
   selectedOptions,
   handleOptionChange,
-  selectedSubcategory,
-  onSubcategoryChange,
 }) => {
   return (
     <S.DropdownMenu>
