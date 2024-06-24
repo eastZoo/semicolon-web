@@ -6,6 +6,8 @@ import styled, { css } from "styled-components";
 export const DropdownMenu = styled.div`
   position: relative;
   display: inline-block;
+  width: 100%;
+  height: auto;
 `;
 
 export const Dropdown = styled.div`
@@ -37,7 +39,7 @@ export const DropdownMiddle = styled.div`
 export const DropdownList = styled.ul`
   overflow-y: auto;
   height: 300px;
-  width: 50%;
+  width: 100%;
   padding: 0 8px;
   a {
     display: flex;

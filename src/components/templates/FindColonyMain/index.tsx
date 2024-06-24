@@ -1,6 +1,11 @@
 import { StackCategory } from "@/components/organisms/StackCategory";
 import * as S from "./findColonyPage.style";
-import { myDashboard, findColonyData, ColonyData, mainCategory } from "../../../data/dummey";
+import {
+  myDashboard,
+  findColonyData,
+  ColonyData,
+  mainCategory,
+} from "../../../data/dummey";
 import * as SColonySection from "../../organisms/FindColonySection/FindColonySection.style";
 import { useState, useRef, useEffect, useCallback } from "react";
 import { ColonyCard } from "@/components/molcules/Card";
@@ -10,19 +15,17 @@ import * as React from "react";
 export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
   const dashdata = myDashboard.data;
 
-  const [selectedCategory, setSelectedCategory] = useState<string>('');
-  const [subCategory, setSubCategory] = useState<string[]>([]);
+  const [selectCategory, setSelectCategory] = useState<string>("");
+  const [selectJob, setSelectJob] = useState<string[]>([]);
 
-  const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const category = e.target.value;
-    setSelectedCategory(category);
-    const selectedCategoryData = mainCategory.find(cat => cat.name === category);
-    setSubCategory(selectedCategoryData ? selectedCategoryData.sub : []);
-  }
+  const handleCategoryChange = (category: string) => {
+    setSelectCategory(category);
+    setSelectJob([]);
+  };
 
-  const handleSubCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log(e.target.value);
-  }
+  const handleJobChange = (job: string[]) => {
+    setSelectJob(job)
+  };
 
   // infinity scroll
   const [colonyData, setColonyData] = useState<ColonyData[]>([]);
@@ -77,11 +80,6 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
     []
   );
 
-  const [isOpenMajorDetail, setIsOpenMajorDetail] = useState(false);
-  const [selectedOptionsMajorDetail, setSelectedOptionsMajorDetail] = useState<
-    string[]
-  >([]);
-
   const [isOpenSubArea, setIsOpenSubArea] = useState(false);
   const [selectedOptionsArea, setSelectedOptionsArea] = useState<string[]>([]);
 
@@ -102,16 +100,6 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
 
   const toggleDropdownMajor = () => {
     setIsOpenMajor(!isOpenMajor);
-    setIsOpenMajorDetail(false);
-    setIsOpenSubArea(false);
-    setIsOpenSubCareer(false);
-    setIsOpenSubStack(false);
-    setIsOpenSubStatus(false);
-  };
-
-  const toggleDropdownMajorDetail = () => {
-    setIsOpenMajorDetail(!isOpenMajorDetail);
-    setIsOpenMajor(false);
     setIsOpenSubArea(false);
     setIsOpenSubCareer(false);
     setIsOpenSubStack(false);
@@ -120,7 +108,6 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
 
   const subDropdownArea = () => {
     setIsOpenMajor(false);
-    setIsOpenMajorDetail(false);
     setIsOpenSubArea(!isOpenSubArea);
     setIsOpenSubCareer(false);
     setIsOpenSubStack(false);
@@ -134,16 +121,6 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
       );
     } else {
       setSelectedOptionsMajor([...selectedOptionsMajor, option]);
-    }
-  };
-
-  const handleOptionsMajorDetail = (option: string) => {
-    if (selectedOptionsMajorDetail.includes(option)) {
-      setSelectedOptionsMajorDetail(
-        selectedOptionsMajorDetail.filter((item) => item !== option)
-      );
-    } else {
-      setSelectedOptionsMajorDetail([...selectedOptionsMajorDetail, option]);
     }
   };
 
@@ -171,7 +148,6 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
 
   const subDropdownCareer = () => {
     setIsOpenMajor(false);
-    setIsOpenMajorDetail(false);
     setIsOpenSubCareer(!isOpenSubCareer);
     setIsOpenSubArea(false);
     setIsOpenSubStack(false);
@@ -190,7 +166,6 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
 
   const subDropdownStack = () => {
     setIsOpenMajor(false);
-    setIsOpenMajorDetail(false);
     setIsOpenSubStack(!isOpenSubStack);
     setIsOpenSubCareer(false);
     setIsOpenSubArea(false);
@@ -209,7 +184,6 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
 
   const subDropdownStatus = () => {
     setIsOpenMajor(false);
-    setIsOpenMajorDetail(false);
     setIsOpenSubStatus(!isOpenSubStatus);
     setIsOpenSubCareer(false);
     setIsOpenSubStack(false);
@@ -230,8 +204,11 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
     <S.FindColonyPage>
       <S.CategorySection>
         <StackCategory
-          onChange={handleCategoryChange}
-          value={selectedCategory}
+          data={dashdata}
+          category={mainCategory}
+          options={mainCategory.map((cat) => cat.name)}
+          selectOption={selectCategory}
+          onOptionChange={(options: any) => handleCategoryChange(options[0])}
           isOpenMajor={isOpenMajor}
           toggleDropdownMajor={toggleDropdownMajor}
           // Area

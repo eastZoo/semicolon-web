@@ -27,26 +27,24 @@ export const StackCategory = ({
   selectedOptionsStack,
   selectedOptionsStatus,
   category,
-  selectedCategory,
-  onCategoryChange,
-  subcategories,
-  selectedSubcategory,
-  onSubcategoryChange,
+  subCategory,
+  selectCategory,
+  onSubCategory,
+  onSelectChange,
 }: any) => {
   return (
     <S.category>
       <S.mainStack>
         <DropdownCategory
-          items="개발"
+          items="직군・직무"
           srcUp="/assets/svg/dropdown_down.svg"
           srcDown="/assets/svg/dropdown_up.svg"
           alt="개발 카테고리"
           category={category}
-          subcategories={subcategories}
-          selectedCategory={selectedCategory}
-          selectedSubcategory={selectedSubcategory}
-          onSubcategoryChange={onSubcategoryChange}
-          onCategoryChange={onCategoryChange}
+          subCategory={subCategory}
+          selectCategory={selectCategory}
+          onSelectChange={onSelectChange}
+          onSubCategory={onSubCategory}
           isOpen={isOpenMajor}
           toggleDropdown={toggleDropdownMajor}
           handleOptionChange={handleOptionsMajor}
