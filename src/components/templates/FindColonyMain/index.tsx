@@ -1,6 +1,6 @@
 import { StackCategory } from "@/components/organisms/StackCategory";
 import * as S from "./findColonyPage.style";
-import { myDashboard, findColonyData, ColonyData } from "../../../data/dummey";
+import { myDashboard, findColonyData, ColonyData, mainCategory } from "../../../data/dummey";
 import * as SColonySection from "../../organisms/FindColonySection/FindColonySection.style";
 import { useState, useRef, useEffect, useCallback } from "react";
 import { ColonyCard } from "@/components/molcules/Card";
@@ -9,6 +9,20 @@ import * as React from "react";
 
 export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
   const dashdata = myDashboard.data;
+
+  const [selectedCategory, setSelectedCategory] = useState<string>('');
+  const [subCategory, setSubCategory] = useState<string[]>([]);
+
+  const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const category = e.target.value;
+    setSelectedCategory(category);
+    const selectedCategoryData = mainCategory.find(cat => cat.name === category);
+    setSubCategory(selectedCategoryData ? selectedCategoryData.sub : []);
+  }
+
+  const handleSubCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    console.log(e.target.value);
+  }
 
   // infinity scroll
   const [colonyData, setColonyData] = useState<ColonyData[]>([]);
@@ -216,11 +230,10 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
     <S.FindColonyPage>
       <S.CategorySection>
         <StackCategory
-          data={dashdata}
+          onChange={handleCategoryChange}
+          value={selectedCategory}
           isOpenMajor={isOpenMajor}
-          isOpenMajorDetail={isOpenMajorDetail}
           toggleDropdownMajor={toggleDropdownMajor}
-          toggleDropdownMajorDetail={toggleDropdownMajorDetail}
           // Area
           handleOptionsArea={handleOptionsArea}
           selectedOptionsArea={selectedOptionsArea}

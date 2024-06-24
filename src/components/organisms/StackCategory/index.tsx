@@ -8,9 +8,7 @@ import * as S from "./StackCategory.style";
 export const StackCategory = ({
   data,
   isOpenMajor,
-  isOpenMajorDetail,
   toggleDropdownMajor,
-  toggleDropdownMajorDetail,
   isOpenSubArea,
   isOpenSubCareer,
   isOpenSubStack,
@@ -20,7 +18,6 @@ export const StackCategory = ({
   subDropdownStack,
   subDropdownStatus,
   handleOptionsMajor,
-  handleOptionsMajorDetail,
   handleOptionsArea,
   handleOptionsCareer,
   handleOptionsStack,
@@ -29,6 +26,12 @@ export const StackCategory = ({
   selectedOptionsCareer,
   selectedOptionsStack,
   selectedOptionsStatus,
+  category,
+  selectedCategory,
+  onCategoryChange,
+  subcategories,
+  selectedSubcategory,
+  onSubcategoryChange,
 }: any) => {
   return (
     <S.category>
@@ -38,20 +41,15 @@ export const StackCategory = ({
           srcUp="/assets/svg/dropdown_down.svg"
           srcDown="/assets/svg/dropdown_up.svg"
           alt="개발 카테고리"
-          category_items={data}
+          category={category}
+          subcategories={subcategories}
+          selectedCategory={selectedCategory}
+          selectedSubcategory={selectedSubcategory}
+          onSubcategoryChange={onSubcategoryChange}
+          onCategoryChange={onCategoryChange}
           isOpen={isOpenMajor}
           toggleDropdown={toggleDropdownMajor}
           handleOptionChange={handleOptionsMajor}
-        />
-        <DropdownCategory
-          items="개발 전체"
-          srcUp="/assets/svg/dropdown_down.svg"
-          srcDown="/assets/svg/dropdown_up.svg"
-          alt="개발 전체 카테고리"
-          category_items={data}
-          isOpen={isOpenMajorDetail}
-          toggleDropdown={toggleDropdownMajorDetail}
-          handleOptionChange={handleOptionsMajorDetail}
         />
       </S.mainStack>
       <S.subStack>

@@ -4,13 +4,13 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { Button, IconButton } from "../../atoms/Button";
 import * as S from "./DropdownMenu";
-interface dashDropdownProps {
+interface DropdownProps {
   items?: any[];
   toggleDropdown?: () => void;
   isOpen?: boolean;
 }
 
-export const DropdownMenu: React.FC<dashDropdownProps> = ({
+export const DropdownMenu: React.FC<DropdownProps> = ({
   items,
   toggleDropdown,
   isOpen,
@@ -80,6 +80,12 @@ interface categoryProps {
   className?: string;
   handleOptionChange?: (option: string) => void;
   selectedOptions?: string[];
+  category: { name: string; sub: string[] }[];
+  selectedCategory: string;
+  onCategoryChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  subcategories: string[];
+  selectedSubcategory: string;
+  onSubcategoryChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
 export const DropdownCategory: React.FC<categoryProps> = ({
@@ -87,9 +93,12 @@ export const DropdownCategory: React.FC<categoryProps> = ({
   srcUp,
   srcDown,
   alt,
-  category_items,
   isOpen,
   toggleDropdown,
+  category,
+  selectedCategory,
+  onCategoryChange,
+  subcategories,
 }) => {
   return (
     <S.DropdownMenu>
@@ -115,12 +124,17 @@ export const DropdownCategory: React.FC<categoryProps> = ({
           </S.DropdownTop>
           <S.DropdownMiddle>
             <S.DropdownList>
-              {category_items?.map((item, index) => (
-                <S.DropdownItem key={index}>
+              {category?.map((cat) => (
+                <S.DropdownItem value={cat.name} key={cat.name}>
                   <S.ItemGroup>
                     <S.ItemContent>
-                      <Button type="button" color="mainDropdown" width="100%" height={50}>
-                        {item.group}
+                      <Button
+                        type="button"
+                        color="mainDropdown"
+                        width="100%"
+                        height={50}
+                      >
+                        {cat.name}
                         <span>
                           <img src="/assets/svg/next-right.svg" />
                         </span>
@@ -131,14 +145,19 @@ export const DropdownCategory: React.FC<categoryProps> = ({
               ))}
             </S.DropdownList>
             <S.DropdownList>
-              {category_items?.map((item, index) => (
-                <S.DropdownItem key={index}>
+              {subcategories?.map((sub) => (
+                <S.DropdownItem key={sub} value={sub}>
                   <S.ItemGroup>
                     <S.ItemContent>
-                      <p>
-                        <input type="checkbox" value={item.group} />
-                        <span>{item.group}</span>
-                      </p>
+                      <Button
+                        type="button"
+                        color="mainDropdown"
+                        width="100%"
+                        height={50}
+                      >
+                        <span>{sub}</span>
+                        <input type="checkbox" value={sub} id="check" />
+                      </Button>
                     </S.ItemContent>
                   </S.ItemGroup>
                 </S.DropdownItem>
@@ -158,6 +177,8 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
   toggleDropdown,
   selectedOptions,
   handleOptionChange,
+  selectedSubcategory,
+  onSubcategoryChange,
 }) => {
   return (
     <S.DropdownMenu>

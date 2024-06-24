@@ -619,7 +619,7 @@ export const findColonyData: ColonyData[] = [
     src: "/assets/svg/colonyCard.png",
     bookmark_isTure: false,
   },
-] ;
+];
 
 export const noticeData = {
   data: [
@@ -769,3 +769,49 @@ export const stackCategory = {
     },
   ],
 };
+
+export const mainCategory = [
+  {
+    name: "개발",
+    sub: [
+      "개발",
+      "소프트웨어 엔지니어",
+      "웹 개발자",
+      "서버 개발자",
+      "프론트엔드 개발자",
+      "자바 개발자",
+      "C, C++ 개발자",
+      "파이썬 개발자",
+      "머신러닝 엔지니어",
+      "DevOps/시스템 관리자",
+      "데이터 엔지니어",
+      "Node.js 개발자",
+      "시스템, 네트워크 관리자",
+      "안드로이드 개발자",
+      "iOS 개발자",
+      "임베디드 개발자",
+      "기술지원",
+    ],
+  },
+  {
+    name: "경영, 비즈니스",
+    sub: [
+      "PM,PO",
+      "사업개발,기획자",
+      "서비스 기획자",
+      "전략 기획자",
+      "경영지원",
+      "운영 매니저",
+      "화계, 경리",
+      "데이터 분석가",
+      "상품 기획자(BM)",
+      "총무",
+      "해외 사업개발, 기획자",
+      "자금담당",
+      "컨설턴트",
+      "사무보조",
+      "조직관리",
+      "정보보호 담당자",
+    ],
+  },
+];
