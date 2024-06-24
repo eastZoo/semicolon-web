@@ -80,11 +80,13 @@ interface categoryProps {
   className?: string;
   handleOptionChange?: (option: string) => void;
   selectedOptions?: string[];
-  category?: { name: string; sub: string[] }[];
+  category?: { index: number; name: string; sub: string[] }[];
   subCategory?: string[];
   selectCategory?: string;
   onSubCategory?: (category: string) => void;
-  onSelectChange?: (subCategory: string[]) => void;
+  onSelectChange?: (selectCategory: string[]) => void;
+  handleButtonClick?: (buttonValue: string) => void;
+  selectedButton?: number;
 }
 
 export const DropdownCategory: React.FC<categoryProps> = ({
@@ -95,10 +97,11 @@ export const DropdownCategory: React.FC<categoryProps> = ({
   category,
   onSelectChange,
   onSubCategory,
-  selectCategory,
   subCategory,
   isOpen,
   toggleDropdown,
+  handleButtonClick,
+  selectedButton,
 }) => {
   return (
     <S.DropdownMenu>
@@ -132,9 +135,7 @@ export const DropdownCategory: React.FC<categoryProps> = ({
                         type="button"
                         color="mainDropdown"
                         width="100%"
-                        onClick={() =>
-                          onSelectChange && onSelectChange(item.sub)
-                        }
+                        onClick={() => handleButtonClick?.(item?.name)}
                       >
                         {item.name}
                         <span>
@@ -146,24 +147,24 @@ export const DropdownCategory: React.FC<categoryProps> = ({
                 </S.DropdownItem>
               ))}
             </S.DropdownList>
-            <S.DropdownList>
-              {subCategory?.map((sub, index) => (
-                <S.DropdownItem key={index} value={sub}>
-                  <S.ItemGroup>
-                    <S.ItemContent
-                      onClick={() =>
-                        onSubCategory && onSubCategory(sub)
-                      }
-                    >
-                      <p>
-                        <input type="checkbox" value={sub} />
-                        <span>{sub}</span>
-                      </p>
-                    </S.ItemContent>
-                  </S.ItemGroup>
-                </S.DropdownItem>
-              ))}
-            </S.DropdownList>
+            {selectedButton  && (
+              <S.DropdownList>
+                {category?.[selectedButton].sub.map((sub, idx) => (
+                  <S.DropdownItem key={idx} value={sub}>
+                    <S.ItemGroup>
+                      <S.ItemContent
+                        onClick={() => onSubCategory && onSubCategory(sub)}
+                      >
+                        <p>
+                          <input type="checkbox" value={sub} />
+                          <span>{sub}</span>
+                        </p>
+                      </S.ItemContent>
+                    </S.ItemGroup>
+                  </S.DropdownItem>
+                ))}
+              </S.DropdownList>
+            )}
           </S.DropdownMiddle>
         </S.Dropdown>
       )}

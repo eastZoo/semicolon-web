@@ -15,16 +15,15 @@ import * as React from "react";
 export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
   const dashdata = myDashboard.data;
 
+  const [selectedButton, setSelectedButton] = useState(1);
+  console.log(mainCategory.data[1].sub)
+  console.log(selectedButton)
+
   const [selectCategory, setSelectCategory] = useState<string>("");
   const [selectJob, setSelectJob] = useState<string[]>([]);
 
-  const handleCategoryChange = (category: string) => {
-    setSelectCategory(category);
-    setSelectJob([]);
-  };
-
-  const handleJobChange = (job: string[]) => {
-    setSelectJob(job)
+  const handleButtonClick = (buttonValue: any) => {
+    setSelectedButton(buttonValue);
   };
 
   // infinity scroll
@@ -205,10 +204,10 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
       <S.CategorySection>
         <StackCategory
           data={dashdata}
-          category={mainCategory}
-          options={mainCategory.map((cat) => cat.name)}
+          category={mainCategory.data}
           selectOption={selectCategory}
-          onOptionChange={(options: any) => handleCategoryChange(options[0])}
+          handleButtonClick={handleButtonClick}
+          selectButton={selectedButton}
           isOpenMajor={isOpenMajor}
           toggleDropdownMajor={toggleDropdownMajor}
           // Area

@@ -31,6 +31,8 @@ export const StackCategory = ({
   selectCategory,
   onSubCategory,
   onSelectChange,
+  handleButtonClick,
+  selectedButton,
 }: any) => {
   return (
     <S.category>
@@ -42,6 +44,8 @@ export const StackCategory = ({
           alt="개발 카테고리"
           category={category}
           subCategory={subCategory}
+          selectedButton={selectedButton}
+          handleButtonClick={handleButtonClick}
           selectCategory={selectCategory}
           onSelectChange={onSelectChange}
           onSubCategory={onSubCategory}
