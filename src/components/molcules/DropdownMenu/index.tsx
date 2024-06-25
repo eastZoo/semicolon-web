@@ -80,7 +80,10 @@ interface categoryProps {
   className?: string;
   handleOptionChange?: (option: string) => void;
   selectedOptions?: string[];
-  category?: { id: number; name: string; sub: string[] }[];
+  category?: { name: string }[];
+  subCategory?: { menu: string }[];
+  onSelect?: (categoryName: string) => void;
+  onChange?: (value: string) => void;
 }
 
 export const DropdownCategory: React.FC<categoryProps> = ({
@@ -89,6 +92,9 @@ export const DropdownCategory: React.FC<categoryProps> = ({
   srcDown,
   alt,
   category,
+  subCategory,
+  onSelect,
+  onChange,
   isOpen,
   toggleDropdown,
 }) => {
@@ -124,7 +130,8 @@ export const DropdownCategory: React.FC<categoryProps> = ({
                         type="button"
                         color="mainDropdown"
                         width="100%"
-                        key={item.id}
+                        key={item.name}
+                        onClick={() => onSelect && onSelect(item.name)}
                       >
                         {item.name}
                         <span>
@@ -136,20 +143,26 @@ export const DropdownCategory: React.FC<categoryProps> = ({
                 </S.DropdownItem>
               ))}
             </S.DropdownList>
-              <S.DropdownList>
-                {subCategory?.map((sub, idx) => (
-                  <S.DropdownItem key={idx} value={sub}>
-                    <S.ItemGroup>
-                      <S.ItemContent>
-                        <p>
-                          <input type="checkbox" value={sub} />
-                          <span>{sub}</span>
-                        </p>
-                      </S.ItemContent>
-                    </S.ItemGroup>
-                  </S.DropdownItem>
-                ))}
-              </S.DropdownList>
+            <S.DropdownList>
+              {subCategory?.map((sub, idx) => (
+                <S.DropdownItem key={idx} value={sub.menu}>
+                  <S.ItemGroup>
+                    <S.ItemContent>
+                      <Button
+                        type="button"
+                        color="mainDropdown"
+                        width="100%"
+                        key={sub.menu}
+                        onChange={() => onChange && onChange(sub.menu)}
+                      >
+                        <span>{sub.menu}</span>
+                        <input type="checkbox" value={sub.menu} />
+                      </Button>
+                    </S.ItemContent>
+                  </S.ItemGroup>
+                </S.DropdownItem>
+              ))}
+            </S.DropdownList>
           </S.DropdownMiddle>
         </S.Dropdown>
       )}

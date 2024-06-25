@@ -813,7 +813,7 @@ export const mainCategory = {
         "사무보조",
         "조직관리",
         "정보보호 담당자",
-      ],
+      ].map(menu => ({menu})),
     },
   ],
 };

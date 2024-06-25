@@ -14,6 +14,17 @@ import * as React from "react";
 
 export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
   const dashdata = myDashboard.data;
+
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [subCategories, setSubCategories] = useState<{ menu: string }[]>([]);
+
+  const handleCategoryChange = (categoryName: string) => {
+    setSelectedCategory(categoryName);
+    const category = mainCategory.data.find((cat) => cat.name === categoryName);
+    setSubCategories(category ? category.sub : []);
+    console.log(category?.sub)
+  };
+
   
   // infinity scroll
   const [colonyData, setColonyData] = useState<ColonyData[]>([]);
@@ -194,6 +205,9 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
         <StackCategory
           data={dashdata}
           isOpenMajor={isOpenMajor}
+          category={mainCategory.data.map((cat) => ({ name: cat.name }))}
+          onSelect={handleCategoryChange}
+          subCategory={subCategories}
           toggleDropdownMajor={toggleDropdownMajor}
           // Area
           handleOptionsArea={handleOptionsArea}

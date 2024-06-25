@@ -27,6 +27,8 @@ export const StackCategory = ({
   selectedOptionsStack,
   selectedOptionsStatus,
   category,
+  onSelect,
+  subCategory,
 }: any) => {
   return (
     <S.category>
@@ -37,6 +39,8 @@ export const StackCategory = ({
           srcDown="/assets/svg/dropdown_up.svg"
           alt="개발 카테고리"
           category={category}
+          onSelect={onSelect}
+          subCategory={subCategory}
           isOpen={isOpenMajor}
           toggleDropdown={toggleDropdownMajor}
           handleOptionChange={handleOptionsMajor}
