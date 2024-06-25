@@ -80,13 +80,11 @@ interface categoryProps {
   className?: string;
   handleOptionChange?: (option: string) => void;
   selectedOptions?: string[];
-  category?: { index: number; name: string; sub: string[] }[];
+  category?: { id: number; name: string; sub: string[] }[];
+  handleButtonClick?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  selectButton?: number;
   subCategory?: string[];
   selectCategory?: string;
-  onSubCategory?: (category: string) => void;
-  onSelectChange?: (selectCategory: string[]) => void;
-  handleButtonClick?: (buttonValue: string) => void;
-  selectedButton?: number;
 }
 
 export const DropdownCategory: React.FC<categoryProps> = ({
@@ -95,13 +93,12 @@ export const DropdownCategory: React.FC<categoryProps> = ({
   srcDown,
   alt,
   category,
-  onSelectChange,
-  onSubCategory,
-  subCategory,
   isOpen,
   toggleDropdown,
+  selectButton,
   handleButtonClick,
-  selectedButton,
+  selectCategory,
+  subCategory,
 }) => {
   return (
     <S.DropdownMenu>
@@ -135,7 +132,8 @@ export const DropdownCategory: React.FC<categoryProps> = ({
                         type="button"
                         color="mainDropdown"
                         width="100%"
-                        onClick={() => handleButtonClick?.(item?.name)}
+                        key={item.id}
+                        onChange={() => handleButtonClick}
                       >
                         {item.name}
                         <span>
@@ -147,14 +145,12 @@ export const DropdownCategory: React.FC<categoryProps> = ({
                 </S.DropdownItem>
               ))}
             </S.DropdownList>
-            {selectedButton  && (
+            {selectCategory && (
               <S.DropdownList>
-                {category?.[selectedButton].sub.map((sub, idx) => (
+                {subCategory?.map((sub, idx) => (
                   <S.DropdownItem key={idx} value={sub}>
                     <S.ItemGroup>
-                      <S.ItemContent
-                        onClick={() => onSubCategory && onSubCategory(sub)}
-                      >
+                      <S.ItemContent>
                         <p>
                           <input type="checkbox" value={sub} />
                           <span>{sub}</span>

@@ -9,6 +9,7 @@ interface ButtonProps {
   className?: string;
   onClick?: () => void;
   disabled?: boolean;
+  onChange?: () => void;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -18,6 +19,20 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
   return (
     <S.Button {...props} className={props.className}>
+      {children && children}
+      {label && label}
+    </S.Button>
+  );
+};
+
+export const CateButton: React.FC<ButtonProps> = ({
+  children,
+  label,
+  onChange,
+  ...props
+}) => {
+  return (
+    <S.Button {...props} className={props.className} onClick={onChange}>
       {children && children}
       {label && label}
     </S.Button>
