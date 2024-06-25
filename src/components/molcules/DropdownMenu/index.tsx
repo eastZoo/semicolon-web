@@ -81,10 +81,6 @@ interface categoryProps {
   handleOptionChange?: (option: string) => void;
   selectedOptions?: string[];
   category?: { id: number; name: string; sub: string[] }[];
-  handleButtonClick?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
-  selectButton?: number;
-  subCategory?: string[];
-  selectCategory?: string;
 }
 
 export const DropdownCategory: React.FC<categoryProps> = ({
@@ -95,10 +91,6 @@ export const DropdownCategory: React.FC<categoryProps> = ({
   category,
   isOpen,
   toggleDropdown,
-  selectButton,
-  handleButtonClick,
-  selectCategory,
-  subCategory,
 }) => {
   return (
     <S.DropdownMenu>
@@ -133,7 +125,6 @@ export const DropdownCategory: React.FC<categoryProps> = ({
                         color="mainDropdown"
                         width="100%"
                         key={item.id}
-                        onChange={() => handleButtonClick}
                       >
                         {item.name}
                         <span>
@@ -145,7 +136,6 @@ export const DropdownCategory: React.FC<categoryProps> = ({
                 </S.DropdownItem>
               ))}
             </S.DropdownList>
-            {selectCategory && (
               <S.DropdownList>
                 {subCategory?.map((sub, idx) => (
                   <S.DropdownItem key={idx} value={sub}>
@@ -160,7 +150,6 @@ export const DropdownCategory: React.FC<categoryProps> = ({
                   </S.DropdownItem>
                 ))}
               </S.DropdownList>
-            )}
           </S.DropdownMiddle>
         </S.Dropdown>
       )}
