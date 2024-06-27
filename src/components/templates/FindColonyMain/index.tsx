@@ -25,7 +25,6 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
     console.log(category?.sub)
   };
 
-  
   // infinity scroll
   const [colonyData, setColonyData] = useState<ColonyData[]>([]);
   const [offset, setOffset] = useState(0);
@@ -78,6 +77,19 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
   const [selectedOptionsMajor, setSelectedOptionsMajor] = useState<string[]>(
     []
   );
+
+  const handleClose = () => {
+    setIsOpenMajor(false);
+  }
+
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const handleBackground = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+      setIsOpenMajor(false);
+    }
+  }
+
 
   const [isOpenSubArea, setIsOpenSubArea] = useState(false);
   const [selectedOptionsArea, setSelectedOptionsArea] = useState<string[]>([]);
@@ -209,6 +221,8 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
           onSelect={handleCategoryChange}
           subCategory={subCategories}
           toggleDropdownMajor={toggleDropdownMajor}
+          onClose={handleClose}
+          handleBackground={handleBackground}
           // Area
           handleOptionsArea={handleOptionsArea}
           selectedOptionsArea={selectedOptionsArea}

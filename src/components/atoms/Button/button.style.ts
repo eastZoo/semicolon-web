@@ -108,7 +108,7 @@ export const Button = styled.button<ButtonProps>`
     ${(props) =>
       props.color === "mainDropdown" &&
       css`
-        font-size: 16px;
+        width: auto;
         font-size: 16px;
         font-weight: 400;
         color: black;
@@ -124,6 +124,27 @@ export const Button = styled.button<ButtonProps>`
           color: ${(props) => props.theme.colors.black};
         }
       `}
+      ${(props) =>
+        props.color === "resetButton" &&
+        css`
+          width: auto;
+          font-size: 14px;
+          color: black;
+          font-weight: 400;
+          border-radius: 5px;
+          padding: 7px;
+          background-color: #f2f2f2;
+        `}
+      ${(props) =>
+        props.color === "submitButton" &&
+        css`
+          width: auto;
+          color: white;
+          font-weight: 400;
+          font-size: 14px;
+          border-radius: 5px;
+          background-color: #04b404;
+        `}
       
       
   }

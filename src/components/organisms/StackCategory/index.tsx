@@ -29,6 +29,8 @@ export const StackCategory = ({
   category,
   onSelect,
   subCategory,
+  onClose,
+  handleBackground,
 }: any) => {
   return (
     <S.category>
@@ -40,6 +42,8 @@ export const StackCategory = ({
           alt="개발 카테고리"
           category={category}
           onSelect={onSelect}
+          onClose={onClose}
+          handleBackground={handleBackground}
           subCategory={subCategory}
           isOpen={isOpenMajor}
           toggleDropdown={toggleDropdownMajor}

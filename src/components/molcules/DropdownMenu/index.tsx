@@ -1,7 +1,7 @@
 import { ContourLine } from "@/components/atoms/Line";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, IconButton } from "../../atoms/Button";
 import * as S from "./DropdownMenu";
 interface dashDropdownProps {
@@ -84,6 +84,8 @@ interface categoryProps {
   subCategory?: { menu: string }[];
   onSelect?: (categoryName: string) => void;
   onChange?: (value: string) => void;
+  onClose?: () => void;
+  handleBackground?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 export const DropdownCategory: React.FC<categoryProps> = ({
@@ -97,6 +99,8 @@ export const DropdownCategory: React.FC<categoryProps> = ({
   onChange,
   isOpen,
   toggleDropdown,
+  onClose,
+  handleBackground,
 }) => {
   return (
     <S.DropdownMenu>
@@ -115,10 +119,14 @@ export const DropdownCategory: React.FC<categoryProps> = ({
         )}
       </IconButton>
       {isOpen && (
-        <S.Dropdown>
+        <S.Dropdown onClick={handleBackground} width="500px">
           <S.DropdownTop>
             <p>직군・직무</p>
-            <IconButton src="/assets/svg/exist.svg" type="button"></IconButton>
+            <IconButton
+              src="/assets/svg/exist.svg"
+              type="button"
+              onClick={onClose}
+            ></IconButton>
           </S.DropdownTop>
           <S.DropdownMiddle>
             <S.DropdownList>
@@ -164,6 +172,20 @@ export const DropdownCategory: React.FC<categoryProps> = ({
               ))}
             </S.DropdownList>
           </S.DropdownMiddle>
+          <S.DropdownBottom>
+            <Button
+              type="button"
+              label="초기화"
+              color="resetButton"
+              width="100px"
+            />
+            <Button
+              type="submit"
+              label="적용"
+              color="submitButton"
+              width="100px"
+            />
+          </S.DropdownBottom>
         </S.Dropdown>
       )}
     </S.DropdownMenu>
@@ -190,19 +212,17 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
       </S.DropdownButton>
 
       {isOpen && (
-        <S.Dropdown>
+        <S.Dropdown width="200px">
           <S.DropdownList>
             {category_items?.map((item, index) => (
               <S.DropdownItem key={index}>
-                <label>
-                  <input
-                    type="checkbox"
-                    value={item.group}
-                    checked={selectedOptions?.includes(item)}
-                    onChange={() => handleOptionChange?.(item)}
-                  />
-                  <span>{item.group}</span>
-                </label>
+                <input
+                  type="checkbox"
+                  value={item.group}
+                  checked={selectedOptions?.includes(item)}
+                  onChange={() => handleOptionChange?.(item)}
+                />
+                <span>{item.group}</span>
                 <ContourLine />
               </S.DropdownItem>
             ))}

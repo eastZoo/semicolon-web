@@ -3,6 +3,10 @@
 import { DropdownProps } from "react-bootstrap";
 import styled, { css } from "styled-components";
 
+interface DropdownItemProps {
+  width?: string;
+}
+
 export const DropdownMenu = styled.div`
   position: relative;
   display: inline-block;
@@ -10,8 +14,8 @@ export const DropdownMenu = styled.div`
   height: auto;
 `;
 
-export const Dropdown = styled.div`
-  width: 500px;
+export const Dropdown = styled.div<DropdownItemProps>`
+  width: ${(props) => props.width || "auto"};
   height: auto;
   position: absolute;
   top: 100%;
@@ -36,11 +40,17 @@ export const DropdownMiddle = styled.div`
   justify-content: space-between;
 `;
 
+export const DropdownBottom = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 0 8px;
+`;
+
 export const DropdownList = styled.ul`
   overflow-y: auto;
   height: 300px;
   width: 100%;
-  padding: 0 8px;
+  padding: 0 8px; 
   a {
     display: flex;
     font-size: 14px;
@@ -58,9 +68,8 @@ export const DropdownItem = styled.li`
   z-index: 1;
   height: auto;
   width: 100%;
-  input {
-    color: green;
-  }
+  padding: 0 8px;
+  justify-content: space-between;
 `;
 
 export const ItemGroup = styled.div`
@@ -85,7 +94,7 @@ export const ItemContent = styled.div`
       background-size: 80% 80%;
       background-position: 50%;
       background-repeat: no-repeat;
-      background-color: #3364ff;
+      background-color: #74df00;
     }
   }
 `;

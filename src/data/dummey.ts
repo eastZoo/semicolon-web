@@ -703,37 +703,37 @@ export const themeCard = {
 export const myDashboard = {
   data: [
     {
-      group: "팀 넘버버버버원1",
+      group: "서울",
       decr: "팀 설명입니다.",
       src: "/assets/svg/default_profile.svg",
     },
     {
-      group: "팀 넘버버버버원2",
+      group: "경기",
       decr: "팀 설명입니다.",
       src: "/assets/svg/default_profile.svg",
     },
     {
-      group: "팀 넘버버버버원3",
+      group: "인천",
       decr: "팀 설명입니다.",
       src: "/assets/svg/paintkit.svg",
     },
     {
-      group: "팀 넘버버버버원4",
+      group: "부산",
       decr: "팀 설명입니다.",
       src: "/assets/svg/default_profile.svg",
     },
     {
-      group: "팀 넘버버버버원6",
+      group: "경남",
       decr: "팀 설명입니다.",
       src: "/assets/svg/paintkit.svg",
     },
     {
-      group: "팀 넘버버버버원7",
+      group: "전라",
       decr: "팀 설명입니다.",
       src: "/assets/svg/paintkit.svg",
     },
     {
-      group: "팀 넘버버버버원8",
+      group: "제주",
       decr: "팀 설명입니다.",
       src: "/assets/svg/paintkit.svg",
     },
