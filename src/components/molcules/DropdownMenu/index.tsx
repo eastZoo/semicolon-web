@@ -87,8 +87,9 @@ interface categoryProps {
   onClose?: () => void;
   handleBackground?: (e: React.MouseEvent<HTMLDivElement>) => void;
   city?: { city: string }[];
-  areaCategory?: { menu: string }[];
+  areaCategory?: { area: string }[];
   handleCityCategory?: (option: string) => void;
+  onCitySelect?: (cityName: string) => void;
 }
 
 export const DropdownCategory: React.FC<categoryProps> = ({
@@ -207,7 +208,7 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
   handleOptionChange,
   onClose,
   category,
-  onSelect,
+  onCitySelect,
   subCategory,
   onChange,
 }) => {
@@ -248,7 +249,7 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
           </S.DropdownTop>
           <S.DropdownMiddle>
             <S.DropdownList>
-              {city?.map((item, index) => (
+              {category_items?.map((item, index) => (
                 <S.DropdownItem key={index} value={item.city}>
                   <S.ItemGroup>
                     <S.ItemContent>
@@ -257,7 +258,7 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
                         color="mainDropdown"
                         width="100%"
                         key={item.city}
-                        onClick={() => onSelect && onSelect(item.city)}
+                        onClick={() => onCitySelect && onCitySelect(item.city)}
                       >
                         {item.city}
                         <span>
@@ -271,18 +272,18 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
             </S.DropdownList>
             <S.DropdownList>
               {areaCategory?.map((sub, idx) => (
-                <S.DropdownItem key={idx} value={sub.menu}>
+                <S.DropdownItem key={idx} value={sub.area}>
                   <S.ItemGroup>
                     <S.ItemContent>
                       <Button
                         type="button"
                         color="mainDropdown"
                         width="100%"
-                        key={sub.menu}
-                        onChange={() => onChange && onChange(sub.menu)}
+                        key={sub.area}
+                        onChange={() => onChange && onChange(sub.area)}
                       >
-                        <span>{sub.menu}</span>
-                        <input type="checkbox" value={sub.menu} />
+                        <span>{sub.area}</span>
+                        <input type="checkbox" value={sub.area} />
                       </Button>
                     </S.ItemContent>
                   </S.ItemGroup>

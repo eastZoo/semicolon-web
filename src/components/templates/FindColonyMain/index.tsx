@@ -16,9 +16,8 @@ import * as React from "react";
 export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
   const dashdata = myDashboard.data;
 
-  type AreaType = { menu: string };
   const [selectCity, setSelectedCity] = useState<string | null>(null);
-  const [areaCategory, setAreaCategory] = useState<AreaType[]>([]);
+  const [areaCategory, setAreaCategory] = useState<string[] | {menu: string}[]>([]);
 
   const handleCityCategory = (cityName: string) => {
     setSelectedCity(cityName);
@@ -29,7 +28,9 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
 
   // main category
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [subCategories, setSubCategories] = useState<{ menu: string }[]>([]);
+  const [subCategories, setSubCategories] = useState<
+    string[] | { menu: string }[]
+  >([]);
 
   const handleCategoryChange = (categoryName: string) => {
     setSelectedCategory(categoryName);
