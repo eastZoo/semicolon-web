@@ -74,7 +74,7 @@ interface categoryProps {
   srcUp?: any;
   srcDown?: any;
   alt?: any;
-  category_items?: any[];
+  category_items?: { city: string }[];
   toggleDropdown?: () => void;
   isOpen?: boolean;
   className?: string;
@@ -86,6 +86,9 @@ interface categoryProps {
   onChange?: (value: string) => void;
   onClose?: () => void;
   handleBackground?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  city?: { city: string }[];
+  areaCategory?: { menu: string }[];
+  handleCityCategory?: (option: string) => void;
 }
 
 export const DropdownCategory: React.FC<categoryProps> = ({
@@ -195,10 +198,18 @@ export const DropdownCategory: React.FC<categoryProps> = ({
 export const CheckboxDropdown: React.FC<categoryProps> = ({
   items,
   category_items,
+  city,
+  areaCategory,
+  handleCityCategory,
   isOpen,
   toggleDropdown,
   selectedOptions,
   handleOptionChange,
+  onClose,
+  category,
+  onSelect,
+  subCategory,
+  onChange,
 }) => {
   return (
     <S.DropdownMenu>
@@ -212,8 +223,8 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
       </S.DropdownButton>
 
       {isOpen && (
-        <S.Dropdown width="200px">
-          <S.DropdownList>
+        <S.Dropdown width="500px">
+          {/* <S.DropdownList>
             {category_items?.map((item, index) => (
               <S.DropdownItem key={index}>
                 <input
@@ -226,7 +237,59 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
                 <ContourLine />
               </S.DropdownItem>
             ))}
-          </S.DropdownList>
+          </S.DropdownList> */}
+          <S.DropdownTop>
+            <p>지역</p>
+            <IconButton
+              src="/assets/svg/exist.svg"
+              type="button"
+              onClick={onClose}
+            ></IconButton>
+          </S.DropdownTop>
+          <S.DropdownMiddle>
+            <S.DropdownList>
+              {city?.map((item, index) => (
+                <S.DropdownItem key={index} value={item.city}>
+                  <S.ItemGroup>
+                    <S.ItemContent>
+                      <Button
+                        type="button"
+                        color="mainDropdown"
+                        width="100%"
+                        key={item.city}
+                        onClick={() => onSelect && onSelect(item.city)}
+                      >
+                        {item.city}
+                        <span>
+                          <img src="/assets/svg/next-right.svg" />
+                        </span>
+                      </Button>
+                    </S.ItemContent>
+                  </S.ItemGroup>
+                </S.DropdownItem>
+              ))}
+            </S.DropdownList>
+            <S.DropdownList>
+              {areaCategory?.map((sub, idx) => (
+                <S.DropdownItem key={idx} value={sub.menu}>
+                  <S.ItemGroup>
+                    <S.ItemContent>
+                      <Button
+                        type="button"
+                        color="mainDropdown"
+                        width="100%"
+                        key={sub.menu}
+                        onChange={() => onChange && onChange(sub.menu)}
+                      >
+                        <span>{sub.menu}</span>
+                        <input type="checkbox" value={sub.menu} />
+                      </Button>
+                    </S.ItemContent>
+                  </S.ItemGroup>
+                </S.DropdownItem>
+              ))}
+            </S.DropdownList>
+          </S.DropdownMiddle>
         </S.Dropdown>
       )}
     </S.DropdownMenu>

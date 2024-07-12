@@ -5,6 +5,7 @@ import {
   findColonyData,
   ColonyData,
   mainCategory,
+  cityCategory,
 } from "../../../data/dummey";
 import * as SColonySection from "../../organisms/FindColonySection/FindColonySection.style";
 import { useState, useRef, useEffect, useCallback } from "react";
@@ -15,6 +16,18 @@ import * as React from "react";
 export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
   const dashdata = myDashboard.data;
 
+  type AreaType = { menu: string };
+  const [selectCity, setSelectedCity] = useState<string | null>(null);
+  const [areaCategory, setAreaCategory] = useState<AreaType[]>([]);
+
+  const handleCityCategory = (cityName: string) => {
+    setSelectedCity(cityName);
+    const country = cityCategory.data.find((cat) => cat.city === cityName);
+    setAreaCategory(country ? country.area : []);
+    console.log(country?.area);
+  };
+
+  // main category
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [subCategories, setSubCategories] = useState<{ menu: string }[]>([]);
 
@@ -22,7 +35,7 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
     setSelectedCategory(categoryName);
     const category = mainCategory.data.find((cat) => cat.name === categoryName);
     setSubCategories(category ? category.sub : []);
-    console.log(category?.sub)
+    console.log(category?.sub);
   };
 
   // infinity scroll
@@ -80,16 +93,18 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
 
   const handleClose = () => {
     setIsOpenMajor(false);
-  }
+  };
 
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleBackground = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(e.target as Node)
+    ) {
       setIsOpenMajor(false);
     }
-  }
-
+  };
 
   const [isOpenSubArea, setIsOpenSubArea] = useState(false);
   const [selectedOptionsArea, setSelectedOptionsArea] = useState<string[]>([]);
@@ -224,7 +239,9 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
           onClose={handleClose}
           handleBackground={handleBackground}
           // Area
-          handleOptionsArea={handleOptionsArea}
+          city={cityCategory.data.map((cat) => ({ city: cat.city }))}
+          areaCategory={areaCategory}
+          handleOptionsArea={handleCityCategory}
           selectedOptionsArea={selectedOptionsArea}
           isOpenSubArea={isOpenSubArea}
           subDropdownArea={subDropdownArea}

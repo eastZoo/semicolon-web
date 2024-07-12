@@ -128,6 +128,7 @@ export const Button = styled.button<ButtonProps>`
         props.color === "resetButton" &&
         css`
           width: auto;
+          height: 40px;
           font-size: 14px;
           color: black;
           font-weight: 400;

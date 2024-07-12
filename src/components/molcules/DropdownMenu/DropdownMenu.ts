@@ -43,7 +43,7 @@ export const DropdownMiddle = styled.div`
 export const DropdownBottom = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 0 8px;
+  padding: 13 8px;
 `;
 
 export const DropdownList = styled.ul`
