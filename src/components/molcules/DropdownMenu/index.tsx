@@ -4,6 +4,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Button, IconButton } from "../../atoms/Button";
 import * as S from "./DropdownMenu";
+import * as Style from "../../atoms/Line";
 interface dashDropdownProps {
   items?: any[];
   toggleDropdown?: () => void;
@@ -87,9 +88,10 @@ interface categoryProps {
   onClose?: () => void;
   handleBackground?: (e: React.MouseEvent<HTMLDivElement>) => void;
   city?: { city: string }[];
-  areaCategory?: { area: string }[];
-  handleCityCategory?: (option: string) => void;
-  onCitySelect?: (cityName: string) => void;
+  areaCategory?: { menu: string }[];
+  handleCheckboxChange?: (menu: string) => void;
+  selectCity?: string;
+  selectAreas?: string[];
 }
 
 export const DropdownCategory: React.FC<categoryProps> = ({
@@ -198,19 +200,18 @@ export const DropdownCategory: React.FC<categoryProps> = ({
 
 export const CheckboxDropdown: React.FC<categoryProps> = ({
   items,
-  category_items,
   city,
   areaCategory,
-  handleCityCategory,
+  handleOptionChange,
   isOpen,
   toggleDropdown,
   selectedOptions,
-  handleOptionChange,
   onClose,
-  category,
-  onCitySelect,
-  subCategory,
   onChange,
+  handleBackground,
+  handleCheckboxChange,
+  selectAreas,
+  selectCity,
 }) => {
   return (
     <S.DropdownMenu>
@@ -224,21 +225,7 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
       </S.DropdownButton>
 
       {isOpen && (
-        <S.Dropdown width="500px">
-          {/* <S.DropdownList>
-            {category_items?.map((item, index) => (
-              <S.DropdownItem key={index}>
-                <input
-                  type="checkbox"
-                  value={item.group}
-                  checked={selectedOptions?.includes(item)}
-                  onChange={() => handleOptionChange?.(item)}
-                />
-                <span>{item.group}</span>
-                <ContourLine />
-              </S.DropdownItem>
-            ))}
-          </S.DropdownList> */}
+        <S.Dropdown width="500px" onClick={handleBackground}>
           <S.DropdownTop>
             <p>지역</p>
             <IconButton
@@ -247,9 +234,9 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
               onClick={onClose}
             ></IconButton>
           </S.DropdownTop>
-          <S.DropdownMiddle>
+          <S.DropdownMiddle id="sub">
             <S.DropdownList>
-              {category_items?.map((item, index) => (
+              {city?.map((item, index) => (
                 <S.DropdownItem key={index} value={item.city}>
                   <S.ItemGroup>
                     <S.ItemContent>
@@ -258,7 +245,9 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
                         color="mainDropdown"
                         width="100%"
                         key={item.city}
-                        onClick={() => onCitySelect && onCitySelect(item.city)}
+                        onClick={() =>
+                          handleOptionChange && handleOptionChange(item.city)
+                        }
                       >
                         {item.city}
                         <span>
@@ -271,19 +260,27 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
               ))}
             </S.DropdownList>
             <S.DropdownList>
-              {areaCategory?.map((sub, idx) => (
-                <S.DropdownItem key={idx} value={sub.area}>
+              {areaCategory?.map((area, idx) => (
+                <S.DropdownItem key={idx} value={area.menu}>
                   <S.ItemGroup>
                     <S.ItemContent>
                       <Button
                         type="button"
                         color="mainDropdown"
                         width="100%"
-                        key={sub.area}
-                        onChange={() => onChange && onChange(sub.area)}
+                        key={area.menu}
+                        onChange={() => onChange && onChange(area.menu)}
                       >
-                        <span>{sub.area}</span>
-                        <input type="checkbox" value={sub.area} />
+                        <span>{area.menu}</span>
+                        <input
+                          type="checkbox"
+                          value={area.menu}
+                          onChange={() =>
+                            handleCheckboxChange &&
+                            handleCheckboxChange(area.menu)
+                          }
+                          checked={selectAreas?.includes(area.menu)}
+                        />
                       </Button>
                     </S.ItemContent>
                   </S.ItemGroup>
@@ -291,6 +288,32 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
               ))}
             </S.DropdownList>
           </S.DropdownMiddle>
+          <Style.ContourLine />
+          <div>
+            {selectAreas?.length > 0 ? (
+              <ul>
+                {selectAreas?.map((area, index) => (
+                  <li key={index}>{area}</li>
+                ))}
+              </ul>
+            ) : (
+              <p></p>
+            )}
+          </div>
+          <S.DropdownBottom>
+            <Button
+              type="button"
+              label="초기화"
+              color="resetButton"
+              width="30%"
+            />
+            <Button
+              type="submit"
+              label="적용"
+              color="submitButton"
+              width="70%"
+            />
+          </S.DropdownBottom>
         </S.Dropdown>
       )}
     </S.DropdownMenu>

@@ -33,7 +33,10 @@ export const StackCategory = ({
   handleBackground,
   city,
   areaCategory,
-  handleCityCategory,
+  handleCityChange,
+  handleCheckboxChange,
+  selectCity,
+  selectAreas,
 }: any) => {
   return (
     <S.category>
@@ -56,11 +59,14 @@ export const StackCategory = ({
       <S.subStack>
         <CheckboxDropdown
           items="지역"
-          category_items={city}
+          city={city}
           areaCategory={areaCategory}
           isOpen={isOpenSubArea}
           toggleDropdown={subDropdownArea}
-          handleOptionChange={handleCityCategory}
+          handleOptionChange={handleCityChange}
+          handleCheckboxChange={handleCheckboxChange}
+          selectCity={selectCity}
+          selectAreas={selectAreas}
           selectedOptions={selectedOptionsArea}
         />
         <CheckboxDropdown

@@ -17,13 +17,24 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
   const dashdata = myDashboard.data;
 
   const [selectCity, setSelectedCity] = useState<string | null>(null);
-  const [areaCategory, setAreaCategory] = useState<string[] | {menu: string}[]>([]);
+  const [areaCategory, setAreaCategory] = useState<
+    string[] | { menu: string }[]
+    >([]);
+  const [selectAreas, setSelectedAreas] = useState<string[]>([]);
 
-  const handleCityCategory = (cityName: string) => {
+  const handleCityChange = (cityName: string) => {
     setSelectedCity(cityName);
     const country = cityCategory.data.find((cat) => cat.city === cityName);
     setAreaCategory(country ? country.area : []);
     console.log(country?.area);
+  };
+
+  const handleCheckboxChange = (menu: string) => {
+    setSelectedAreas((prevSelectedAreas) =>
+      prevSelectedAreas?.includes(menu)
+        ? prevSelectedAreas.filter((area) => area !== menu)
+        : [...prevSelectedAreas, menu]
+    );
   };
 
   // main category
@@ -242,7 +253,10 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
           // Area
           city={cityCategory.data.map((cat) => ({ city: cat.city }))}
           areaCategory={areaCategory}
-          handleOptionsArea={handleCityCategory}
+          handleCityChange={handleCityChange}
+          handleCheckboxChange={handleCheckboxChange}
+          selectCity={selectCity}
+          selectAreas={selectAreas}
           selectedOptionsArea={selectedOptionsArea}
           isOpenSubArea={isOpenSubArea}
           subDropdownArea={subDropdownArea}

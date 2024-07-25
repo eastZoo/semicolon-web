@@ -50,7 +50,6 @@ export const DropdownList = styled.ul`
   overflow-y: auto;
   height: 300px;
   width: 100%;
-  padding: 0 8px; 
   a {
     display: flex;
     font-size: 14px;
@@ -68,12 +67,14 @@ export const DropdownItem = styled.li`
   z-index: 1;
   height: auto;
   width: 100%;
-  padding: 0 8px;
   justify-content: space-between;
 `;
 
 export const ItemGroup = styled.div`
   display: flex;
+  padding: 0 8px;
+  height: auto;
+  weight: 100%;
 `;
 
 export const ItemContent = styled.div`
