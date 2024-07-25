@@ -289,17 +289,29 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
             </S.DropdownList>
           </S.DropdownMiddle>
           <Style.ContourLine />
-          <div>
+          <S.BadgesButtonGroup>
             {selectAreas?.length > 0 ? (
-              <ul>
+              <S.BadgesButton>
                 {selectAreas?.map((area, index) => (
-                  <li key={index}>{area}</li>
+                  <S.BadgesList>
+                    <Button
+                      type="button"
+                      color="badgesButton"
+                      width="auto"
+                      key={index}
+                    >
+                      {area}
+                      <span>
+                        <img src="/assets/svg/exist.svg" width="15px" />
+                      </span>
+                    </Button>
+                  </S.BadgesList>
                 ))}
-              </ul>
+              </S.BadgesButton>
             ) : (
               <p></p>
             )}
-          </div>
+          </S.BadgesButtonGroup>
           <S.DropdownBottom>
             <Button
               type="button"

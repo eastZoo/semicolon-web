@@ -68,6 +68,7 @@ export const StackCategory = ({
           selectCity={selectCity}
           selectAreas={selectAreas}
           selectedOptions={selectedOptionsArea}
+          onClose={onClose}
         />
         <CheckboxDropdown
           items="경력"

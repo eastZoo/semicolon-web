@@ -150,6 +150,19 @@ export const Button = styled.button<ButtonProps>`
           margin-left: 4px;
           background-color: #04b404;
         `}
+      ${(props) =>
+        props.color === "badgesButton" &&
+        css`
+          width: 10%;
+          color: gray;
+          border-radius: 5px;
+          padding: 7px;
+          margin-right: 3px;
+          margin-left: 3px;
+          font-size: 12px;
+          font-weight: 300;
+          background-color: #a9f5a9;
+        `}
       
       
   }

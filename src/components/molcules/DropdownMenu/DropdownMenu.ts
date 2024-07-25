@@ -122,3 +122,22 @@ export const DropdownButton = styled.div`
     margin-right: 10px;
   }
 `;
+
+export const BadgesButtonGroup = styled.div`
+  position: relative;
+  margin-bottom: 10px;
+  overflow: hidden;
+`;
+
+export const BadgesButton = styled.ul`
+  display: flex;
+  align-itmes: center;
+  overflow-x: auto;
+  gap: 10px;
+`;
+
+export const BadgesList = styled.li`
+  white-space: nowrap;
+  white-space-collapse: collapse;
+  text-wrap: nowrap;
+`
