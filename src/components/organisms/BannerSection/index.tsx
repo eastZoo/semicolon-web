@@ -1,7 +1,7 @@
 "use client";
 
 import * as S from "./BannerSection.style";
-import { BannerCard } from "../../molcules/Card";
+import { BannerCard } from "@/molcules/Card";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";

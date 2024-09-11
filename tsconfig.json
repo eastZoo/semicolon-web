@@ -19,7 +19,12 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/templates/*": ["./src/components/templates/*"],
+      "@/organisms/*": ["./src/components/organisms/*"],
+      "@/molcules/*": ["./src/components/molcules/*"],
+      "@/atoms/*": ["./src/components/atoms/*"]
     },
     "forceConsistentCasingInFileNames": true
   },
