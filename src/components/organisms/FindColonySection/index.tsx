@@ -3,11 +3,9 @@ import { ColonyCard } from "@/molcules/Card";
 import * as S from "./FindColonySection.style";
 
 import { findColonyData } from "../../../data/dummey";
+import { ContourLine } from "@/components/atoms/Line";
 
-function FindColonySection({}: any): React.JSX.Element {
-  // 게시글 8개 이상이면 VIEW MORE 버튼 활성화
-  const showButton = 8;
-
+export const FindColonySection = ({ bookmarked }: any) => {
   return (
     <S.FindColonySection>
       <S.FindColonyHeader>
@@ -16,20 +14,21 @@ function FindColonySection({}: any): React.JSX.Element {
           <p>현재 당신의 협력이 필요한 콜로니를 찾아 보세요.</p>
           <p>당신의 능력을 마음껏 펼쳐보세요.</p>
         </div>
-        {findColonyData.data.length >= showButton ? (
-          <Button type={"button"} color={"findColony"} label={"VIEW MORE ➡️"} />
+        {findColonyData.length >= 8 ? (
+          <Button type={"button"} color={"findColony"} label={"VIEW MORE"} />
         ) : (
           <Button
             type={"button"}
             color={"findColony_disable"}
-            label={"VIEW MORE ➡️"}
+            label={"VIEW MORE"}
           />
         )}
       </S.FindColonyHeader>
-      <div style={{ borderTop: "1px solid #DFDFDF", margin: "30px 0px" }} />
+      <ContourLine />
       <S.FindColonyCard>
-        {findColonyData.data.slice(0, showButton).map((data, index) => (
+        {findColonyData.slice(0, 8).map((data, index) => (
           <ColonyCard
+            bookmarked={bookmarked}
             key={index}
             title={data.title}
             src={data.src}
@@ -38,13 +37,12 @@ function FindColonySection({}: any): React.JSX.Element {
             user={data.user}
             view={data.view}
             view_src="/assets/svg/viewCount.svg"
-            bookmark={data.bookmark}
-            book_src="/assets/svg/bookmark_disable.svg"
+            bookmark_count={data.bookmark}
           />
         ))}
       </S.FindColonyCard>
     </S.FindColonySection>
   );
-}
+};
 
 export default FindColonySection;
