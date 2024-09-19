@@ -11,15 +11,22 @@ import * as SColonySection from "../../organisms/FindColonySection/FindColonySec
 import { useState, useRef, useEffect, useCallback } from "react";
 import { ColonyCard } from "@/components/molcules/Card";
 import AdSection from "@/components/organisms/AdSection";
+import { IconButton } from "../../atoms/Button";
 import * as React from "react";
 
 export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
+  const [buttonsIsvisible, setButtonsIsvisble] = useState(false);
+
+  const handleButtonClick = () => {
+    setButtonsIsvisble(!buttonsIsvisible);
+  };
+
   const dashdata = myDashboard.data;
 
   const [selectCity, setSelectedCity] = useState<string | null>(null);
   const [areaCategory, setAreaCategory] = useState<
     string[] | { menu: string }[]
-    >([]);
+  >([]);
   const [selectAreas, setSelectedAreas] = useState<string[]>([]);
 
   const handleCityChange = (cityName: string) => {
@@ -294,9 +301,31 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
             />
           ))}
         </SColonySection.FindColonyCard>
-        <AdSection />
-        <div ref={targetRef}></div>
+        <S.ColonyMoreButton>
+          {buttonsIsvisible && (
+            <S.hiddenButtonGroup className="hidden">
+              <IconButton
+                src="/assets/svg/topButton.svg"
+                type="button"
+                color="moreButtonSub"
+              />
+              <IconButton
+                src="/assets/svg/writeButton.svg"
+                type="button"
+                color="moreButtonSub"
+              />
+            </S.hiddenButtonGroup>
+          )}
+          <IconButton
+            src="/assets/svg/moreButton.png"
+            type="button"
+            color="moreButton"
+            onClick={handleButtonClick}
+          />
+        </S.ColonyMoreButton>
       </S.ColonyMainSection>
+      <AdSection />
+      <div ref={targetRef}></div>
     </S.FindColonyPage>
   );
 };

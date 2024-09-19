@@ -163,8 +163,6 @@ export const Button = styled.button<ButtonProps>`
           font-weight: 300;
           background-color: #a9f5a9;
         `}
-      
-      
   }
 `;
 
@@ -180,6 +178,21 @@ export const IconButton = styled.button`
     props.color === "logoButton" &&
     css`
       width: 200px;
+    `}
+  ${(props) =>
+    props.color === "moreButton" &&
+    css`
+      width: auto;
+      position: fixed !important;
+      display: none;
+      right: 20px;
+      bottom: 20px;
+      z-index: 1000;
+    `}
+    ${(props) =>
+    props.color === "moreButtonSub" &&
+    css`
+      width: 30px;
     `}
   img {
     margin-left: 10px;
