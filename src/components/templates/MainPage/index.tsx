@@ -1,3 +1,5 @@
+"use client";
+
 import BannerSection from "@/organisms/BannerSection";
 import FindColonySection from "@/organisms/FindColonySection";
 import ThemeSection from "@/organisms/ThemeSection";

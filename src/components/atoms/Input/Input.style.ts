@@ -9,6 +9,27 @@ interface InputProps {
 
 export const InputCommon = styled.div<InputProps>`
   display: flex;
+  width: ${(props) => (props.width ? props.width : "initial")};
+  /* height: ${(props) =>
+    props.size === "sm"
+      ? "24px"
+      : props.size === "md"
+      ? "50px"
+      : props.size === "xlg"
+      ? "65px"
+      : "unset"}; */
+  padding: ${(props) =>
+    props.size === "sm" || props.size === "md"
+      ? "0 8px"
+      : props.size === "lg"
+      ? "0 15px"
+      : "0"};
+  font-size: ${(props) => (props.size === "lg" ? "1.5rem" : "1.0rem")};
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  border: solid ${(props) => props.theme.colors.light};
+  gap: 6px;
 
   label {
     display: flex;
@@ -18,32 +39,24 @@ export const InputCommon = styled.div<InputProps>`
     gap: 6px 10px;
   }
 
-  input,
-  textarea {
-    width: ${(props) => (props.width ? props.width : "initial")};
-    height: ${(props) =>
-      props.size === "sm"
-        ? "24px"
-        : props.size === "md"
-        ? "50px"
-        : props.size === "xlg"
-        ? "65px"
-        : "unset"};
-    padding: ${(props) =>
-      props.size === "sm" || props.size === "md"
-        ? "0 6px 2px"
-        : props.size === "lg"
-        ? "0 15px"
-        : "0"};
-    font-size: ${(props) => (props.size === "lg" ? "1.5rem" : "1.0rem")};
-    border-radius: 10px;
-    justify-content: center;
-    border: solid ${(props) => props.theme.colors.light};
-  }
+  /* input,
+  textarea { */
 
   input {
-    padding-left: 40px;
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      font-size: ${(props) =>
+        props.size === "sm" || props.size === "md"
+          ? "1.2rem"
+          : props.size === "lg"
+          ? "1.6rem"
+          : "1.1rem"};
+    }
   }
+  /* } */
 `;
 
 export const IconInputText = styled.div`
@@ -86,6 +99,6 @@ export const InputSearchBar = styled.form`
     width: 20px;
     height: 20px;
     margin-left: 170px;
-    margin-top: 4px;;
+    margin-top: 4px;
   }
 `;

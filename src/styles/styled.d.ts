@@ -9,6 +9,7 @@ declare module "styled-components" {
       gray: string;
       dark: string;
       black: string;
+      lightGray: string;
 
       btnDisable: string;
 
@@ -24,6 +25,7 @@ declare module "styled-components" {
       black: string;
       gray: string;
       dark: string;
+      lightGray: string;
     };
   }
 }

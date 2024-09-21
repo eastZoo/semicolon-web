@@ -8,6 +8,7 @@ interface BaseInputProps {
   children?: React.ReactNode;
   alt?: string;
   className?: string;
+  icon?: any;
   src?: any;
 }
 
@@ -28,13 +29,15 @@ export const InputText: React.FC<InputTextProps> = ({
   placeholder,
   label,
   type,
+  icon,
   children,
 }) => {
   return (
     <S.InputCommon size={size} width={width}>
-      {children}
+      {icon && icon}
       {label && <label>{label}</label>}
       <input type={type || "text"} placeholder={placeholder} value={value} />
+      {children}
     </S.InputCommon>
   );
 };
