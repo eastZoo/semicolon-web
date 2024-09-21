@@ -13,19 +13,21 @@ interface CardProps {
 export const bannerCardSection = styled.div<CardProps>`
   width: 30%;
   height: auto;
-  font-size: 15px;
-  font-weight: 300px;
+  font-size: 1.5rem;
+  font-weight: 300;
   align-items: center;
   justify-content: center;
 `;
 
 export const bannerCard = styled.div<CardProps>`
+  display: flex;
+  flex-direction: column;
   background-color: ${(props) => props.theme.colors.cardDefault};
   color: ${(props) => props.theme.text_colors.black};
   border-radius: 10px;
   border: none;
   padding: 15px;
-  display: block;
+  gap: 12px;
 
   p {
     overflow: hidden;
@@ -38,13 +40,12 @@ export const bannerCard = styled.div<CardProps>`
 `;
 
 export const Subtitle = styled.p`
-  font-size: 14px;
-  margin-bottom: 10px;
+  font-size: 1.2rem;
 `;
 
 export const Title = styled.p`
   line-height: 130%;
-  font-size: 15px;
+  font-size: 1.5rem;
   font-weight: 500;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -113,7 +114,6 @@ export const colonyCard = styled.div<CardProps>`
     margin-top: 10px;
   }
 `;
-
 
 export const ThemeCard = styled.div<CardProps>`
   width: 100%;

@@ -1,10 +1,10 @@
 "use client";
 
 import { Button } from "@/atoms/Button";
-import { ThemeCard } from "@/molcules/Card";
 import Image from "next/image";
 import Link from "next/link";
 import * as S from "./ThemeSection.style";
+import { ThemeCard } from "@/molcules/Card/ThemeCard";
 interface themeSectionProps {
   currentPage: number;
   totalPage: number;
