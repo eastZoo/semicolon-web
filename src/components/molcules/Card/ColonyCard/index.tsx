@@ -2,6 +2,9 @@ import { IconButton } from "@/components/atoms/Button";
 import { BaseCard } from "..";
 import { ViewImageBox } from "../../ImageBox";
 import * as S from "../card.style";
+import ViewCountIcon from "@/assets/icon/viewCount.svg";
+import BookmarkIsTrue from "@/assets/icon/bookmark_isTrue.svg";
+import BookmarkIsFalse from "@/assets/icon/bookmark_disable.svg";
 
 interface ColonyCardProps extends BaseCard {
   category?: string;
@@ -30,8 +33,9 @@ export const ColonyCard = ({
     <S.colonyCardSection>
       <S.colonyCard width={width} height={height}>
         <div className="viewImageP">
-          <ViewImageBox text={view} src={view_src} className="viewImage" />
-          <img src={src} className="mainImage" />
+          {/* <ViewImageBox text={view} src={view_src} className="viewImage" /> */}
+          <ViewCountIcon />
+          <img src={src.src} className="mainImage" />
         </div>
         <div>
           <S.Category>{category}</S.Category>
@@ -43,17 +47,19 @@ export const ColonyCard = ({
             by <S.User>{user}</S.User>
           </p>
           {bookmarked ? (
-            <IconButton
-              src="/assets/svg/bookmark_isTrue.svg"
-              text={bookmark_count}
-              type="button"
-            />
+            // <IconButton
+            //   src={BookmarkIsTrue}
+            //   text={bookmark_count}
+            //   type="button"
+            // />
+            <BookmarkIsTrue />
           ) : (
-            <IconButton
-              src="/assets/svg/bookmark_disable.svg"
-              text={bookmark_count}
-              type="button"
-            />
+            // <IconButton
+            //   src={BookmarkIsFalse}
+            //   text={bookmark_count}
+            //   type="button"
+            // />
+            <BookmarkIsFalse />
           )}
         </div>
       </S.colonyCard>

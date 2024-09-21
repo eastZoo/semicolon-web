@@ -40,7 +40,8 @@ export const Button = styled.button<ButtonProps>`
   ${(props) =>
     props.color === "themeBtnPrev" &&
     css`
-      background-color: #efefef;
+      /* background-color: #efefef; */
+      background-color: transparent;
       color: ${(props) => props.theme.colors.white};
       margin-top: auto;
     `}
@@ -48,7 +49,8 @@ export const Button = styled.button<ButtonProps>`
     ${(props) =>
     props.color === "themeBtnNext" &&
     css`
-      background-color: #efefef;
+      /* background-color: #efefef; */
+      background-color: transparent;
       color: ${(props) => props.theme.colors.white};
       margin-top: auto;
       margin-left: 10px;

@@ -10,7 +10,7 @@ export const ThemeCard = ({ title, src }: ThemeCardProps) => {
   return (
     <S.ThemeCard>
       <p>{title}</p>
-      <img src={src} />
+      <img src={src} alt="test" />
     </S.ThemeCard>
   );
 };
