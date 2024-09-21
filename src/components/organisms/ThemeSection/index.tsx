@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@/components/atoms/Button";
-import { ThemeCard } from "@/components/molcules/Card";
+import { Button } from "@/atoms/Button";
+import { ThemeCard } from "@/molcules/Card";
 import Image from "next/image";
 import Link from "next/link";
 import * as S from "./ThemeSection.style";

@@ -1,9 +1,10 @@
 "use client";
-import BannerSection from "../../organisms/BannerSection";
-import FindColonySection from "../../organisms/FindColonySection";
-import ThemeSection from "../../organisms/ThemeSection";
-import NoticeSection from "../../organisms/NoticeSection";
-import AdSection from "../../organisms/AdSection";
+
+import BannerSection from "@/organisms/BannerSection";
+import FindColonySection from "@/organisms/FindColonySection";
+import ThemeSection from "@/organisms/ThemeSection";
+import NoticeSection from "@/organisms/NoticeSection";
+import AdSection from "@/organisms/AdSection";
 import * as S from "./MainPage.style";
 import { bannerCard, themeCard, myDashboard } from "../../../data/dummey";
 import { useState } from "react";
@@ -64,7 +65,7 @@ export default function Main() {
         isLogin={isLogin}
       />
       <BannerSection slideData={slideData} />
-      <FindColonySection bookmarked={bookmarked}/>
+      <FindColonySection bookmarked={bookmarked} />
       <ThemeSection
         currentPage={currentPage}
         totalPage={totalPage}

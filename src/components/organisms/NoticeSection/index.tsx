@@ -1,4 +1,4 @@
-import { NoticeList } from "@/components/molcules/ListBlock";
+import { NoticeList } from "@/molcules/ListBlock";
 import Link from "next/link";
 import * as S from "./NoticeSection.style";
 

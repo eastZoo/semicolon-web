@@ -11,7 +11,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-size: 16px;
+  font-size: 10px;
   font-family: 'Noto Sans KR', 'Roboto', sans-serif;
   letter-spacing: -0.5px;
 }

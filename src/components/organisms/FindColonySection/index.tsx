@@ -1,5 +1,5 @@
-import { Button } from "@/components/atoms/Button";
-import { ColonyCard } from "@/components/molcules/Card";
+import { Button } from "@/atoms/Button";
+import { ColonyCard } from "@/molcules/Card";
 import * as S from "./FindColonySection.style";
 
 import { findColonyData } from "../../../data/dummey";
