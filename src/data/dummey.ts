@@ -876,8 +876,6 @@ export const cityCategory = {
     },
   ],
 };
-<<<<<<< Updated upstream
-=======
 
 export const statusCategory = {
   data: [
@@ -896,4 +894,3 @@ export const statusCategory = {
   ],
 };
 
->>>>>>> Stashed changes

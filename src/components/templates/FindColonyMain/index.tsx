@@ -12,10 +12,9 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { ColonyCard } from "@/components/molcules/Card";
 import AdSection from "@/components/organisms/AdSection";
 import * as React from "react";
+import { IconButton } from "@/components/atoms/Button";
 
 export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
-<<<<<<< Updated upstream
-=======
   const [rangeValue, setRangevalue] = useState<number>(0);
 
   const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -43,13 +42,12 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
     setButtonsIsvisble(!buttonsIsvisible);
   };
 
->>>>>>> Stashed changes
   const dashdata = myDashboard.data;
 
   const [selectCity, setSelectedCity] = useState<string | null>(null);
   const [areaCategory, setAreaCategory] = useState<
     string[] | { menu: string }[]
-    >([]);
+  >([]);
   const [selectAreas, setSelectedAreas] = useState<string[]>([]);
 
   const handleCityChange = (cityName: string) => {
@@ -326,10 +324,6 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
             />
           ))}
         </SColonySection.FindColonyCard>
-<<<<<<< Updated upstream
-        <AdSection />
-        <div ref={targetRef}></div>
-=======
         <S.ColonyMoreButton>
           {buttonsIsvisible && (
             <S.hiddenButtonGroup className="hidden">
@@ -354,7 +348,6 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
             onClick={handleButtonClick}
           />
         </S.ColonyMoreButton>
->>>>>>> Stashed changes
       </S.ColonyMainSection>
     </S.FindColonyPage>
   );
