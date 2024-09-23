@@ -14,6 +14,36 @@ import AdSection from "@/components/organisms/AdSection";
 import * as React from "react";
 
 export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
+<<<<<<< Updated upstream
+=======
+  const [rangeValue, setRangevalue] = useState<number>(0);
+
+  const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = Number(event.target.value);
+    setRangevalue(value);
+  };
+
+  const getCareer = (value: number): string => {
+    if (value === 0) {
+      return "신입";
+    } else if (value === 10) {
+      return "경력 전체";
+    } else {
+      return `신입 ~ 경력 ${value}년`;
+    }
+  };
+
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  };
+
+  const [buttonsIsvisible, setButtonsIsvisble] = useState(false);
+
+  const handleButtonClick = () => {
+    setButtonsIsvisble(!buttonsIsvisible);
+  };
+
+>>>>>>> Stashed changes
   const dashdata = myDashboard.data;
 
   const [selectCity, setSelectedCity] = useState<string | null>(null);
@@ -249,7 +279,6 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
           subCategory={subCategories}
           toggleDropdownMajor={toggleDropdownMajor}
           onClose={handleClose}
-          handleBackground={handleBackground}
           // Area
           city={cityCategory.data.map((cat) => ({ city: cat.city }))}
           areaCategory={areaCategory}
@@ -265,6 +294,9 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
           selectedOptionsCareer={selectedOptionsCareer}
           isOpenSubCareer={isOpenSubCareer}
           subDropdownCareer={subDropdownCareer}
+          onChangeValue={handleSliderChange}
+          rangeValue={rangeValue}
+          getCareer={getCareer}
           // Stack
           handleOptionsStack={handleOptionsStack}
           selectedOptionsStack={selectedOptionsStack}
@@ -294,8 +326,35 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
             />
           ))}
         </SColonySection.FindColonyCard>
+<<<<<<< Updated upstream
         <AdSection />
         <div ref={targetRef}></div>
+=======
+        <S.ColonyMoreButton>
+          {buttonsIsvisible && (
+            <S.hiddenButtonGroup className="hidden">
+              <IconButton
+                src="/assets/svg/topButton.svg"
+                type="button"
+                color="moreButtonSub"
+                onClick={scrollTop}
+              />
+              <IconButton
+                src="/assets/svg/writeButton.svg"
+                type="button"
+                color="moreButtonSub"
+              />
+            </S.hiddenButtonGroup>
+          )}
+          <IconButton
+            width="20px"
+            src="/assets/svg/moreButton.svg"
+            type="button"
+            color="moreButton"
+            onClick={handleButtonClick}
+          />
+        </S.ColonyMoreButton>
+>>>>>>> Stashed changes
       </S.ColonyMainSection>
     </S.FindColonyPage>
   );

@@ -171,7 +171,7 @@ export const Button = styled.button<ButtonProps>`
 export const IconButton = styled.button`
   display: flex;
   border: none;
-  border-radius: 10px;
+  border-radius: 100%;
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -181,7 +181,10 @@ export const IconButton = styled.button`
     css`
       width: 200px;
     `}
+<<<<<<< Updated upstream
   img {
     margin-left: 10px;
   }
+=======
+>>>>>>> Stashed changes
 `;

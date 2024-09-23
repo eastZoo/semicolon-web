@@ -38,6 +38,33 @@ export const DropdownTop = styled.div`
 export const DropdownMiddle = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
+`;
+
+export const SliderSection = styled.div`
+  text-align: center;
+  margin-bottom: 20px;
+  height: 100px;
+  #slider {
+    -webkit-appearance: none;
+    width: 80%;
+    height: 15px;
+    border-radius: 10px;
+    background-color: #cef6ce;
+    outline: none;
+    margin: auto;
+  }
+  #slider::-webkit-slider-thumb {
+    -webkit-appearance: none; 
+    width: 20px;
+    height: 20px; 
+    border-radius: 50%; 
+    background: #04b404; 
+    cursor: pointer; 
+  }
+  p{
+    margin-bottom: 20px;
+  }
 `;
 
 export const DropdownBottom = styled.div`
@@ -140,4 +167,4 @@ export const BadgesList = styled.li`
   white-space: nowrap;
   white-space-collapse: collapse;
   text-wrap: nowrap;
-`
+`;

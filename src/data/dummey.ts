@@ -876,3 +876,24 @@ export const cityCategory = {
     },
   ],
 };
+<<<<<<< Updated upstream
+=======
+
+export const statusCategory = {
+  data: [
+    {
+      status_id: "0",
+      status: "전체",
+    },
+    {
+      status_id: "1",
+      status: "모집중",
+    },
+    {
+      status_id: "2",
+      status: "모집마감",
+    },
+  ],
+};
+
+>>>>>>> Stashed changes

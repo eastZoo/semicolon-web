@@ -1,7 +1,7 @@
-import { IconButton } from "@/components/atoms/Button";
 import {
   CheckboxDropdown,
   DropdownCategory,
+  ShapeDropdown,
 } from "../../molcules/DropdownMenu";
 import * as S from "./StackCategory.style";
 
@@ -37,6 +37,9 @@ export const StackCategory = ({
   handleCheckboxChange,
   selectCity,
   selectAreas,
+  handleSliderChange,
+  rangeValue,
+  getCareer,
 }: any) => {
   return (
     <S.category>
@@ -70,14 +73,18 @@ export const StackCategory = ({
           selectedOptions={selectedOptionsArea}
           onClose={onClose}
         />
-        <CheckboxDropdown
+
+        <ShapeDropdown
           items="경력"
-          category_items={data}
           isOpen={isOpenSubCareer}
           toggleDropdown={subDropdownCareer}
           handleOptionChange={handleOptionsCareer}
           selectedOptions={selectedOptionsCareer}
+          handleSliderChange={handleSliderChange}
+          rangeValue={rangeValue}
+          getCareer={getCareer}
         />
+
         <CheckboxDropdown
           items="기술"
           category_items={data}

@@ -18,8 +18,33 @@ export const CategorySection = styled.div`
 `;
 
 export const ColonyMainSection = styled.section`
-  margin-top: 20px;
   width: 80%;
+<<<<<<< Updated upstream
   align-items: center;
   justify-content: center;
+=======
+  display: flex;
+`;
+
+export const ColonyMoreButton = styled.div`
+  width: 8%;
+  height: auto;
+  position: fixed;
+  right: 10px;
+  bottom: 30px;
+  margin-left: 10px;
+  img{
+    width: 50px;
+  }
+`;
+
+export const hiddenButtonGroup = styled.div`
+  width: 80%;
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  img{
+    width: 40px;
+  }
+>>>>>>> Stashed changes
 `;

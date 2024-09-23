@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { Button, IconButton } from "../../atoms/Button";
 import * as S from "./DropdownMenu";
 import * as Style from "../../atoms/Line";
+import { Label } from "@radix-ui/react-dropdown-menu";
 interface dashDropdownProps {
   items?: any[];
   toggleDropdown?: () => void;
@@ -71,6 +72,7 @@ export const DropdownMenu: React.FC<dashDropdownProps> = ({
 
 interface categoryProps {
   items?: string;
+  label?: string;
   current_item?: string;
   srcUp?: any;
   srcDown?: any;
@@ -92,10 +94,14 @@ interface categoryProps {
   handleCheckboxChange?: (menu: string) => void;
   selectCity?: string;
   selectAreas?: string[];
+  handleSliderChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  rangeValue?: any;
+  getCareer?: (value: number) => string;
 }
 
 export const DropdownCategory: React.FC<categoryProps> = ({
   items,
+  label,
   srcUp,
   srcDown,
   alt,
@@ -127,7 +133,7 @@ export const DropdownCategory: React.FC<categoryProps> = ({
       {isOpen && (
         <S.Dropdown onClick={handleBackground} width="500px">
           <S.DropdownTop>
-            <p>직군・직무</p>
+            <p>{items}</p>
             <IconButton
               src="/assets/svg/exist.svg"
               type="button"
@@ -227,7 +233,7 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
       {isOpen && (
         <S.Dropdown width="500px" onClick={handleBackground}>
           <S.DropdownTop>
-            <p>지역</p>
+            <p>{items}</p>
             <IconButton
               src="/assets/svg/exist.svg"
               type="button"
@@ -312,6 +318,71 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
               <p></p>
             )}
           </S.BadgesButtonGroup>
+          <S.DropdownBottom>
+            <Button
+              type="button"
+              label="초기화"
+              color="resetButton"
+              width="30%"
+            />
+            <Button
+              type="submit"
+              label="적용"
+              color="submitButton"
+              width="70%"
+            />
+          </S.DropdownBottom>
+        </S.Dropdown>
+      )}
+    </S.DropdownMenu>
+  );
+};
+
+export const ShapeDropdown: React.FC<categoryProps> = ({
+  items,
+  isOpen,
+  selectedOptions,
+  handleBackground,
+  toggleDropdown,
+  onClose,
+  handleSliderChange,
+  rangeValue=0,
+  getCareer,
+}) => {
+  return (
+    <S.DropdownMenu>
+      <S.DropdownButton>
+        <p>{items}</p>
+        <Button type="button" color="baseDropdown" onClick={toggleDropdown}>
+          {isOpen
+            ? `${selectedOptions?.join(" ")} ▲`
+            : `${selectedOptions?.join(" ")} ▼`}
+        </Button>
+      </S.DropdownButton>
+
+      {isOpen && (
+        <S.Dropdown width="500px" onClick={handleBackground}>
+          <S.DropdownTop>
+            <p>{items}</p>
+            <IconButton
+              src="/assets/svg/exist.svg"
+              type="button"
+              onClick={onClose}
+            ></IconButton>
+          </S.DropdownTop>
+          <S.SliderSection>
+            <p>{getCareer(rangeValue)}</p>
+            <input
+              type="range"
+              onChange={handleSliderChange}
+              min={0}
+              max={10}
+              defaultValue={rangeValue}
+              step={1}
+              id="slider"
+            />
+            <p>{rangeValue}</p>
+          </S.SliderSection>
           <S.DropdownBottom>
             <Button
               type="button"

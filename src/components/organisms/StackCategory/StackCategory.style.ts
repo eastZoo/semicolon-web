@@ -10,6 +10,9 @@ export const mainStack = styled.section`
   height: auto;
   gap: 50px;
   font-size: 20px;
+  img{
+    margin-left: 5px;
+  }
 `;
 
 export const subStack = styled.div`
