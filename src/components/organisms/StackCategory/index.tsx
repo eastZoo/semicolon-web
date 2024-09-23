@@ -2,6 +2,7 @@ import {
   CheckboxDropdown,
   DropdownCategory,
   ShapeDropdown,
+  StatusDropdown,
 } from "../../molcules/DropdownMenu";
 import * as S from "./StackCategory.style";
 
@@ -93,9 +94,8 @@ export const StackCategory = ({
           handleOptionChange={handleOptionsStack}
           selectedOptions={selectedOptionsStack}
         />
-        <CheckboxDropdown
+        <StatusDropdown
           items="모집"
-          category_items={data}
           isOpen={isOpenSubStatus}
           toggleDropdown={subDropdownStatus}
           handleOptionChange={handleOptionsStatus}

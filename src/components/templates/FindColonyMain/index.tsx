@@ -20,6 +20,7 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
   const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(event.target.value);
     setRangevalue(value);
+    console.log(value);
   };
 
   const getCareer = (value: number): string => {

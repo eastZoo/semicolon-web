@@ -402,3 +402,70 @@ export const ShapeDropdown: React.FC<categoryProps> = ({
     </S.DropdownMenu>
   );
 };
+
+export const StatusDropdown: React.FC<categoryProps> = ({
+  items,
+  areaCategory,
+  isOpen,
+  toggleDropdown,
+  selectedOptions,
+  onClose,
+  handleBackground,
+  handleCheckboxChange,
+  selectAreas,
+}) => {
+  return (
+    <S.DropdownMenu>
+      <S.DropdownButton>
+        <p>{items}</p>
+        <Button type="button" color="baseDropdown" onClick={toggleDropdown}>
+          {isOpen
+            ? `${selectedOptions?.join(" ")} ▲`
+            : `${selectedOptions?.join(" ")} ▼`}
+        </Button>
+      </S.DropdownButton>
+
+      {isOpen && (
+        <S.Dropdown width="250px" onClick={handleBackground}>
+          <S.DropdownTop>
+            <p>{items}</p>
+            <IconButton
+              src="/assets/svg/exist.svg"
+              type="button"
+              onClick={onClose}
+            ></IconButton>
+          </S.DropdownTop>
+          <S.DropdownMiddle >
+            <S.DropdownList>
+              {areaCategory?.map((area, idx) => (
+                <input
+                  type="checkbox"
+                  value={area.menu}
+                  onChange={() =>
+                    handleCheckboxChange && handleCheckboxChange(area.menu)
+                  }
+                  checked={selectAreas?.includes(area.menu)}
+                />
+              ))}
+            </S.DropdownList>
+          </S.DropdownMiddle>
+
+          <S.DropdownBottom>
+            <Button
+              type="button"
+              label="초기화"
+              color="resetButton"
+              width="30%"
+            />
+            <Button
+              type="submit"
+              label="적용"
+              color="submitButton"
+              width="70%"
+            />
+          </S.DropdownBottom>
+        </S.Dropdown>
+      )}
+    </S.DropdownMenu>
+  );
+};
