@@ -1,6 +1,3 @@
-import ColonyCard from "@/assets/icon/colonyCard.png";
-import FindAd from "@/assets/icon/paintkit.svg";
-
 export const menuListDum = {
   data: [
     {
@@ -142,7 +139,7 @@ export interface ColonyData {
   view: string;
   bookmark: string;
   stack: string;
-  src: any;
+  src: string;
   bookmark_isTure: boolean;
 }
 
@@ -154,8 +151,7 @@ export const findColonyData: ColonyData[] = [
     view: "200",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    // src: "../../../styles/assets/svg/colonyCard.png",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: true,
   },
   {
@@ -165,7 +161,7 @@ export const findColonyData: ColonyData[] = [
     view: "300",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: false,
   },
   {
@@ -176,7 +172,7 @@ export const findColonyData: ColonyData[] = [
     view: "430",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: true,
   },
   {
@@ -187,7 +183,7 @@ export const findColonyData: ColonyData[] = [
     view: "150",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: false,
   },
   {
@@ -198,7 +194,7 @@ export const findColonyData: ColonyData[] = [
     view: "200",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: false,
   },
   {
@@ -208,7 +204,7 @@ export const findColonyData: ColonyData[] = [
     view: "200",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: true,
   },
   {
@@ -219,7 +215,7 @@ export const findColonyData: ColonyData[] = [
     view: "200",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: true,
   },
   {
@@ -230,7 +226,7 @@ export const findColonyData: ColonyData[] = [
     view: "200",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: false,
   },
   {
@@ -240,7 +236,7 @@ export const findColonyData: ColonyData[] = [
     view: "200",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: false,
   },
   {
@@ -250,7 +246,7 @@ export const findColonyData: ColonyData[] = [
     view: "200",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: true,
   },
   {
@@ -260,7 +256,7 @@ export const findColonyData: ColonyData[] = [
     view: "300",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: false,
   },
   {
@@ -271,7 +267,7 @@ export const findColonyData: ColonyData[] = [
     view: "430",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: true,
   },
   {
@@ -282,7 +278,7 @@ export const findColonyData: ColonyData[] = [
     view: "150",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: false,
   },
   {
@@ -293,7 +289,7 @@ export const findColonyData: ColonyData[] = [
     view: "200",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: false,
   },
   {
@@ -303,7 +299,7 @@ export const findColonyData: ColonyData[] = [
     view: "200",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: true,
   },
   {
@@ -314,7 +310,7 @@ export const findColonyData: ColonyData[] = [
     view: "200",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: true,
   },
   {
@@ -325,7 +321,7 @@ export const findColonyData: ColonyData[] = [
     view: "200",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: false,
   },
   {
@@ -335,7 +331,7 @@ export const findColonyData: ColonyData[] = [
     view: "200",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: false,
   },
   {
@@ -345,7 +341,7 @@ export const findColonyData: ColonyData[] = [
     view: "200",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: true,
   },
   {
@@ -355,7 +351,7 @@ export const findColonyData: ColonyData[] = [
     view: "300",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: false,
   },
   {
@@ -366,7 +362,7 @@ export const findColonyData: ColonyData[] = [
     view: "430",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: true,
   },
   {
@@ -377,7 +373,7 @@ export const findColonyData: ColonyData[] = [
     view: "150",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: false,
   },
   {
@@ -388,7 +384,7 @@ export const findColonyData: ColonyData[] = [
     view: "200",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: false,
   },
   {
@@ -398,7 +394,7 @@ export const findColonyData: ColonyData[] = [
     view: "200",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: true,
   },
   {
@@ -409,7 +405,7 @@ export const findColonyData: ColonyData[] = [
     view: "200",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: true,
   },
   {
@@ -420,7 +416,7 @@ export const findColonyData: ColonyData[] = [
     view: "200",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: false,
   },
   {
@@ -430,7 +426,7 @@ export const findColonyData: ColonyData[] = [
     view: "200",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: false,
   },
   {
@@ -440,7 +436,7 @@ export const findColonyData: ColonyData[] = [
     view: "200",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: true,
   },
   {
@@ -450,7 +446,7 @@ export const findColonyData: ColonyData[] = [
     view: "300",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: false,
   },
   {
@@ -461,7 +457,7 @@ export const findColonyData: ColonyData[] = [
     view: "430",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: true,
   },
   {
@@ -472,7 +468,7 @@ export const findColonyData: ColonyData[] = [
     view: "150",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: false,
   },
   {
@@ -483,7 +479,7 @@ export const findColonyData: ColonyData[] = [
     view: "200",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: false,
   },
   {
@@ -493,7 +489,7 @@ export const findColonyData: ColonyData[] = [
     view: "200",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: true,
   },
   {
@@ -504,7 +500,7 @@ export const findColonyData: ColonyData[] = [
     view: "200",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: true,
   },
   {
@@ -515,7 +511,7 @@ export const findColonyData: ColonyData[] = [
     view: "200",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: false,
   },
   {
@@ -525,7 +521,7 @@ export const findColonyData: ColonyData[] = [
     view: "200",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: false,
   },
   {
@@ -535,7 +531,7 @@ export const findColonyData: ColonyData[] = [
     view: "200",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: true,
   },
   {
@@ -545,7 +541,7 @@ export const findColonyData: ColonyData[] = [
     view: "300",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: false,
   },
   {
@@ -556,7 +552,7 @@ export const findColonyData: ColonyData[] = [
     view: "430",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: true,
   },
   {
@@ -567,7 +563,7 @@ export const findColonyData: ColonyData[] = [
     view: "150",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: false,
   },
   {
@@ -578,7 +574,7 @@ export const findColonyData: ColonyData[] = [
     view: "200",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: false,
   },
   {
@@ -588,7 +584,7 @@ export const findColonyData: ColonyData[] = [
     view: "200",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: true,
   },
   {
@@ -599,7 +595,7 @@ export const findColonyData: ColonyData[] = [
     view: "200",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: true,
   },
   {
@@ -610,7 +606,7 @@ export const findColonyData: ColonyData[] = [
     view: "200",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: false,
   },
   {
@@ -620,7 +616,7 @@ export const findColonyData: ColonyData[] = [
     view: "200",
     bookmark: "300",
     stack: "HTML5 , CSS3, JavaScript, TypeScript",
-    src: ColonyCard,
+    src: "/assets/image/colonyCard.png",
     bookmark_isTure: false,
   },
 ];
@@ -675,37 +671,31 @@ export const bannerCard = {
   ],
 };
 
-export const themeCard: { data: { title: string; src: any }[] } = {
+export const themeCard = {
   data: [
     {
       title: "맛깔나는 디자이너",
-      src: "/paintkit.svg",
-      // src: FindAd,
+      src: "/assets/svg/paintkit.svg",
     },
     {
       title: "UI/UX 맛깔나는 디자이너 찾는중",
-      src: "/paintkit.svg",
-      // src: FindAd,
+      src: "/assets/svg/paintkit.svg",
     },
     {
       title: "UI/UX",
-      src: "/paintkit.svg",
-      // src: FindAd,
+      src: "/assets/svg/paintkit.svg",
     },
     {
       title: "같이 서버 관리할",
-      src: "/paintkit.svg",
-      // src: FindAd,
+      src: "/assets/svg/paintkit.svg",
     },
     {
       title: "동료 찾는 콜로니",
-      src: "/paintkit.svg",
-      // src: FindAd,
+      src: "/assets/svg/paintkit.svg",
     },
     {
       title: "같이 서버 관리할 동료 찾는 콜로니",
-      src: "/paintkit.svg",
-      // src: FindAd,
+      src: "/assets/svg/paintkit.svg",
     },
   ],
 };

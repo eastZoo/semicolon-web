@@ -1,19 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
 import * as S from "./footer.style";
-import MainLogoIcon from "@/assets/icon/sample_logo.svg";
 
 export const Footer = () => {
   return (
     <S.Footer>
       <S.FooterContainer>
-        {/* <Image
+        <Image
           src="/assets/svg/sample_logo.svg"
           alt="samleLogo"
           width="200"
           height="50"
-        /> */}
-        <MainLogoIcon />
+        />
         <S.FooterBox>
           <S.FooterInfo>
             <p>

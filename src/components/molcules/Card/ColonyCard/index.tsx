@@ -1,12 +1,10 @@
-import { IconButton } from "@/components/atoms/Button";
-import { BaseCard } from "..";
 import { ViewImageBox } from "../../ImageBox";
 import * as S from "../card.style";
 import ViewCountIcon from "@/assets/icon/viewCount.svg";
 import BookmarkIsTrue from "@/assets/icon/bookmark_isTrue.svg";
 import BookmarkIsFalse from "@/assets/icon/bookmark_disable.svg";
 
-interface ColonyCardProps extends BaseCard {
+interface ColonyCardProps {
   category?: string;
   user?: string;
   stack?: string;
@@ -14,6 +12,10 @@ interface ColonyCardProps extends BaseCard {
   view_src?: any;
   bookmark_count?: string;
   bookmarked?: boolean;
+  width: any;
+  height: any;
+  title: any;
+  src: any;
 }
 
 export const ColonyCard = ({

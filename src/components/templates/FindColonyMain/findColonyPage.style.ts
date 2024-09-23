@@ -22,18 +22,4 @@ export const ColonyMainSection = styled.section`
   width: 80%;
   align-items: center;
   justify-content: center;
-  display: flex;
-`;
-
-export const ColonyMoreButton = styled.div`
-  width: 10%;
-  height: auto;
-  margin-left: 20px;
-`;
-
-export const hiddenButtonGroup = styled.div`
-  width: auto;
-  display: flex;
-  
-
 `;

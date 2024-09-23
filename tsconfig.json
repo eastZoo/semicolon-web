@@ -24,9 +24,7 @@
       "@/templates/*": ["./src/components/templates/*"],
       "@/organisms/*": ["./src/components/organisms/*"],
       "@/molcules/*": ["./src/components/molcules/*"],
-      "@/atoms/*": ["./src/components/atoms/*"],
-      "@/assets/icon/*": ["./src/styles/assets/svg/*"],
-      "@/assets/img/*": ["./src/styles/assets/image/*"]
+      "@/atoms/*": ["./src/components/atoms/*"]
     },
     "forceConsistentCasingInFileNames": true
   },

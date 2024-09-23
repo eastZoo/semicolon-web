@@ -1,7 +1,7 @@
 "use client";
 
 import * as S from "./BannerSection.style";
-import { Card } from "@/molcules/Card";
+import { BannerCard } from "@/molcules/Card";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -14,11 +14,13 @@ export type BannerSection_props = {
   className: string | any;
 };
 
-interface BannerSectionProps {
+interface BannerSectionProps{
   slideData: any[][];
 }
 
-const BannerSection: React.FC<BannerSectionProps> = ({ slideData }) => {
+const BannerSection: React.FC<BannerSectionProps> = ({
+  slideData,
+}) => {
   return (
     <S.BannerSection>
       <S.BannerCard>
@@ -33,7 +35,7 @@ const BannerSection: React.FC<BannerSectionProps> = ({ slideData }) => {
           {slideData.map((slide, index) => (
             <SwiperSlide key={index}>
               {slide.map((card, cardIndex) => (
-                <Card
+                <BannerCard
                   key={cardIndex}
                   title={card.title}
                   subtitle={card.subtitle}

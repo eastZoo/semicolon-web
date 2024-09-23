@@ -1,8 +1,9 @@
 import { Button } from "@/atoms/Button";
+import { ColonyCard } from "@/molcules/Card";
 import * as S from "./FindColonySection.style";
+
 import { findColonyData } from "../../../data/dummey";
 import { ContourLine } from "@/components/atoms/Line";
-import { ColonyCard } from "@/molcules/Card/ColonyCard";
 
 export const FindColonySection = ({ bookmarked }: any) => {
   return (
@@ -35,7 +36,7 @@ export const FindColonySection = ({ bookmarked }: any) => {
             stack={data.stack}
             user={data.user}
             view={data.view}
-            view_src="../../../styles/assets/svg/viewCount.svg"
+            view_src="/assets/svg/viewCount.svg"
             bookmark_count={data.bookmark}
           />
         ))}

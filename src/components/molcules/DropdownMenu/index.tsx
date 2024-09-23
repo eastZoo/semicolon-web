@@ -301,11 +301,9 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
                       key={index}
                     >
                       {area}
-                      <IconButton
-                        src="/assets/svg/exist.svg"
-                        type="button"
-                        onClick={onClose}
-                      ></IconButton>
+                      <span>
+                        <img src="/assets/svg/exist.svg" width="15px" />
+                      </span>
                     </Button>
                   </S.BadgesList>
                 ))}

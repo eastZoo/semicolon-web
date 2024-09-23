@@ -40,7 +40,7 @@ export const CateButton: React.FC<ButtonProps> = ({
 };
 
 interface IconButtonProps extends ButtonProps {
-  src?: any;
+  src?: string;
   text?: string;
 }
 
@@ -54,7 +54,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
   return (
     <S.IconButton {...props}>
       {children}
-      {src && <img src={src.src} alt={text} />}
+      {src && <img src={src} alt={text} />}
       {text}
     </S.IconButton>
   );
