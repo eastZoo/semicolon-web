@@ -5,6 +5,12 @@ export const Container = styled.div`
   position: relative;
   background-color: ${(props) => props.theme.colors.white};
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(100% - 640px);
+  /* display: grid;
+  grid-template-rows: auto 160px; */
 
   &.off {
     display: none;
@@ -26,64 +32,68 @@ export const Container = styled.div`
   }
 `;
 
+export const TopAside = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+`;
+
 // 사이드메뉴 Header 레이아웃
 export const Header = styled.header`
   display: flex;
-  height: 60px;
-  padding: 0 20px;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
 `;
 
 // 사이드메뉴 숨기기(화살표) 버튼
-export const AsideBtn = styled.button`
-  display: flex;
-  height: 60px;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  background: none;
+// export const AsideBtn = styled.button`
+//   display: flex;
+//   height: 60px;
+//   align-items: center;
+//   justify-content: center;
+//   border: none;
+//   background: none;
 
-  &.off {
-    display: none;
-  }
+//   &.off {
+//     display: none;
+//   }
 
-  svg {
-    path:first-of-type {
-      stroke: ${(props) => props.theme.colors.alternative};
-    }
+//   svg {
+//     path:first-of-type {
+//       stroke: ${(props) => props.theme.colors.alternative};
+//     }
 
-    path:nth-of-type(2) {
-      fill: ${(props) => props.theme.colors.alternative};
-    }
+//     path:nth-of-type(2) {
+//       fill: ${(props) => props.theme.colors.alternative};
+//     }
 
-    &:hover {
-      cursor: pointer;
+//     &:hover {
+//       cursor: pointer;
 
-      path:first-of-type {
-        fill: ${(props) => props.theme.colors.alternative};
-      }
+//       path:first-of-type {
+//         fill: ${(props) => props.theme.colors.alternative};
+//       }
 
-      path:nth-of-type(2) {
-        fill: ${(props) => props.theme.colors.white};
-      }
-    }
-  }
-`;
+//       path:nth-of-type(2) {
+//         fill: ${(props) => props.theme.colors.white};
+//       }
+//     }
+//   }
+// `;
 
-// 사이드메뉴 Header 로고 설정
-export const LogoImg = styled.img`
-  height: 40px;
-  width: 40px;
+// // 사이드메뉴 Header 로고 설정
+// export const LogoImg = styled.img`
+//   height: 40px;
+//   width: 40px;
 
-  @media (max-width: 600px) {
-    display: none;
-  }
-`;
+//   @media (max-width: 600px) {
+//     display: none;
+//   }
+// `;
 
 // 사이드메뉴 임시 헤더 txt
 export const TitleHeader = styled.h1`
-  margin-bottom: 2px;
   color: ${(props) => props.theme.colors.dark};
   font-size: 2rem;
 
@@ -94,31 +104,48 @@ export const TitleHeader = styled.h1`
   }
 `;
 
+export const MenuContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+`;
+
 // 사이드메뉴 레이아웃
 export const MenuNavigator = styled.nav`
   overflow-y: auto;
   display: flex;
-  height: calc(100vh - 130px);
-  margin-top: 20px;
-  font-size: 1.1rem;
+  /* height: calc(100vh - 130px); */
+  font-size: 0.8rem;
   font-weight: 400;
   flex-direction: column;
   justify-content: space-between;
+
+  &.bottomAside {
+    width: 100%;
+    /* height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    margin-bottom: 24px; */
+  }
 
   // Level-1 메뉴 설정
   .m-dept01 {
     position: relative;
     display: flex;
-    height: 44px;
-    padding: 0 20px;
-    color: ${(props) => props.theme.colors.dark};
+    /* height: 44px; */
+    padding: 10px 20px;
+    color: ${(props) => props.theme.colors.primary};
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
+    transition-duration: 0.5s;
 
     // Level-1 메뉴 마우스 Hover 시 설정
     &:hover {
-      background: rgba(0, 0, 0, 0.1);
+      background: rgba(184, 233, 206, 0.4);
+      font-size: 1rem;
+      font-weight: 500;
     }
 
     span {
@@ -126,16 +153,10 @@ export const MenuNavigator = styled.nav`
       align-items: center;
       line-height: 24px;
 
-      span {
-        margin-bottom: 1px;
-      }
-
       .d01-icon {
-        margin-right: 10px;
-
         path:nth-of-type(2),
         path:nth-of-type(3) {
-          fill: ${(props) => props.theme.colors.dark};
+          fill: ${(props) => props.theme.colors.primary};
           opacity: 0.7;
         }
       }
@@ -158,7 +179,7 @@ export const MenuNavigator = styled.nav`
         position: absolute;
         content: "";
         width: 5px;
-        height: 44px;
+        /* height: 44px; */
         left: 0;
         background: ${(props) => props.theme.colors.primary};
       }
@@ -179,8 +200,8 @@ export const MenuNavigator = styled.nav`
       &::before {
         position: absolute;
         content: "";
-        width: 5px;
-        height: 44px;
+        /* width: 5px;
+        height: 44px; */
         left: 0;
         background: rgba(0, 0, 0, 0.4) !important;
       }
@@ -223,21 +244,25 @@ export const MenuNavigator = styled.nav`
     .m-dept02 {
       overflow: hidden;
       display: flex;
-      height: 44px;
-      padding: 0 20px;
+      padding: 10px 20px;
       align-items: center;
       cursor: pointer;
       font-size: 1rem;
+      transition: all 0.5s ease;
 
       // Level-2 메뉴 Hover 시 설정
       &:hover {
-        background: ${(props) => props.theme.colors.primary};
+        /* background: rgba(184, 233, 206, 0.4); */
+        background: rgba(0, 0, 0, 0.05);
+        font-size: 1.1rem;
+        font-weight: 500;
       }
 
       // Level-2 메뉴 Open 시 설정
       &.page-now {
         position: relative;
-        background: ${(props) => props.theme.colors.white};
+        /* background: ${(props) => props.theme.colors.white}; */
+        background: rgba(0, 0, 0, 0.05);
 
         &::before {
           position: absolute;
@@ -250,8 +275,6 @@ export const MenuNavigator = styled.nav`
 
         span {
           .d02-icon {
-            margin-right: 10px;
-
             path {
               fill: ${(props) => props.theme.colors.primary};
               opacity: 0.7;
@@ -260,6 +283,8 @@ export const MenuNavigator = styled.nav`
 
           span {
             color: ${(props) => props.theme.colors.primary};
+            font-size: 1.1rem;
+            font-weight: 500;
           }
         }
       }
@@ -268,19 +293,25 @@ export const MenuNavigator = styled.nav`
       span {
         display: flex;
         align-items: center;
+        gap: 8px;
         letter-spacing: -0.05rem;
+        font-weight: 500;
+        padding: 0 10px;
 
         .d02-icon {
-          margin-right: 10px;
-
-          path {
-            fill: ${(props) => props.theme.colors.white};
-            opacity: 0.2;
+          /* svg {
+            rect {
+              fill: ${(props) => props.theme.colors.primary};
+              opacity: 0.2;
+            }
+          } */
+          img {
+            color: ${(props) => props.theme.colors.primary};
           }
         }
 
         span {
-          color: ${(props) => props.theme.colors.dark};
+          color: ${(props) => props.theme.colors.black};
         }
       }
     }

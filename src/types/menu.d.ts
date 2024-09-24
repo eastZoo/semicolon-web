@@ -9,6 +9,7 @@ export interface Menu {
   systemYn?: boolean;
   useYn?: boolean;
   iconUrl: string;
+  selectIconUrl: string;
   path: string;
   isSelected: boolean;
   isOpen: boolean;

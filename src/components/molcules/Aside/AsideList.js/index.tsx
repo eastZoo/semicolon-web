@@ -61,9 +61,9 @@ export default function AsideList(props: any) {
               onClick={() => toggleMenu(menu.oid, menu.isOpen)}
             >
               <span>
-                {[...Array(depth)].map((num: any) => {
+                {/* {[...Array(depth)].map((num: any) => {
                   return <>&nbsp;&nbsp;&nbsp;</>;
-                })}
+                })} */}
                 {/* <D01Icon className="d01-icon" /> */}
                 <span>{menu.menuName}</span>
               </span>
@@ -93,16 +93,26 @@ export default function AsideList(props: any) {
               }}
             >
               <span>
-                {[...Array(depth)].map((num: any) => {
+                {/* {[...Array(depth)].map((num: any) => {
                   return <>&nbsp;&nbsp;&nbsp;</>;
-                })}
-                <Image
-                  src={menu.iconUrl}
-                  alt={menu.menuName}
-                  width={15}
-                  height={15}
-                  className="d02-icon"
-                />
+                })} */}
+                {menu.oid === selectedMenuId ? (
+                  <Image
+                    src={menu.selectIconUrl}
+                    alt={menu.menuName}
+                    width={20}
+                    height={20}
+                    className="d02-icon"
+                  />
+                ) : (
+                  <Image
+                    src={menu.iconUrl}
+                    alt={menu.menuName}
+                    width={20}
+                    height={20}
+                    className="d02-icon"
+                  />
+                )}
                 <span>{menu.menuName}</span>
               </span>
             </div>
@@ -115,45 +125,46 @@ export default function AsideList(props: any) {
   };
 
   return (
-    <>
-      <div>{renderMenu(menuGroup[0], 0, "0")}</div>
-      <div>
-        <div className="m-dept01">
-          <span>
-            <span>SETTINGS</span>
-          </span>
-        </div>
-        <div className="m-dept02-list open">
-          <div className="m-dept02 ">
-            <span>
-              &nbsp;&nbsp;&nbsp;
-              <Image
-                src="/assets/svg/setting.svg"
-                alt="setting"
-                width={15}
-                height={15}
-                className="d02-icon"
-              />
-              <span>Setting</span>
-            </span>
-          </div>
-        </div>
-        <div className="m-dept02-list open">
-          <div className="m-dept02 ">
-            <span>
-              &nbsp;&nbsp;&nbsp;
-              <Image
-                src="/assets/svg/logout.svg"
-                alt="setting"
-                width={15}
-                height={15}
-                className="d02-icon"
-              />
-              <span>Logout</span>
-            </span>
-          </div>
-        </div>
-      </div>
-    </>
+    // <>
+    //   <div>{renderMenu(menuGroup[0], 0, "0")}</div>
+    //   {/* <div>
+    //     <div className="m-dept01">
+    //       <span>
+    //         <span>SETTINGS</span>
+    //       </span>
+    //     </div>
+    //     <div className="m-dept02-list open">
+    //       <div className="m-dept02 ">
+    //         <span>
+    //           &nbsp;&nbsp;&nbsp;
+    //           <Image
+    //             src="/assets/svg/setting.svg"
+    //             alt="setting"
+    //             width={15}
+    //             height={15}
+    //             className="d02-icon"
+    //           />
+    //           <span>Setting</span>
+    //         </span>
+    //       </div>
+    //     </div>
+    //     <div className="m-dept02-list open">
+    //       <div className="m-dept02 ">
+    //         <span>
+    //           &nbsp;&nbsp;&nbsp;
+    //           <Image
+    //             src="/assets/svg/logout.svg"
+    //             alt="setting"
+    //             width={15}
+    //             height={15}
+    //             className="d02-icon"
+    //           />
+    //           <span>Logout</span>
+    //         </span>
+    //       </div>
+    //     </div>
+    //   </div> */}
+    // </>
+    <div>{renderMenu(menuGroup[0], 0, "0")}</div>
   );
 }
