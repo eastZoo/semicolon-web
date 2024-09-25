@@ -1,6 +1,10 @@
 "use client"
 
-import styled from 'styled-components';
+import styled, { css } from "styled-components";
+
+interface LineProps {
+  name?: string;
+}
 
 export const Line = styled.div`
   width: 420px;
@@ -36,7 +40,14 @@ export const Line = styled.div`
   }
 `;
 
-export const contour = styled.div`
-  border-top: 1px solid #DFDFDF;
+export const contour = styled.div<LineProps>`
+  border-top: 1px solid #dfdfdf;
   margin: 13px 0px;
+  ${(props) =>
+    props.name === "findColonyTop" &&
+    css`
+      background-color: #121212;
+      color: black;
+      width: 80%;
+    `}
 `;

@@ -272,6 +272,7 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
         />
         <ButtonList items={statusCategory}/>
       </S.CategorySection>
+      <ContourLine name="findColonyTop"/>
       <S.ColonyMainSection>
         <SColonySection.FindColonyCard color="findColonyPage">
           {colonyData.map((data, index) => (

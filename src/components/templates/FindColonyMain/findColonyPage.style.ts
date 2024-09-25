@@ -4,7 +4,6 @@ export const FindColonyPage = styled.section`
   display: flex;
   width: 100vw;
   height: auto;
-  padding: 100px 20px;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -13,8 +12,12 @@ export const FindColonyPage = styled.section`
 export const CategorySection = styled.div`
   display: flex;
   width: 80%;
-  height: auto;
+  height: 170px;
   align-items: center;
+  background-color: white;
+  position: sticky;
+  top: 0px;
+  z-index: 2;
 `;
 
 export const ColonyMainSection = styled.section`

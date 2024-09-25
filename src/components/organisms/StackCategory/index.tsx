@@ -90,6 +90,7 @@ export const StackCategory = ({
           toggleDropdown={subDropdownStack}
           handleOptionChange={handleOptionsStack}
           selectedOptions={selectedOptionsStack}
+          onClose={onClose}
         />
       </S.subStack>
     </S.category>
