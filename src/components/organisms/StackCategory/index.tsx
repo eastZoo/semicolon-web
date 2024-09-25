@@ -2,7 +2,6 @@ import {
   CheckboxDropdown,
   DropdownCategory,
   ShapeDropdown,
-  StatusDropdown,
 } from "../../molcules/DropdownMenu";
 import * as S from "./StackCategory.style";
 
@@ -36,6 +35,7 @@ export const StackCategory = ({
   handleSliderChange,
   rangeValue,
   getCareer,
+  handleTagRemove,
 }: any) => {
   return (
     <S.category>
@@ -68,6 +68,7 @@ export const StackCategory = ({
           selectAreas={selectAreas}
           selectedOptions={selectedOptionsArea}
           onClose={onClose}
+          handleTagRemove={handleTagRemove}
         />
 
         <ShapeDropdown

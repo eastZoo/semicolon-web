@@ -97,6 +97,7 @@ interface categoryProps {
   handleSliderChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   rangeValue?: any;
   getCareer?: (value: number) => string;
+  handleTagRemove?: (area: string) => void;
 }
 
 export const DropdownCategory: React.FC<categoryProps> = ({
@@ -217,7 +218,7 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
   handleBackground,
   handleCheckboxChange,
   selectAreas,
-  selectCity,
+  handleTagRemove,
 }) => {
   return (
     <S.DropdownMenu>
@@ -310,7 +311,7 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
                     >
                       {area}
                       <span>
-                        <img src="/assets/svg/exist.svg" width="15px" />
+                        <img src="/assets/svg/exist.svg" width="13px" onClick={() => handleTagRemove(area)} />
                       </span>
                     </Button>
                   </S.BadgesList>
@@ -387,75 +388,6 @@ export const ShapeDropdown: React.FC<categoryProps> = ({
             />
             <p>{rangeValue}</p>
           </S.SliderSection>
-          <S.DropdownBottom>
-            <Button
-              type="button"
-              label="초기화"
-              color="resetButton"
-              width="30%"
-            />
-            <Button
-              type="submit"
-              label="적용"
-              color="submitButton"
-              width="70%"
-            />
-          </S.DropdownBottom>
-        </S.Dropdown>
-      )}
-    </S.DropdownMenu>
-  );
-};
-
-export const StatusDropdown: React.FC<categoryProps> = ({
-  items,
-  areaCategory,
-  isOpen,
-  toggleDropdown,
-  selectedOptions,
-  onClose,
-  handleBackground,
-  handleCheckboxChange,
-  selectAreas,
-}) => {
-  return (
-    <S.DropdownMenu>
-      <S.DropdownButton>
-        <p>{items}</p>
-        <Button type="button" color="baseDropdown" onClick={toggleDropdown}>
-          <span>
-            {isOpen
-              ? `${selectedOptions?.join(" ")} ▲`
-              : `${selectedOptions?.join(" ")} ▼`}
-          </span>
-        </Button>
-      </S.DropdownButton>
-
-      {isOpen && (
-        <S.Dropdown width="250px" onClick={handleBackground}>
-          <S.DropdownTop>
-            <p>{items}</p>
-            <IconButton
-              src="/assets/svg/exist.svg"
-              type="button"
-              onClick={onClose}
-            ></IconButton>
-          </S.DropdownTop>
-          <S.DropdownMiddle>
-            <S.DropdownList>
-              {areaCategory?.map((area, idx) => (
-                <input
-                  type="checkbox"
-                  value={area.menu}
-                  onChange={() =>
-                    handleCheckboxChange && handleCheckboxChange(area.menu)
-                  }
-                  checked={selectAreas?.includes(area.menu)}
-                />
-              ))}
-            </S.DropdownList>
-          </S.DropdownMiddle>
-
           <S.DropdownBottom>
             <Button
               type="button"

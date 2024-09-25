@@ -133,7 +133,7 @@ export const DropdownCategory = styled.div<DropdownProps>`
 
 export const DropdownButton = styled.div`
   display: flex;
-  border: 1px solid ${(props) => props.theme.colors.gray};
+  border: 1px solid #f2f2f2;
   border-radius: 10px;
   width: 100px;
   height: 35px;
@@ -154,18 +154,20 @@ export const DropdownButton = styled.div`
 export const BadgesButtonGroup = styled.div`
   position: relative;
   margin-bottom: 10px;
-  overflow: hidden;
+  height: auto;
 `;
 
 export const BadgesButton = styled.ul`
   display: flex;
-  align-itmes: center;
+  align-items: center;
   overflow-x: auto;
-  gap: 10px;
+  flex-wrap: wrap;
+  white-space: nowrap;
+  gap: 5px;
 `;
 
 export const BadgesList = styled.li`
-  white-space: nowrap;
-  white-space-collapse: collapse;
-  text-wrap: nowrap;
+  span{
+    margin-left: 5px;
+  }
 `;

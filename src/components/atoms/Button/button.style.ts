@@ -159,8 +159,8 @@ export const Button = styled.button<ButtonProps>`
           padding: 7px;
           margin-right: 3px;
           margin-left: 3px;
-          font-size: 12px;
-          font-weight: 300;
+          font-size: 13px;
+          font-weight: 400;
           background-color: #a9f5a9;
         `}
         ${(props) =>

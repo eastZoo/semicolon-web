@@ -142,7 +142,6 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
     setIsOpenSubArea(false);
     setIsOpenSubCareer(false);
     setIsOpenSubStack(false);
-    setIsOpenSubStatus(false);
   };
 
   const [isOpenSubArea, setIsOpenSubArea] = useState(false);
@@ -158,17 +157,12 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
     []
   );
 
-  const [isOpenSubStatus, setIsOpenSubStatus] = useState(false);
-  const [selectedOptionsStatus, setSelectedOptionsStatus] = useState<string[]>(
-    []
-  );
 
   const toggleDropdownMajor = () => {
     setIsOpenMajor(!isOpenMajor);
     setIsOpenSubArea(false);
     setIsOpenSubCareer(false);
     setIsOpenSubStack(false);
-    setIsOpenSubStatus(false);
   };
 
   const subDropdownArea = () => {
@@ -176,7 +170,6 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
     setIsOpenSubArea(!isOpenSubArea);
     setIsOpenSubCareer(false);
     setIsOpenSubStack(false);
-    setIsOpenSubStatus(false);
   };
 
   const handleOptionsMajor = (option: string) => {
@@ -211,12 +204,15 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
   //   }
   // };
 
+  const handleTagRemove = (item: string) => {
+    setSelectedAreas(selectAreas.filter((i) => i != item));
+  }
+
   const subDropdownCareer = () => {
     setIsOpenMajor(false);
     setIsOpenSubCareer(!isOpenSubCareer);
     setIsOpenSubArea(false);
     setIsOpenSubStack(false);
-    setIsOpenSubStatus(false);
   };
 
   const subDropdownStack = () => {
@@ -224,7 +220,6 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
     setIsOpenSubStack(!isOpenSubStack);
     setIsOpenSubCareer(false);
     setIsOpenSubArea(false);
-    setIsOpenSubStatus(false);
   };
 
   const handleOptionsStack = (option: string) => {
@@ -234,24 +229,6 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
       );
     } else {
       setSelectedOptionsStack([...selectedOptionsStack, option]);
-    }
-  };
-
-  const subDropdownStatus = () => {
-    setIsOpenMajor(false);
-    setIsOpenSubStatus(!isOpenSubStatus);
-    setIsOpenSubCareer(false);
-    setIsOpenSubStack(false);
-    setIsOpenSubArea(false);
-  };
-
-  const handleOptionsStatus = (option: string) => {
-    if (selectedOptionsStatus.includes(option)) {
-      setSelectedOptionsStatus(
-        selectedOptionsStatus.filter((item) => item !== option)
-      );
-    } else {
-      setSelectedOptionsStatus([...selectedOptionsStatus, option]);
     }
   };
 
@@ -276,6 +253,7 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
           selectedOptionsArea={selectedOptionsArea}
           isOpenSubArea={isOpenSubArea}
           subDropdownArea={subDropdownArea}
+          handleTagRemove={handleTagRemove}
 
           // Career
           selectedOptionsCareer={selectedOptionsCareer}
