@@ -14,6 +14,7 @@ export const CategorySection = styled.div`
   width: 80%;
   height: 170px;
   align-items: center;
+  justify-content: center;
   background-color: white;
   position: sticky;
   top: 0px;

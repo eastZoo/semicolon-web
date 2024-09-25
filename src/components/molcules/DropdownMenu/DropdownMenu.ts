@@ -10,7 +10,7 @@ interface DropdownItemProps {
 export const DropdownMenu = styled.div`
   position: relative;
   display: inline-block;
-  width: 150px;
+  width: auto;
   height: auto;
 `;
 
@@ -167,7 +167,7 @@ export const BadgesButton = styled.ul`
 `;
 
 export const BadgesList = styled.li`
-  span{
+  span {
     margin-left: 5px;
   }
 `;
