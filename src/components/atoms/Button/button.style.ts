@@ -163,6 +163,24 @@ export const Button = styled.button<ButtonProps>`
           font-weight: 300;
           background-color: #a9f5a9;
         `}
+        ${(props) =>
+          props.color === "btnList" &&
+          css`
+            width: auto;
+            color: black;
+            border-radius: 5px;
+            padding: 7px;
+            margin-right: 3px;
+            margin-left: 3px;
+            font-size: 12px;
+            font-weight: 350;
+            background-color: #f7f7f8;
+            &:hover {
+              background-color: ${(props) => props.theme.colors.white};
+              color: ${(props) => props.theme.colors.dark};
+              font-weight: 500;
+            }
+          `}
       
       
   }
@@ -181,10 +199,4 @@ export const IconButton = styled.button`
     css`
       width: 200px;
     `}
-<<<<<<< Updated upstream
-  img {
-    margin-left: 10px;
-  }
-=======
->>>>>>> Stashed changes
 `;

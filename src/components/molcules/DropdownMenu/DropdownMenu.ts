@@ -10,7 +10,7 @@ interface DropdownItemProps {
 export const DropdownMenu = styled.div`
   position: relative;
   display: inline-block;
-  width: 100%;
+  width: 20%;
   height: auto;
 `;
 
@@ -55,14 +55,14 @@ export const SliderSection = styled.div`
     margin: auto;
   }
   #slider::-webkit-slider-thumb {
-    -webkit-appearance: none; 
+    -webkit-appearance: none;
     width: 20px;
-    height: 20px; 
-    border-radius: 50%; 
-    background: #04b404; 
-    cursor: pointer; 
+    height: 20px;
+    border-radius: 50%;
+    background: #04b404;
+    cursor: pointer;
   }
-  p{
+  p {
     margin-bottom: 20px;
   }
 `;

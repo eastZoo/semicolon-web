@@ -13,20 +13,15 @@ export const StackCategory = ({
   isOpenSubArea,
   isOpenSubCareer,
   isOpenSubStack,
-  isOpenSubStatus,
   subDropdownArea,
   subDropdownCareer,
   subDropdownStack,
-  subDropdownStatus,
   handleOptionsMajor,
-  handleOptionsArea,
   handleOptionsCareer,
   handleOptionsStack,
-  handleOptionsStatus,
   selectedOptionsArea,
   selectedOptionsCareer,
   selectedOptionsStack,
-  selectedOptionsStatus,
   category,
   onSelect,
   subCategory,
@@ -94,13 +89,6 @@ export const StackCategory = ({
           toggleDropdown={subDropdownStack}
           handleOptionChange={handleOptionsStack}
           selectedOptions={selectedOptionsStack}
-        />
-        <StatusDropdown
-          items="모집"
-          isOpen={isOpenSubStatus}
-          toggleDropdown={subDropdownStatus}
-          handleOptionChange={handleOptionsStatus}
-          selectedOptions={selectedOptionsStatus}
         />
       </S.subStack>
     </S.category>

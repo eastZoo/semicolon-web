@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const category = styled.div`
   width: 100%;
+  margin-bottom: 50px;
 `;
 
 export const mainStack = styled.section`

@@ -19,10 +19,6 @@ export const CategorySection = styled.div`
 
 export const ColonyMainSection = styled.section`
   width: 80%;
-<<<<<<< Updated upstream
-  align-items: center;
-  justify-content: center;
-=======
   display: flex;
 `;
 
@@ -46,5 +42,4 @@ export const hiddenButtonGroup = styled.div`
   img{
     width: 40px;
   }
->>>>>>> Stashed changes
 `;

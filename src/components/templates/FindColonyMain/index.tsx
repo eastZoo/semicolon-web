@@ -13,8 +13,12 @@ import { ColonyCard } from "@/components/molcules/Card";
 import AdSection from "@/components/organisms/AdSection";
 import * as React from "react";
 import { IconButton } from "@/components/atoms/Button";
+import { ButtonList } from "@/components/molcules/ButtonList";
+import { ContourLine, Line } from "@/components/atoms/Line";
 
 export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
+
+  const statusCategory = ["전체", "모집중", "모집마감"];
   const [rangeValue, setRangevalue] = useState<number>(0);
 
   const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -287,12 +291,8 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
           isOpenSubStack={isOpenSubStack}
           subDropdownStack={subDropdownStack}
           
-          // Status
-          handleOptionsStatus={handleOptionsStatus}
-          selectedOptionsStatus={selectedOptionsStatus}
-          isOpenSubStatus={isOpenSubStatus}
-          subDropdownStatus={subDropdownStatus}
         />
+        <ButtonList items={statusCategory}/>
       </S.CategorySection>
       <S.ColonyMainSection>
         <SColonySection.FindColonyCard color="findColonyPage">
