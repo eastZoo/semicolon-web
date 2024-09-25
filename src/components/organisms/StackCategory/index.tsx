@@ -84,6 +84,7 @@ export const StackCategory = ({
           handleSliderChange={handleSliderChange}
           rangeValue={rangeValue}
           getCareer={getCareer}
+          onClose={onClose}
         />
 
         <CheckboxDropdown

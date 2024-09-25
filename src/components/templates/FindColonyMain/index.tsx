@@ -132,19 +132,13 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
     []
   );
 
+  // 드롭다운 닫기 버튼
   const handleClose = () => {
     setIsOpenMajor(false);
-  };
-
-  const dropdownRef = useRef<HTMLDivElement>(null);
-
-  const handleBackground = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (
-      dropdownRef.current &&
-      !dropdownRef.current.contains(e.target as Node)
-    ) {
-      setIsOpenMajor(false);
-    }
+    setIsOpenSubArea(false);
+    setIsOpenSubCareer(false);
+    setIsOpenSubStack(false);
+    setIsOpenSubStatus(false);
   };
 
   const [isOpenSubArea, setIsOpenSubArea] = useState(false);
@@ -221,16 +215,6 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
     setIsOpenSubStatus(false);
   };
 
-  const handleOptionsCareer = (option: string) => {
-    if (selectedOptionsCareer.includes(option)) {
-      setSelectedOptionsCareer(
-        selectedOptionsCareer.filter((item) => item !== option)
-      );
-    } else {
-      setSelectedOptionsCareer([...selectedOptionsCareer, option]);
-    }
-  };
-
   const subDropdownStack = () => {
     setIsOpenMajor(false);
     setIsOpenSubStack(!isOpenSubStack);
@@ -288,19 +272,21 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
           selectedOptionsArea={selectedOptionsArea}
           isOpenSubArea={isOpenSubArea}
           subDropdownArea={subDropdownArea}
+
           // Career
-          handleOptionsCareer={handleOptionsCareer}
           selectedOptionsCareer={selectedOptionsCareer}
           isOpenSubCareer={isOpenSubCareer}
           subDropdownCareer={subDropdownCareer}
           onChangeValue={handleSliderChange}
           rangeValue={rangeValue}
           getCareer={getCareer}
+
           // Stack
           handleOptionsStack={handleOptionsStack}
           selectedOptionsStack={selectedOptionsStack}
           isOpenSubStack={isOpenSubStack}
           subDropdownStack={subDropdownStack}
+          
           // Status
           handleOptionsStatus={handleOptionsStatus}
           selectedOptionsStatus={selectedOptionsStatus}
