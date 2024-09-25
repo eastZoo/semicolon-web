@@ -224,9 +224,11 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
       <S.DropdownButton>
         <p>{items}</p>
         <Button type="button" color="baseDropdown" onClick={toggleDropdown}>
-          {isOpen
-            ? `${selectedOptions?.join(" ")} ▲`
-            : `${selectedOptions?.join(" ")} ▼`}
+          <span>
+            {isOpen
+              ? `${selectedOptions?.join(" ")} ▲`
+              : `${selectedOptions?.join(" ")} ▼`}
+          </span>
         </Button>
       </S.DropdownButton>
 
@@ -346,7 +348,7 @@ export const ShapeDropdown: React.FC<categoryProps> = ({
   toggleDropdown,
   onClose,
   handleSliderChange,
-  rangeValue=0,
+  rangeValue = 0,
   getCareer,
 }) => {
   return (
@@ -354,9 +356,11 @@ export const ShapeDropdown: React.FC<categoryProps> = ({
       <S.DropdownButton>
         <p>{items}</p>
         <Button type="button" color="baseDropdown" onClick={toggleDropdown}>
-          {isOpen
-            ? `${selectedOptions?.join(" ")} ▲`
-            : `${selectedOptions?.join(" ")} ▼`}
+          <span>
+            {isOpen
+              ? `${selectedOptions?.join(" ")} ▲`
+              : `${selectedOptions?.join(" ")} ▼`}
+          </span>
         </Button>
       </S.DropdownButton>
 
@@ -419,9 +423,11 @@ export const StatusDropdown: React.FC<categoryProps> = ({
       <S.DropdownButton>
         <p>{items}</p>
         <Button type="button" color="baseDropdown" onClick={toggleDropdown}>
-          {isOpen
-            ? `${selectedOptions?.join(" ")} ▲`
-            : `${selectedOptions?.join(" ")} ▼`}
+          <span>
+            {isOpen
+              ? `${selectedOptions?.join(" ")} ▲`
+              : `${selectedOptions?.join(" ")} ▼`}
+          </span>
         </Button>
       </S.DropdownButton>
 
@@ -435,7 +441,7 @@ export const StatusDropdown: React.FC<categoryProps> = ({
               onClick={onClose}
             ></IconButton>
           </S.DropdownTop>
-          <S.DropdownMiddle >
+          <S.DropdownMiddle>
             <S.DropdownList>
               {areaCategory?.map((area, idx) => (
                 <input

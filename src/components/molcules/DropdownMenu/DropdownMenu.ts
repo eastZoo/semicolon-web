@@ -10,7 +10,7 @@ interface DropdownItemProps {
 export const DropdownMenu = styled.div`
   position: relative;
   display: inline-block;
-  width: 20%;
+  width: 150px;
   height: auto;
 `;
 
@@ -134,9 +134,9 @@ export const DropdownCategory = styled.div<DropdownProps>`
 export const DropdownButton = styled.div`
   display: flex;
   border: 1px solid ${(props) => props.theme.colors.gray};
-  border-radius: 5px;
-  width: auto;
-  height: 40px;
+  border-radius: 10px;
+  width: 100px;
+  height: 35px;
   margin: 10px;
   font-weight: 300;
   justify-content: space-between;
@@ -144,6 +144,7 @@ export const DropdownButton = styled.div`
   padding: 10px;
   span {
     margin-left: 5px;
+    font-size: 12px;
   }
   p {
     margin-right: 10px;

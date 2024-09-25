@@ -29,7 +29,7 @@ export const ColonyMoreButton = styled.div`
   right: 10px;
   bottom: 30px;
   margin-left: 10px;
-  img{
+  img {
     width: 50px;
   }
 `;
@@ -39,7 +39,7 @@ export const hiddenButtonGroup = styled.div`
   display: flex;
   margin-bottom: 10px;
   justify-content: space-between;
-  img{
+  img {
     width: 40px;
   }
 `;
