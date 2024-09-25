@@ -299,7 +299,7 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
           </S.DropdownMiddle>
           <Style.ContourLine />
           <S.BadgesButtonGroup>
-            {selectAreas?.length > 0 ? (
+            {selectAreas && selectAreas?.length > 0 ? (
               <S.BadgesButton>
                 {selectAreas?.map((area, index) => (
                   <S.BadgesList>
@@ -311,7 +311,11 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
                     >
                       {area}
                       <span>
-                        <img src="/assets/svg/exist.svg" width="13px" onClick={() => handleTagRemove(area)} />
+                        <img
+                          src="/assets/svg/exist.svg"
+                          width="13px"
+                          onClick={() => handleTagRemove?.(area)}
+                        />
                       </span>
                     </Button>
                   </S.BadgesList>
@@ -376,7 +380,7 @@ export const ShapeDropdown: React.FC<categoryProps> = ({
             ></IconButton>
           </S.DropdownTop>
           <S.SliderSection>
-            <p>{getCareer(rangeValue)}</p>
+            <p>{getCareer?.(rangeValue)}</p>
             <input
               type="range"
               onChange={handleSliderChange}
