@@ -6,6 +6,9 @@ import { serverChatInfo, serverProfile } from "@/data/chat-dummey";
 import { ServerHeader } from "@/components/molcules/Chat/ChatNavHeader";
 import { ScrollArea } from "@/components/atoms/ScrollArea";
 import { ServerSearch } from "@/components/atoms/ChatSearch";
+import { ChatChannelSection } from "@/components/molcules/Chat/ChatChannelSection";
+import { ChatChannelList } from "@/components/molcules/Chat/ChatChannelList";
+import { ChatMember } from "@/components/molcules/Chat/ChatMember";
 
 interface ServerSidebarProps {
   serverId: string;
@@ -108,17 +111,17 @@ export const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
           />
         </div>
         <Separator className="bg-zinc-200 dark:bg-zinc-700 rounded-md my-2" />
-        {/* {!!textChannels?.length && (
+        {!!textChannels?.length && (
           <div className="mb-2">
-            <ServerSection
+            <ChatChannelSection
               sectionType="channels"
-              channelType={ChannelType.TEXT}
+              channelType={"TEXT"}
               role={role}
               label="Text Channels"
             />
             <div className="space-y-[2px]">
               {textChannels.map((channel) => (
-                <ServerChannel
+                <ChatChannelList
                   key={channel.id}
                   channel={channel}
                   role={role}
@@ -128,7 +131,7 @@ export const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
             </div>
           </div>
         )}
-        {!!audioChannels?.length && (
+        {/* {!!audioChannels?.length && (
           <div className="mb-2">
             <ServerSection
               sectionType="channels"
@@ -167,10 +170,10 @@ export const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
               ))}
             </div>
           </div>
-        )}
+        )} */}
         {!!members?.length && (
           <div className="mb-2">
-            <ServerSection
+            <ChatChannelSection
               sectionType="members"
               role={role}
               label="Members"
@@ -178,11 +181,11 @@ export const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
             />
             <div className="space-y-[2px]">
               {members.map((member) => (
-                <ServerMember key={member.id} member={member} server={server} />
+                <ChatMember key={member.id} member={member} server={server} />
               ))}
             </div>
           </div>
-        )} */}
+        )}
       </ScrollArea>
     </div>
   );

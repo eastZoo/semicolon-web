@@ -21,9 +21,10 @@ export const BannerSection = styled.section`
 
 export const BannerCard = styled.div`
   display: flex;
-  width: 70%;
+  width: 80%;
   height: 100%;
   align-items: center;
+
 
   .swiper {
     width: 100%;

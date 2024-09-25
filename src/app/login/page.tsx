@@ -1,5 +1,5 @@
 "use client";
-import { LoginPage } from "@/components/templates/LoginPage";
+import { LoginPage } from "@/templates/LoginPage";
 
 const Login = () => {
   return (

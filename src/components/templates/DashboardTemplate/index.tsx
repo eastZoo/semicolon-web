@@ -1,6 +1,6 @@
 import { useState } from "react";
 import * as S from "./dashboard.styles";
-import MainHeader from "@/components/molcules/MainHeader";
+import MainHeader from "@/components/molcules/DashHeader";
 import Aside from "@/components/molcules/Aside";
 import { ToastContainer } from "react-toastify";
 import Content from "@/components/molcules/Content";
