@@ -171,3 +171,41 @@ export const BadgesList = styled.li`
     margin-left: 5px;
   }
 `;
+
+export const searchSection = styled.div`
+  width: auto;
+  height: 350px;
+`;
+
+export const searchBar = styled.div`
+  width: auto;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  position: relative;
+  input {
+    width: 450px;
+    height: 40px;
+    background-color: #f7f7f8;
+    border-radius: 10px;
+    padding: 1px 2px 1px 50px;
+    outline: none;
+  }
+  img {
+    position: absolute;
+    width: 17px;
+    left: 30px;
+  }
+`;
+
+export const stackBtnGroup = styled.div`
+  height: auto;
+`;
+
+export const stackList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  white-space: nowrap;
+  gap: 10px;
+  margin: 10px 10px 20px 20px;
+`;

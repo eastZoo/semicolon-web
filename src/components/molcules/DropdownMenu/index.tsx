@@ -6,6 +6,7 @@ import { Button, IconButton } from "../../atoms/Button";
 import * as S from "./DropdownMenu";
 import * as Style from "../../atoms/Line";
 import { Label } from "@radix-ui/react-dropdown-menu";
+import { InputSearchBar } from "@/components/atoms/Input/InputText";
 interface dashDropdownProps {
   items?: any[];
   toggleDropdown?: () => void;
@@ -98,6 +99,9 @@ interface categoryProps {
   rangeValue?: any;
   getCareer?: (value: number) => string;
   handleTagRemove?: (area: string) => void;
+  stackData?: { stack: string }[];
+  selectStack?: string[];
+  handleStackChange?: (stack: string) => void;
 }
 
 export const DropdownCategory: React.FC<categoryProps> = ({
@@ -392,6 +396,119 @@ export const ShapeDropdown: React.FC<categoryProps> = ({
             />
             <p>{rangeValue}</p>
           </S.SliderSection>
+          <S.DropdownBottom>
+            <Button
+              type="button"
+              label="초기화"
+              color="resetButton"
+              width="30%"
+            />
+            <Button
+              type="submit"
+              label="적용"
+              color="submitButton"
+              width="70%"
+            />
+          </S.DropdownBottom>
+        </S.Dropdown>
+      )}
+    </S.DropdownMenu>
+  );
+};
+
+export const SearchDropdown: React.FC<categoryProps> = ({
+  items,
+  city,
+  areaCategory,
+  handleOptionChange,
+  isOpen,
+  toggleDropdown,
+  selectedOptions,
+  onClose,
+  onChange,
+  handleBackground,
+  handleCheckboxChange,
+  selectAreas,
+  handleTagRemove,
+  stackData,
+  handleStackChange,
+  selectStack,
+}) => {
+  return (
+    <S.DropdownMenu>
+      <S.DropdownButton>
+        <p>{items}</p>
+        <Button type="button" color="baseDropdown" onClick={toggleDropdown}>
+          <span>
+            {isOpen
+              ? `${selectedOptions?.join(" ")} ▲`
+              : `${selectedOptions?.join(" ")} ▼`}
+          </span>
+        </Button>
+      </S.DropdownButton>
+
+      {isOpen && (
+        <S.Dropdown width="500px" onClick={handleBackground}>
+          <S.DropdownTop>
+            <p>{items}</p>
+            <IconButton
+              src="/assets/svg/exist.svg"
+              type="button"
+              onClick={onClose}
+            ></IconButton>
+          </S.DropdownTop>
+          <S.searchSection>
+            <S.searchBar>
+              <img src="/assets/svg/search.svg" />
+              <input
+                type="search"
+                placeholder="보유 기술스택을 검색해주세요."
+              />
+            </S.searchBar>
+            <S.stackList>
+              {stackData?.map((stack, index) => (
+                <Button
+                  type="button"
+                  color="stackButton"
+                  width="auto"
+                  key={stack.stack}
+                  onClick={() =>
+                    handleStackChange && handleStackChange(stack.stack)
+                  }
+                >
+                  {stack.stack}
+                </Button>
+              ))}
+            </S.stackList>
+          </S.searchSection>
+          <Style.ContourLine />
+          <S.BadgesButtonGroup>
+            {selectStack && selectStack?.length > 0 ? (
+              <S.BadgesButton>
+                {selectStack?.map((stack, index) => (
+                  <S.BadgesList>
+                    <Button
+                      type="button"
+                      color="badgesButton"
+                      width="auto"
+                      key={index}
+                    >
+                      {stack}
+                      <span>
+                        <img
+                          src="/assets/svg/exist.svg"
+                          width="13px"
+                          onClick={() => handleTagRemove?.(stack)}
+                        />
+                      </span>
+                    </Button>
+                  </S.BadgesList>
+                ))}
+              </S.BadgesButton>
+            ) : (
+              <p></p>
+            )}
+          </S.BadgesButtonGroup>
           <S.DropdownBottom>
             <Button
               type="button"

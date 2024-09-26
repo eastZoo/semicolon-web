@@ -181,6 +181,23 @@ export const Button = styled.button<ButtonProps>`
               font-weight: 500;
             }
           `}
+          ${(props) =>
+            props.color === "stackButton" &&
+            css`
+              width: auto;
+              font-size: 14px;
+              color: black;
+              font-weight: 300;
+              border: 1px solid ${(props) => props.theme.colors.light};
+              border-radius: 5px;
+              padding: 12px;
+              background-color: ${(props) => props.theme.colors.white};
+              &:hover {
+                background-color: #f2f2f2;
+                color: ${(props) => props.theme.colors.dark};
+                font-weight: 400;
+              }
+            `}
       
       
   }

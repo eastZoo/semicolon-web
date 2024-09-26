@@ -740,36 +740,6 @@ export const myDashboard = {
   ],
 };
 
-export const stackCategory = {
-  data: [
-    {
-      category_items: "팀 넘버버버버원1",
-      decr: "팀 설명입니다.",
-      src: "/assets/svg/default_profile.svg",
-    },
-    {
-      group: "팀 넘버버버버원2",
-      decr: "팀 설명입니다.",
-      src: "/assets/svg/default_profile.svg",
-    },
-    {
-      group: "팀 넘버버버버원3",
-      decr: "팀 설명입니다.",
-      src: "/assets/svg/paintkit.svg",
-    },
-    {
-      group: "팀 넘버버버버원4",
-      decr: "팀 설명입니다.",
-      src: "/assets/svg/default_profile.svg",
-    },
-    {
-      group: "팀 넘버버버버원5",
-      decr: "팀 설명입니다.",
-      src: "/assets/svg/paintkit.svg",
-    },
-  ],
-};
-
 export const mainCategory = {
   data: [
     {
@@ -876,6 +846,92 @@ export const cityCategory = {
     },
   ],
 };
+
+export const stackCategory = {
+  data: [
+    {
+      stack_id: 0,
+      stack: "Python",
+    },
+    {
+      stack_id: 1,
+      stack: "Spring Framwork",
+    },
+    {
+      stack_id: 2,
+      stack: "AWS",
+    },
+    {
+      stack_id: 3,
+      stack: "Git",
+    },
+    {
+      stack_id: 4,
+      stack: "iOS",
+    },
+    {
+      stack_id: 5,
+      stack: "HTML",
+    },
+    {
+      stack_id: 6,
+      stack: "JavaScript",
+    },
+    {
+      stack_id: 7,
+      stack: "MySQL",
+    },
+    {
+      stack_id: 8,
+      stack: "SQL",
+    },
+    {
+      stack_id: 9,
+      stack: "Linux",
+    },
+    {
+      stack_id: 10,
+      stack: "Android",
+    },
+    {
+      stack_id: 11,
+      stack: "Kotlin",
+    },
+    {
+      stack_id: 12,
+      stack: "Swift",
+    },
+    {
+      stack_id: 13,
+      stack: "C/C++",
+    },
+    {
+      stack_id: 14,
+      stack: "PHP",
+    },
+    {
+      stack_id: 15,
+      stack: "Docker",
+    },
+    {
+      stack_id: 16,
+      stack: "React",
+    },
+    {
+      stack_id: 17,
+      stack: "Github",
+    },
+    {
+      stack_id: 18,
+      stack: "JPA",
+    },
+    {
+      stack_id: 19,
+      stack: "C++",
+    },
+  ],
+};
+
 
 export const statusCategory = {
   data: [

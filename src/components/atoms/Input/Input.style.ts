@@ -86,6 +86,6 @@ export const InputSearchBar = styled.form`
     width: 20px;
     height: 20px;
     margin-left: 170px;
-    margin-top: 4px;;
+    margin-top: 4px;
   }
 `;

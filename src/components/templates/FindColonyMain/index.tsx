@@ -6,6 +6,7 @@ import {
   ColonyData,
   mainCategory,
   cityCategory,
+  stackCategory,
   statusCategory,
 } from "../../../data/dummey";
 import * as SColonySection from "../../organisms/FindColonySection/FindColonySection.style";
@@ -20,6 +21,7 @@ import { ContourLine, Line } from "@/components/atoms/Line";
 export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
 
   const status = statusCategory.data;
+  const stack = stackCategory.data;
   const [rangeValue, setRangevalue] = useState<number>(0);
 
   const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,6 +51,18 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
   };
 
   const dashdata = myDashboard.data;
+
+  // 스택 드롭다운
+  const [selectStack, setSelectedStack] = useState<string[]>([]);
+  const MAX_SELECT = 5;
+
+  const handleStackChange = (stackName: string) => {
+    if (selectStack.includes(stackName)) {
+      setSelectedOptionsStack(selectStack.filter((s) => s !== stackName));
+    } else if (selectStack.length <= MAX_SELECT) {
+      setSelectedStack([...selectStack, stackName]);
+    }
+  }
 
   const [selectCity, setSelectedCity] = useState<string | null>(null);
   const [areaCategory, setAreaCategory] = useState<
@@ -81,7 +95,6 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
     setSelectedCategory(categoryName);
     const category = mainCategory.data.find((cat) => cat.name === categoryName);
     setSubCategories(category ? category.sub : []);
-    console.log(category?.sub);
   };
 
   // infinity scroll
@@ -152,7 +165,6 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
   const [selectedOptionsCareer, setSelectedOptionsCareer] = useState<string[]>(
     []
   );
-
   const [isOpenSubStack, setIsOpenSubStack] = useState(false);
   const [selectedOptionsStack, setSelectedOptionsStack] = useState<string[]>(
     []
@@ -244,6 +256,7 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
           subCategory={subCategories}
           toggleDropdownMajor={toggleDropdownMajor}
           onClose={handleClose}
+
           // Area
           city={cityCategory.data.map((cat) => ({ city: cat.city }))}
           areaCategory={areaCategory}
@@ -265,10 +278,12 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
           getCareer={getCareer}
 
           // Stack
-          handleOptionsStack={handleOptionsStack}
-          selectedOptionsStack={selectedOptionsStack}
+          stackData={stack}
+          selectStack={selectStack}
+          handleStackChange={handleStackChange}
           isOpenSubStack={isOpenSubStack}
           subDropdownStack={subDropdownStack}
+
           
         />
         <ButtonList items={status}/>
