@@ -6,6 +6,7 @@ import {
   ColonyData,
   mainCategory,
   cityCategory,
+  statusCategory,
 } from "../../../data/dummey";
 import * as SColonySection from "../../organisms/FindColonySection/FindColonySection.style";
 import { useState, useRef, useEffect, useCallback } from "react";
@@ -18,7 +19,7 @@ import { ContourLine, Line } from "@/components/atoms/Line";
 
 export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
 
-  const statusCategory = ["전체", "모집중", "모집마감"];
+  const status = statusCategory.data;
   const [rangeValue, setRangevalue] = useState<number>(0);
 
   const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -270,7 +271,7 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
           subDropdownStack={subDropdownStack}
           
         />
-        <ButtonList items={statusCategory}/>
+        <ButtonList items={status}/>
       </S.CategorySection>
       <ContourLine name="findColonyTop"/>
       <S.ColonyMainSection>

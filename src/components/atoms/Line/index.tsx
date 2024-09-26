@@ -16,5 +16,5 @@ export const Line = ({ label }: LineProps) => {
 };
 
 export const ContourLine = ({ name }: LineProps) => {
-  return <S.contour name={name} />;
+  return <S.contour name={name}/>;
 };

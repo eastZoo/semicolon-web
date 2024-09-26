@@ -4,7 +4,7 @@ import { Button } from "@/components/atoms/Button";
 import * as S from "./buttonList.styles";
 
 export type ButtonListProps = {
-  items?: string[];
+  items?: any[];
   onItemClick?: (item: string) => void;
 };
 
@@ -12,15 +12,14 @@ export const ButtonList = ({ items, onItemClick }: ButtonListProps) => {
   return (
     <S.btnList>
       <ul>
-        {items?.map((item, index) => (
-          <li>
+        {items?.map((item) => (
+          <li key={item.status_id}>
             <Button
-              label={item}
+              label={item.status}
               color="btnList"
               width="80px"
               type="button"
-              key={index}
-              onClick={() => onItemClick?.(item)}
+              onClick={() => onItemClick?.(item.status)}
             />
           </li>
         ))}
