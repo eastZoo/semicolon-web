@@ -418,17 +418,11 @@ export const ShapeDropdown: React.FC<categoryProps> = ({
 
 export const SearchDropdown: React.FC<categoryProps> = ({
   items,
-  city,
-  areaCategory,
-  handleOptionChange,
   isOpen,
   toggleDropdown,
   selectedOptions,
   onClose,
-  onChange,
   handleBackground,
-  handleCheckboxChange,
-  selectAreas,
   handleTagRemove,
   stackData,
   handleStackChange,
@@ -439,11 +433,7 @@ export const SearchDropdown: React.FC<categoryProps> = ({
       <S.DropdownButton>
         <p>{items}</p>
         <Button type="button" color="baseDropdown" onClick={toggleDropdown}>
-          <span>
-            {isOpen
-              ? `${selectedOptions?.join(" ")} ▲`
-              : `${selectedOptions?.join(" ")} ▼`}
-          </span>
+          <span>{isOpen ? `▲` : ` ▼`}</span>
         </Button>
       </S.DropdownButton>
 
@@ -467,32 +457,34 @@ export const SearchDropdown: React.FC<categoryProps> = ({
             </S.searchBar>
             <S.stackList>
               {stackData?.map((stack, index) => (
-                <Button
-                  type="button"
-                  color="stackButton"
-                  width="auto"
-                  key={stack.stack}
-                  onClick={() =>
-                    handleStackChange && handleStackChange(stack.stack)
-                  }
-                >
-                  {stack.stack}
-                </Button>
+                <S.stackBtnGroup key={index}>
+                  <Button
+                    type="button"
+                    color="stackButton"
+                    width="auto"
+                    value={stack.stack}
+                    select={selectStack?.includes(stack.stack)}
+                    disabled={
+                      selectStack?.includes(stack.stack) &&
+                      selectStack?.length >= 5
+                    }
+                    onClick={() =>
+                      handleStackChange && handleStackChange(stack.stack)
+                    }
+                  >
+                    {stack.stack}
+                  </Button>
+                </S.stackBtnGroup>
               ))}
             </S.stackList>
           </S.searchSection>
           <Style.ContourLine />
           <S.BadgesButtonGroup>
-            {selectStack && selectStack?.length > 0 ? (
+            {selectStack && selectStack.length > 0 ? (
               <S.BadgesButton>
-                {selectStack?.map((stack, index) => (
-                  <S.BadgesList>
-                    <Button
-                      type="button"
-                      color="badgesButton"
-                      width="auto"
-                      key={index}
-                    >
+                {selectStack.map((stack, index) => (
+                  <S.BadgesList key={index}>
+                    <Button type="button" color="badgesButton" width="auto">
                       {stack}
                       <span>
                         <img
@@ -506,7 +498,7 @@ export const SearchDropdown: React.FC<categoryProps> = ({
                 ))}
               </S.BadgesButton>
             ) : (
-              <p></p>
+              <p>선택된 기술 스택이 없습니다.</p>
             )}
           </S.BadgesButtonGroup>
           <S.DropdownBottom>

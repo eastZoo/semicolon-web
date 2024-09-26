@@ -197,6 +197,11 @@ export const Button = styled.button<ButtonProps>`
                 color: ${(props) => props.theme.colors.dark};
                 font-weight: 400;
               }
+              &:active {
+                background-color: #f2f2f2;
+                color: ${(props) => props.theme.colors.dark};
+                font-weight: 400;
+              }
             `}
       
       

@@ -174,7 +174,7 @@ export const BadgesList = styled.li`
 
 export const searchSection = styled.div`
   width: auto;
-  height: 350px;
+  height: 300px;
 `;
 
 export const searchBar = styled.div`

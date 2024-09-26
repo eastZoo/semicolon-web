@@ -10,6 +10,7 @@ interface ButtonProps {
   onClick?: () => void;
   disabled?: boolean;
   onChange?: () => void;
+  select?: string[];
 }
 
 export const Button: React.FC<ButtonProps> = ({

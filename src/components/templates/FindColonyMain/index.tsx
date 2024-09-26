@@ -19,7 +19,6 @@ import { ButtonList } from "@/components/molcules/ButtonList";
 import { ContourLine, Line } from "@/components/atoms/Line";
 
 export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
-
   const status = statusCategory.data;
   const stack = stackCategory.data;
   const [rangeValue, setRangevalue] = useState<number>(0);
@@ -54,15 +53,20 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
 
   // 스택 드롭다운
   const [selectStack, setSelectedStack] = useState<string[]>([]);
-  const MAX_SELECT = 5;
 
   const handleStackChange = (stackName: string) => {
-    if (selectStack.includes(stackName)) {
-      setSelectedOptionsStack(selectStack.filter((s) => s !== stackName));
-    } else if (selectStack.length <= MAX_SELECT) {
-      setSelectedStack([...selectStack, stackName]);
-    }
-  }
+    setSelectedStack((prev) => {
+      const selectedStack = prev?.includes(stackName);
+      const selection = selectedStack
+        ? prev.filter((s) => s !== stackName)
+        : [...prev, stackName];
+      if (selection.length > 5) {
+        return prev;
+      }
+      return selection;
+    });
+    console.log(selectStack);
+  };
 
   const [selectCity, setSelectedCity] = useState<string | null>(null);
   const [areaCategory, setAreaCategory] = useState<
@@ -83,6 +87,7 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
         ? prevSelectedAreas.filter((area) => area !== menu)
         : [...prevSelectedAreas, menu]
     );
+    console.log(selectAreas);
   };
 
   // main category
@@ -124,7 +129,6 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
     const newData = findColonyData.slice(offset, offset + 12);
     setColonyData((prevData) => [...prevData, ...newData]);
     setOffset(offset + 12);
-    console.log(offset);
     if (offset >= findColonyData.length) {
       setHasMore(false);
     }
@@ -170,7 +174,6 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
     []
   );
 
-
   const toggleDropdownMajor = () => {
     setIsOpenMajor(!isOpenMajor);
     setIsOpenSubArea(false);
@@ -185,23 +188,12 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
     setIsOpenSubStack(false);
   };
 
-  const handleOptionsMajor = (option: string) => {
-    if (selectedOptionsMajor.includes(option)) {
-      setSelectedOptionsMajor(
-        selectedOptionsMajor.filter((item) => item !== option)
-      );
-    } else {
-      setSelectedOptionsMajor([...selectedOptionsMajor, option]);
-    }
-  };
-
   const handleOptionsArea = (option: string) => {
     let updateOption;
     if (selectedOptionsArea.includes(option)) {
       setSelectedOptionsArea(
         selectedOptionsArea.filter((item) => item !== option)
       );
-      console.log(option);
     } else {
       setSelectedOptionsArea([...selectedOptionsArea, option]);
     }
@@ -219,7 +211,8 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
 
   const handleTagRemove = (item: string) => {
     setSelectedAreas(selectAreas.filter((i) => i != item));
-  }
+    setSelectedStack(selectStack.filter((i) => i !== item));
+  };
 
   const subDropdownCareer = () => {
     setIsOpenMajor(false);
@@ -235,16 +228,6 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
     setIsOpenSubArea(false);
   };
 
-  const handleOptionsStack = (option: string) => {
-    if (selectedOptionsStack.includes(option)) {
-      setSelectedOptionsStack(
-        selectedOptionsStack.filter((item) => item !== option)
-      );
-    } else {
-      setSelectedOptionsStack([...selectedOptionsStack, option]);
-    }
-  };
-
   return (
     <S.FindColonyPage>
       <S.CategorySection>
@@ -256,7 +239,6 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
           subCategory={subCategories}
           toggleDropdownMajor={toggleDropdownMajor}
           onClose={handleClose}
-
           // Area
           city={cityCategory.data.map((cat) => ({ city: cat.city }))}
           areaCategory={areaCategory}
@@ -268,7 +250,6 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
           isOpenSubArea={isOpenSubArea}
           subDropdownArea={subDropdownArea}
           handleTagRemove={handleTagRemove}
-
           // Career
           selectedOptionsCareer={selectedOptionsCareer}
           isOpenSubCareer={isOpenSubCareer}
@@ -276,19 +257,16 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
           onChangeValue={handleSliderChange}
           rangeValue={rangeValue}
           getCareer={getCareer}
-
           // Stack
           stackData={stack}
           selectStack={selectStack}
           handleStackChange={handleStackChange}
           isOpenSubStack={isOpenSubStack}
           subDropdownStack={subDropdownStack}
-
-          
         />
-        <ButtonList items={status}/>
+        <ButtonList items={status} />
       </S.CategorySection>
-      <ContourLine name="findColonyTop"/>
+      <ContourLine name="findColonyTop" />
       <S.ColonyMainSection>
         <SColonySection.FindColonyCard color="findColonyPage">
           {colonyData.map((data, index) => (

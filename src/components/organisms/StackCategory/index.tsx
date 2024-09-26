@@ -92,8 +92,8 @@ export const StackCategory = ({
           stackData={stackData}
           isOpen={isOpenSubStack}
           toggleDropdown={subDropdownStack}
-          handleOptionChange={handleStackChange}
-          selectedOptions={selectStack}
+          handleStackChange={handleStackChange}
+          selectStack={selectStack}
           onClose={onClose}
         />
       </S.subStack>
