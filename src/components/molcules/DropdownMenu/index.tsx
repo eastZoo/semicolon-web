@@ -1,12 +1,9 @@
 import { ContourLine } from "@/components/atoms/Line";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
 import { Button, IconButton } from "../../atoms/Button";
 import * as S from "./DropdownMenu";
 import * as Style from "../../atoms/Line";
-import { Label } from "@radix-ui/react-dropdown-menu";
-import { InputSearchBar } from "@/components/atoms/Input/InputText";
 interface dashDropdownProps {
   items?: any[];
   toggleDropdown?: () => void;
@@ -73,20 +70,16 @@ export const DropdownMenu: React.FC<dashDropdownProps> = ({
 
 interface categoryProps {
   items?: string;
-  label?: string;
-  current_item?: string;
   srcUp?: any;
   srcDown?: any;
   alt?: any;
   category_items?: { city: string }[];
   toggleDropdown?: () => void;
   isOpen?: boolean;
-  className?: string;
-  handleOptionChange?: (option: string) => void;
-  selectedOptions?: string[];
+  handleOptionChange?: (option: string) => void; // 확인
   category?: { name: string }[];
   subCategory?: { menu: string }[];
-  onSelect?: (categoryName: string) => void;
+  handleCategoryChange?: (categoryName: string) => void;
   onChange?: (value: string) => void;
   onClose?: () => void;
   handleBackground?: (e: React.MouseEvent<HTMLDivElement>) => void;
@@ -113,12 +106,11 @@ export const DropdownCategory: React.FC<categoryProps> = ({
   alt,
   category,
   subCategory,
-  onSelect,
+  handleCategoryChange,
   isOpen,
   toggleDropdown,
   onClose,
   handleBackground,
-  handleCheckboxChange,
   onChange,
   handleSubChange,
   selectSub,
@@ -160,7 +152,7 @@ export const DropdownCategory: React.FC<categoryProps> = ({
                         color="mainDropdown"
                         width="100%"
                         key={item.name}
-                        onClick={() => onSelect && onSelect(item.name)}
+                        onClick={() => handleCategoryChange && handleCategoryChange(item.name)}
                       >
                         {item.name}
                         <span>
@@ -229,12 +221,10 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
   handleOptionChange,
   isOpen,
   toggleDropdown,
-  selectedOptions,
   onClose,
   onChange,
   handleBackground,
   handleCheckboxChange,
-  handleSubChange,
   selectAreas,
   handleTagRemove,
 }) => {
@@ -245,8 +235,8 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
         <Button type="button" color="baseDropdown" onClick={toggleDropdown}>
           <span>
             {isOpen
-              ? `${selectedOptions?.join(" ")} ▲`
-              : `${selectedOptions?.join(" ")} ▼`}
+              ? `▲`
+              : `▼`}
           </span>
         </Button>
       </S.DropdownButton>
@@ -366,7 +356,6 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
 export const ShapeDropdown: React.FC<categoryProps> = ({
   items,
   isOpen,
-  selectedOptions,
   handleBackground,
   toggleDropdown,
   onClose,
@@ -381,8 +370,8 @@ export const ShapeDropdown: React.FC<categoryProps> = ({
         <Button type="button" color="baseDropdown" onClick={toggleDropdown}>
           <span>
             {isOpen
-              ? `${selectedOptions?.join(" ")} ▲`
-              : `${selectedOptions?.join(" ")} ▼`}
+              ? `▲`
+              : `▼`}
           </span>
         </Button>
       </S.DropdownButton>
@@ -434,7 +423,6 @@ export const SearchDropdown: React.FC<categoryProps> = ({
   items,
   isOpen,
   toggleDropdown,
-  selectedOptions,
   onClose,
   handleBackground,
   handleTagRemove,

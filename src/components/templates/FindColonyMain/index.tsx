@@ -19,7 +19,10 @@ import { ButtonList } from "@/components/molcules/ButtonList";
 import { ContourLine, Line } from "@/components/atoms/Line";
 
 export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
+  /** 모집 상태  */
   const status = statusCategory.data;
+
+  /** 경력 기능 */
   const stack = stackCategory.data;
   const [rangeValue, setRangevalue] = useState<number>(0);
 
@@ -44,15 +47,14 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
 
+  /** Top, write 버튼 그룹 버튼 */
   const [buttonsIsvisible, setButtonsIsvisble] = useState(false);
 
   const handleButtonClick = () => {
     setButtonsIsvisble(!buttonsIsvisible);
   };
 
-  const dashdata = myDashboard.data;
-
-  // 스택 드롭다운
+  /** 스택 드롭다운 */
   const [selectStack, setSelectedStack] = useState<string[]>([]);
 
   const handleStackChange = (stackName: string) => {
@@ -69,6 +71,7 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
     console.log(selectStack);
   };
 
+  /** 지역 드롭다운 */
   const [selectCity, setSelectedCity] = useState<string | null>(null);
   const [areaCategory, setAreaCategory] = useState<
     string[] | { menu: string }[]
@@ -91,7 +94,7 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
     console.log(selectAreas);
   };
 
-  // main category
+  /** main category */
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [subCategories, setSubCategories] = useState<
     string[] | { menu: string }[]
@@ -111,10 +114,9 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
         ? prevSelectSub.filter((sub) => sub !== menu)
         : [...prevSelectSub, menu]
     );
-    console.log(selectSub)
   };
 
-  // infinity scroll
+  /** infinity scroll */
   const [colonyData, setColonyData] = useState<ColonyData[]>([]);
   const [offset, setOffset] = useState(0);
   const [isFetch, setIsFetch] = useState(false);
@@ -171,13 +173,6 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
     });
   };
 
-  // dropdown category
-
-  const [isOpenMajor, setIsOpenMajor] = useState(false);
-  const [selectedOptionsMajor, setSelectedOptionsMajor] = useState<string[]>(
-    []
-  );
-
   // 드롭다운 닫기 버튼
   const handleClose = () => {
     setIsOpenMajor(false);
@@ -186,17 +181,18 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
     setIsOpenSubStack(false);
   };
 
+  const [isOpenMajor, setIsOpenMajor] = useState(false);
+
   const [isOpenSubArea, setIsOpenSubArea] = useState(false);
-  const [selectedOptionsArea, setSelectedOptionsArea] = useState<string[]>([]);
 
   const [isOpenSubCareer, setIsOpenSubCareer] = useState(false);
-  const [selectedOptionsCareer, setSelectedOptionsCareer] = useState<string[]>(
-    []
-  );
+
   const [isOpenSubStack, setIsOpenSubStack] = useState(false);
-  const [selectedOptionsStack, setSelectedOptionsStack] = useState<string[]>(
-    []
-  );
+
+  const handleTagRemove = (item: string) => {
+    setSelectedAreas(selectAreas.filter((i) => i != item));
+    setSelectedStack(selectStack.filter((s) => s !== item));
+  };
 
   const toggleDropdownMajor = () => {
     setIsOpenMajor(!isOpenMajor);
@@ -210,11 +206,6 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
     setIsOpenSubArea(!isOpenSubArea);
     setIsOpenSubCareer(false);
     setIsOpenSubStack(false);
-  };
-
-  const handleTagRemove = (item: string) => {
-    setSelectedAreas(selectAreas.filter((i) => i != item));
-    setSelectedStack(selectStack.filter((s) => s !== item));
   };
 
   const subDropdownCareer = () => {
@@ -235,39 +226,38 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
     <S.FindColonyPage>
       <S.CategorySection>
         <StackCategory
-          data={dashdata}
+          // Major
           isOpenMajor={isOpenMajor}
           category={mainCategory.data.map((cat) => ({ name: cat.name }))}
-          onSelect={handleCategoryChange}
-          handleSubChange={handleSubChange}
           subCategory={subCategories}
+          handleCategoryChange={handleCategoryChange}
+          handleSubChange={handleSubChange}
           selectSub={selectSub}
           toggleDropdownMajor={toggleDropdownMajor}
-          onClose={handleClose}
           // Area
+          isOpenSubArea={isOpenSubArea}
           city={cityCategory.data.map((cat) => ({ city: cat.city }))}
           areaCategory={areaCategory}
           handleCityChange={handleCityChange}
           handleCheckboxChange={handleCheckboxChange}
-          selectCity={selectCity}
+          selectCity={selectCity} // 확인
           selectAreas={selectAreas}
-          selectedOptionsArea={selectedOptionsArea}
-          isOpenSubArea={isOpenSubArea}
           subDropdownArea={subDropdownArea}
-          handleTagRemove={handleTagRemove}
           // Career
-          selectedOptionsCareer={selectedOptionsCareer}
           isOpenSubCareer={isOpenSubCareer}
           subDropdownCareer={subDropdownCareer}
           onChangeValue={handleSliderChange}
           rangeValue={rangeValue}
           getCareer={getCareer}
           // Stack
-          stackData={stack}
-          selectStack={selectStack}
-          handleStackChange={handleStackChange}
           isOpenSubStack={isOpenSubStack}
           subDropdownStack={subDropdownStack}
+          stackData={stack}
+          handleStackChange={handleStackChange}
+          selectStack={selectStack}
+          // Common
+          onClose={handleClose}
+          handleTagRemove={handleTagRemove}
         />
         <ButtonList items={status} />
       </S.CategorySection>
