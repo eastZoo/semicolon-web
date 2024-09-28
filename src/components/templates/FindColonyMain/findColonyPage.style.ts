@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const FindColonyPage = styled.section`
   display: flex;
@@ -24,6 +24,12 @@ export const CategorySection = styled.div`
 export const ColonyMainSection = styled.section`
   width: 80%;
   display: flex;
+
+  ${(props) =>
+    props.className === "loading" &&
+    css`
+      width: 100%;
+    `}
 `;
 
 export const ColonyMoreButton = styled.div`
@@ -45,4 +51,10 @@ export const hiddenButtonGroup = styled.div`
   img {
     width: 40px;
   }
+`;
+
+export const loadingSection = styled.div`
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 `;

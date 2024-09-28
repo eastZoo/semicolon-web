@@ -40,6 +40,8 @@ export const StackCategory = ({
   stackData,
   handleStackChange,
   selectStack,
+  handleSubChange,
+  selectSub,
 }: any) => {
   return (
     <S.category>
@@ -57,6 +59,8 @@ export const StackCategory = ({
           isOpen={isOpenMajor}
           toggleDropdown={toggleDropdownMajor}
           handleOptionChange={handleOptionsMajor}
+          handleSubChange={handleSubChange}
+          selectSub={selectSub}
         />
       </S.mainStack>
       <S.subStack>

@@ -39,6 +39,7 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
     }
   };
 
+  /** top 버튼 기능 */
   const scrollTop = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
@@ -95,11 +96,22 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
   const [subCategories, setSubCategories] = useState<
     string[] | { menu: string }[]
   >([]);
+  const [selectSub, setSelectSub] = useState<string[]>([]);
 
   const handleCategoryChange = (categoryName: string) => {
     setSelectedCategory(categoryName);
     const category = mainCategory.data.find((cat) => cat.name === categoryName);
     setSubCategories(category ? category.sub : []);
+    console.log(category?.sub);
+  };
+
+  const handleSubChange = (menu: string) => {
+    setSelectSub((prevSelectSub) =>
+      prevSelectSub?.includes(menu)
+        ? prevSelectSub.filter((sub) => sub !== menu)
+        : [...prevSelectSub, menu]
+    );
+    console.log(selectSub)
   };
 
   // infinity scroll
@@ -108,7 +120,7 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
   const [isFetch, setIsFetch] = useState(false);
   const [hasMore, setHasMore] = useState(true);
 
-  const observerRef = useRef<IntersectionObserver>();
+  const observerRef = useRef<IntersectionObserver | null>(null);
   const targetRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -116,23 +128,35 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
   }, []);
 
   useEffect(() => {
-    observerRef.current = new IntersectionObserver(intersectionObserver);
-    if (targetRef.current) {
-      observerRef.current.observe(targetRef.current);
-    }
-    return () => observerRef.current && observerRef.current.disconnect();
+    if (!targetRef.current) return;
+    const observer = new IntersectionObserver(intersectionObserver);
+    observerRef.current = observer;
+    observer.observe(targetRef.current);
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
   }, [colonyData]);
 
   const fetchColonyData = async () => {
+    if (isFetch || !hasMore) return;
     setIsFetch(true);
-    // axios 사용시 해당 부분에 데이터 요청 url
-    const newData = findColonyData.slice(offset, offset + 12);
-    setColonyData((prevData) => [...prevData, ...newData]);
-    setOffset(offset + 12);
-    if (offset >= findColonyData.length) {
-      setHasMore(false);
+
+    try {
+      // axios 사용시 해당 부분에 데이터 요청 url
+      const newData = findColonyData.slice(offset, offset + 12);
+      setColonyData((prevData) => [...prevData, ...newData]);
+      setOffset(offset + 12);
+      if (offset >= findColonyData.length) {
+        setHasMore(false);
+      }
+    } catch (error) {
+      console.log("데이터 가져오기 실패: ", error);
+    } finally {
+      setIsFetch(false);
     }
-    setIsFetch(false);
   };
 
   const intersectionObserver = (
@@ -187,7 +211,7 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
     setIsOpenSubCareer(false);
     setIsOpenSubStack(false);
   };
-  
+
   const handleTagRemove = (item: string) => {
     setSelectedAreas(selectAreas.filter((i) => i != item));
     setSelectedStack(selectStack.filter((s) => s !== item));
@@ -215,7 +239,9 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
           isOpenMajor={isOpenMajor}
           category={mainCategory.data.map((cat) => ({ name: cat.name }))}
           onSelect={handleCategoryChange}
+          handleSubChange={handleSubChange}
           subCategory={subCategories}
+          selectSub={selectSub}
           toggleDropdownMajor={toggleDropdownMajor}
           onClose={handleClose}
           // Area
@@ -263,6 +289,11 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
             />
           ))}
         </SColonySection.FindColonyCard>
+        {hasMore && (
+          <S.loadingSection ref={targetRef}>
+            <img src="/assets/svg/loading.svg" alt="loading" />
+          </S.loadingSection>
+        )}
         <S.ColonyMoreButton>
           {buttonsIsvisible && (
             <S.hiddenButtonGroup className="hidden">

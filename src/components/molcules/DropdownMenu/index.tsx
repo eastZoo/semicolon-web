@@ -102,22 +102,26 @@ interface categoryProps {
   stackData?: { stack: string }[];
   selectStack?: string[];
   handleStackChange?: (stack: string) => void;
+  handleSubChange?: (menu: string) => void;
+  selectSub?: string[];
 }
 
 export const DropdownCategory: React.FC<categoryProps> = ({
   items,
-  label,
   srcUp,
   srcDown,
   alt,
   category,
   subCategory,
   onSelect,
-  onChange,
   isOpen,
   toggleDropdown,
   onClose,
   handleBackground,
+  handleCheckboxChange,
+  onChange,
+  handleSubChange,
+  selectSub,
 }) => {
   return (
     <S.DropdownMenu>
@@ -178,10 +182,19 @@ export const DropdownCategory: React.FC<categoryProps> = ({
                         color="mainDropdown"
                         width="100%"
                         key={sub.menu}
-                        onChange={() => onChange && onChange(sub.menu)}
+                        onChange={() =>
+                          onChange && onChange(sub.menu)
+                        }
                       >
                         <span>{sub.menu}</span>
-                        <input type="checkbox" value={sub.menu} />
+                        <input
+                          type="checkbox"
+                          value={sub.menu}
+                          onChange={() =>
+                            handleSubChange && handleSubChange(sub.menu)
+                          }
+                          checked={selectSub?.includes(sub.menu)}
+                        />
                       </Button>
                     </S.ItemContent>
                   </S.ItemGroup>
@@ -221,6 +234,7 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
   onChange,
   handleBackground,
   handleCheckboxChange,
+  handleSubChange,
   selectAreas,
   handleTagRemove,
 }) => {
@@ -455,7 +469,10 @@ export const SearchDropdown: React.FC<categoryProps> = ({
                 placeholder="보유 기술스택을 검색해주세요."
               />
             </S.searchBar>
-            <S.attentionText><img src="/assets/svg/attention.svg" width="15px"/> 최대 5개까지 선택 가능합니다.</S.attentionText>
+            <S.attentionText>
+              <img src="/assets/svg/attention.svg" width="15px" /> 최대 5개까지
+              선택 가능합니다.
+            </S.attentionText>
             <S.stackList>
               {stackData?.map((stack, index) => (
                 <S.stackBtnGroup key={index}>
