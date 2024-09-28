@@ -27,7 +27,7 @@ export const ColonyMainSection = styled.section`
 `;
 
 export const ColonyMoreButton = styled.div`
-  width: 8%;
+  width: 6%;
   height: auto;
   position: fixed;
   right: 10px;
@@ -41,7 +41,6 @@ export const ColonyMoreButton = styled.div`
 export const hiddenButtonGroup = styled.div`
   width: 80%;
   display: flex;
-  margin-bottom: 10px;
   justify-content: space-between;
   img {
     width: 40px;

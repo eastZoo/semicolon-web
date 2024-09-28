@@ -455,6 +455,7 @@ export const SearchDropdown: React.FC<categoryProps> = ({
                 placeholder="보유 기술스택을 검색해주세요."
               />
             </S.searchBar>
+            <S.attentionText><img src="/assets/svg/attention.svg" width="15px"/> 최대 5개까지 선택 가능합니다.</S.attentionText>
             <S.stackList>
               {stackData?.map((stack, index) => (
                 <S.stackBtnGroup key={index}>
@@ -498,7 +499,7 @@ export const SearchDropdown: React.FC<categoryProps> = ({
                 ))}
               </S.BadgesButton>
             ) : (
-              <p>선택된 기술 스택이 없습니다.</p>
+              <p></p>
             )}
           </S.BadgesButtonGroup>
           <S.DropdownBottom>

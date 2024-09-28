@@ -187,31 +187,10 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
     setIsOpenSubCareer(false);
     setIsOpenSubStack(false);
   };
-
-  const handleOptionsArea = (option: string) => {
-    let updateOption;
-    if (selectedOptionsArea.includes(option)) {
-      setSelectedOptionsArea(
-        selectedOptionsArea.filter((item) => item !== option)
-      );
-    } else {
-      setSelectedOptionsArea([...selectedOptionsArea, option]);
-    }
-    // areaRender(updateOption)
-  };
-  // const areaRender = (updateOption: string[]) => {
-  //   if (updateOption.length > 2) {
-  //     console.log("updateOption ", updateOption);
-  //     const firstOption = updateOption[0];
-  //     const additionalCount = updateOption.length - 1;
-  //     const displayText = `${firstOption} 외 ${additionalCount}`;
-  //     setSelectedOptionsArea([displayText]);
-  //   }
-  // };
-
+  
   const handleTagRemove = (item: string) => {
     setSelectedAreas(selectAreas.filter((i) => i != item));
-    setSelectedStack(selectStack.filter((i) => i !== item));
+    setSelectedStack(selectStack.filter((s) => s !== item));
   };
 
   const subDropdownCareer = () => {
@@ -297,6 +276,7 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
                 src="/assets/svg/writeButton.svg"
                 type="button"
                 color="moreButtonSub"
+                className="write"
               />
             </S.hiddenButtonGroup>
           )}

@@ -221,4 +221,9 @@ export const IconButton = styled.button`
     css`
       width: 200px;
     `}
+  ${(props) =>
+    props.className === "write" &&
+    css`
+      margin-bottom: 40px;
+    `}
 `;

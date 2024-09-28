@@ -93,6 +93,7 @@ export const StackCategory = ({
           isOpen={isOpenSubStack}
           toggleDropdown={subDropdownStack}
           handleStackChange={handleStackChange}
+          handleTagRemove={handleTagRemove}
           selectStack={selectStack}
           onClose={onClose}
         />

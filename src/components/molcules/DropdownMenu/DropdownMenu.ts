@@ -153,7 +153,7 @@ export const DropdownButton = styled.div`
 
 export const BadgesButtonGroup = styled.div`
   position: relative;
-  margin-bottom: 10px;
+  margin: 10px 0px 15px 0px;
   height: auto;
 `;
 
@@ -207,5 +207,18 @@ export const stackList = styled.div`
   flex-wrap: wrap;
   white-space: nowrap;
   gap: 10px;
-  margin: 10px 10px 20px 20px;
+  margin: 10px 20px 10px 20px;
+`;
+
+
+export const attentionText = styled.div`
+  display: flex;
+  margin-top: 10px;
+  img {
+    margin-right: 10px;
+  }
+  justify-content: right;
+  margin-right: 15px;
+  font-size: 14px;
+  color: ${(props) => props.theme.colors.gray};
 `;
