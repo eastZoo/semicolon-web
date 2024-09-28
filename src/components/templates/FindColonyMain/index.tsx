@@ -222,6 +222,17 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
     setIsOpenSubArea(false);
   };
 
+  const renderLabelMajor = () => {
+    if (selectedCategory?.length === 0) {
+      return '직군 - 직무';
+    } else if (selectSub.length === 1) {
+      return selectedCategory + selectSub[0];
+    } else{
+      return `${selectedCategory} - ${selectSub[0]} 외 ${selectSub.length -1}`
+    }
+  }
+
+
   return (
     <S.FindColonyPage>
       <S.CategorySection>
@@ -234,6 +245,7 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
           handleSubChange={handleSubChange}
           selectSub={selectSub}
           toggleDropdownMajor={toggleDropdownMajor}
+          selectedOptions={renderLabelMajor}
           // Area
           isOpenSubArea={isOpenSubArea}
           city={cityCategory.data.map((cat) => ({ city: cat.city }))}

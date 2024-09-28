@@ -97,6 +97,7 @@ interface categoryProps {
   handleStackChange?: (stack: string) => void;
   handleSubChange?: (menu: string) => void;
   selectSub?: string[];
+  selectedOption?: () => void;
 }
 
 export const DropdownCategory: React.FC<categoryProps> = ({
@@ -114,6 +115,7 @@ export const DropdownCategory: React.FC<categoryProps> = ({
   onChange,
   handleSubChange,
   selectSub,
+  selectedOption,
 }) => {
   return (
     <S.DropdownMenu>

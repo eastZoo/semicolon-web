@@ -15,6 +15,7 @@ export const StackCategory = ({
   handleCategoryChange,
   handleSubChange,
   selectSub,
+  renderLabelMajor,
   //** 지역 */
   isOpenSubArea,
   subDropdownArea,
@@ -61,6 +62,7 @@ export const StackCategory = ({
           toggleDropdown={toggleDropdownMajor}
           isOpen={isOpenMajor}
           onClose={onClose}
+          selectedOption={renderLabelMajor}
         />
       </S.mainStack>
       <S.subStack>
