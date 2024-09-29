@@ -38,12 +38,11 @@ export const StackCategory = ({
   stackData,
   handleStackChange,
   selectStack,
-  
+
   //** 공통 */
   onClose,
   handleBackground,
   handleTagRemove,
-
 }: any) => {
   return (
     <S.category>
@@ -75,7 +74,6 @@ export const StackCategory = ({
           handleCheckboxChange={handleCheckboxChange}
           selectCity={selectCity}
           selectAreas={selectAreas}
-          selectedOptions={selectedOptionsArea}
           isOpen={isOpenSubArea}
           onClose={onClose}
           handleTagRemove={handleTagRemove}
