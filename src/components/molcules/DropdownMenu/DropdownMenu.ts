@@ -10,7 +10,7 @@ interface DropdownItemProps {
 export const DropdownMenu = styled.div`
   position: relative;
   display: inline-block;
-  width: 100%;
+  width: auto;
   height: auto;
 `;
 
@@ -55,14 +55,14 @@ export const SliderSection = styled.div`
     margin: auto;
   }
   #slider::-webkit-slider-thumb {
-    -webkit-appearance: none; 
+    -webkit-appearance: none;
     width: 20px;
-    height: 20px; 
-    border-radius: 50%; 
-    background: #04b404; 
-    cursor: pointer; 
+    height: 20px;
+    border-radius: 50%;
+    background: #04b404;
+    cursor: pointer;
   }
-  p{
+  p {
     margin-bottom: 20px;
   }
 `;
@@ -133,10 +133,10 @@ export const DropdownCategory = styled.div<DropdownProps>`
 
 export const DropdownButton = styled.div`
   display: flex;
-  border: 1px solid ${(props) => props.theme.colors.gray};
-  border-radius: 5px;
-  width: auto;
-  height: 40px;
+  border: 1px solid #f2f2f2;
+  border-radius: 10px;
+  width: 100px;
+  height: 35px;
   margin: 10px;
   font-weight: 300;
   justify-content: space-between;
@@ -144,6 +144,7 @@ export const DropdownButton = styled.div`
   padding: 10px;
   span {
     margin-left: 5px;
+    font-size: 12px;
   }
   p {
     margin-right: 10px;
@@ -152,19 +153,72 @@ export const DropdownButton = styled.div`
 
 export const BadgesButtonGroup = styled.div`
   position: relative;
-  margin-bottom: 10px;
-  overflow: hidden;
+  margin: 10px 0px 15px 0px;
+  height: auto;
 `;
 
 export const BadgesButton = styled.ul`
   display: flex;
-  align-itmes: center;
+  align-items: center;
   overflow-x: auto;
-  gap: 10px;
+  flex-wrap: wrap;
+  white-space: nowrap;
+  gap: 5px;
 `;
 
 export const BadgesList = styled.li`
+  span {
+    margin-left: 5px;
+  }
+`;
+
+export const searchSection = styled.div`
+  width: auto;
+  height: 300px;
+`;
+
+export const searchBar = styled.div`
+  width: auto;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  position: relative;
+  input {
+    width: 450px;
+    height: 40px;
+    background-color: #f7f7f8;
+    border-radius: 10px;
+    padding: 1px 2px 1px 50px;
+    outline: none;
+  }
+  img {
+    position: absolute;
+    width: 17px;
+    left: 30px;
+  }
+`;
+
+export const stackBtnGroup = styled.div`
+  height: auto;
+`;
+
+export const stackList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
   white-space: nowrap;
-  white-space-collapse: collapse;
-  text-wrap: nowrap;
+  gap: 10px;
+  margin: 10px 20px 10px 20px;
+`;
+
+
+export const attentionText = styled.div`
+  display: flex;
+  margin-top: 10px;
+  img {
+    margin-right: 10px;
+  }
+  justify-content: right;
+  margin-right: 15px;
+  font-size: 14px;
+  color: ${(props) => props.theme.colors.gray};
 `;

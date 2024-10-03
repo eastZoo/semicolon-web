@@ -1,11 +1,9 @@
 import { ContourLine } from "@/components/atoms/Line";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
 import { Button, IconButton } from "../../atoms/Button";
 import * as S from "./DropdownMenu";
 import * as Style from "../../atoms/Line";
-import { Label } from "@radix-ui/react-dropdown-menu";
 interface dashDropdownProps {
   items?: any[];
   toggleDropdown?: () => void;
@@ -72,20 +70,16 @@ export const DropdownMenu: React.FC<dashDropdownProps> = ({
 
 interface categoryProps {
   items?: string;
-  label?: string;
-  current_item?: string;
   srcUp?: any;
   srcDown?: any;
   alt?: any;
   category_items?: { city: string }[];
   toggleDropdown?: () => void;
   isOpen?: boolean;
-  className?: string;
-  handleOptionChange?: (option: string) => void;
-  selectedOptions?: string[];
+  handleOptionChange?: (option: string) => void; // 확인
   category?: { name: string }[];
   subCategory?: { menu: string }[];
-  onSelect?: (categoryName: string) => void;
+  handleCategoryChange?: (categoryName: string) => void;
   onChange?: (value: string) => void;
   onClose?: () => void;
   handleBackground?: (e: React.MouseEvent<HTMLDivElement>) => void;
@@ -97,22 +91,31 @@ interface categoryProps {
   handleSliderChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   rangeValue?: any;
   getCareer?: (value: number) => string;
+  handleTagRemove?: (area: string) => void;
+  stackData?: { stack: string }[];
+  selectStack?: string[];
+  handleStackChange?: (stack: string) => void;
+  handleSubChange?: (menu: string) => void;
+  selectSub?: string[];
+  selectedOption?: () => void;
 }
 
 export const DropdownCategory: React.FC<categoryProps> = ({
   items,
-  label,
   srcUp,
   srcDown,
   alt,
   category,
   subCategory,
-  onSelect,
-  onChange,
+  handleCategoryChange,
   isOpen,
   toggleDropdown,
   onClose,
   handleBackground,
+  onChange,
+  handleSubChange,
+  selectSub,
+  selectedOption,
 }) => {
   return (
     <S.DropdownMenu>
@@ -151,7 +154,7 @@ export const DropdownCategory: React.FC<categoryProps> = ({
                         color="mainDropdown"
                         width="100%"
                         key={item.name}
-                        onClick={() => onSelect && onSelect(item.name)}
+                        onClick={() => handleCategoryChange && handleCategoryChange(item.name)}
                       >
                         {item.name}
                         <span>
@@ -173,10 +176,19 @@ export const DropdownCategory: React.FC<categoryProps> = ({
                         color="mainDropdown"
                         width="100%"
                         key={sub.menu}
-                        onChange={() => onChange && onChange(sub.menu)}
+                        onChange={() =>
+                          onChange && onChange(sub.menu)
+                        }
                       >
                         <span>{sub.menu}</span>
-                        <input type="checkbox" value={sub.menu} />
+                        <input
+                          type="checkbox"
+                          value={sub.menu}
+                          onChange={() =>
+                            handleSubChange && handleSubChange(sub.menu)
+                          }
+                          checked={selectSub?.includes(sub.menu)}
+                        />
                       </Button>
                     </S.ItemContent>
                   </S.ItemGroup>
@@ -211,22 +223,23 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
   handleOptionChange,
   isOpen,
   toggleDropdown,
-  selectedOptions,
   onClose,
   onChange,
   handleBackground,
   handleCheckboxChange,
   selectAreas,
-  selectCity,
+  handleTagRemove,
 }) => {
   return (
     <S.DropdownMenu>
       <S.DropdownButton>
         <p>{items}</p>
         <Button type="button" color="baseDropdown" onClick={toggleDropdown}>
-          {isOpen
-            ? `${selectedOptions?.join(" ")} ▲`
-            : `${selectedOptions?.join(" ")} ▼`}
+          <span>
+            {isOpen
+              ? `▲`
+              : `▼`}
+          </span>
         </Button>
       </S.DropdownButton>
 
@@ -296,7 +309,7 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
           </S.DropdownMiddle>
           <Style.ContourLine />
           <S.BadgesButtonGroup>
-            {selectAreas?.length > 0 ? (
+            {selectAreas && selectAreas?.length > 0 ? (
               <S.BadgesButton>
                 {selectAreas?.map((area, index) => (
                   <S.BadgesList>
@@ -308,7 +321,11 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
                     >
                       {area}
                       <span>
-                        <img src="/assets/svg/exist.svg" width="15px" />
+                        <img
+                          src="/assets/svg/exist.svg"
+                          width="13px"
+                          onClick={() => handleTagRemove?.(area)}
+                        />
                       </span>
                     </Button>
                   </S.BadgesList>
@@ -341,12 +358,11 @@ export const CheckboxDropdown: React.FC<categoryProps> = ({
 export const ShapeDropdown: React.FC<categoryProps> = ({
   items,
   isOpen,
-  selectedOptions,
   handleBackground,
   toggleDropdown,
   onClose,
   handleSliderChange,
-  rangeValue=0,
+  rangeValue = 0,
   getCareer,
 }) => {
   return (
@@ -354,9 +370,11 @@ export const ShapeDropdown: React.FC<categoryProps> = ({
       <S.DropdownButton>
         <p>{items}</p>
         <Button type="button" color="baseDropdown" onClick={toggleDropdown}>
-          {isOpen
-            ? `${selectedOptions?.join(" ")} ▲`
-            : `${selectedOptions?.join(" ")} ▼`}
+          <span>
+            {isOpen
+              ? `▲`
+              : `▼`}
+          </span>
         </Button>
       </S.DropdownButton>
 
@@ -371,7 +389,7 @@ export const ShapeDropdown: React.FC<categoryProps> = ({
             ></IconButton>
           </S.DropdownTop>
           <S.SliderSection>
-            <p>{getCareer(rangeValue)}</p>
+            <p>{getCareer?.(rangeValue)}</p>
             <input
               type="range"
               onChange={handleSliderChange}
@@ -403,30 +421,28 @@ export const ShapeDropdown: React.FC<categoryProps> = ({
   );
 };
 
-export const StatusDropdown: React.FC<categoryProps> = ({
+export const SearchDropdown: React.FC<categoryProps> = ({
   items,
-  areaCategory,
   isOpen,
   toggleDropdown,
-  selectedOptions,
   onClose,
   handleBackground,
-  handleCheckboxChange,
-  selectAreas,
+  handleTagRemove,
+  stackData,
+  handleStackChange,
+  selectStack,
 }) => {
   return (
     <S.DropdownMenu>
       <S.DropdownButton>
         <p>{items}</p>
         <Button type="button" color="baseDropdown" onClick={toggleDropdown}>
-          {isOpen
-            ? `${selectedOptions?.join(" ")} ▲`
-            : `${selectedOptions?.join(" ")} ▼`}
+          <span>{isOpen ? `▲` : ` ▼`}</span>
         </Button>
       </S.DropdownButton>
 
       {isOpen && (
-        <S.Dropdown width="250px" onClick={handleBackground}>
+        <S.Dropdown width="500px" onClick={handleBackground}>
           <S.DropdownTop>
             <p>{items}</p>
             <IconButton
@@ -435,21 +451,64 @@ export const StatusDropdown: React.FC<categoryProps> = ({
               onClick={onClose}
             ></IconButton>
           </S.DropdownTop>
-          <S.DropdownMiddle >
-            <S.DropdownList>
-              {areaCategory?.map((area, idx) => (
-                <input
-                  type="checkbox"
-                  value={area.menu}
-                  onChange={() =>
-                    handleCheckboxChange && handleCheckboxChange(area.menu)
-                  }
-                  checked={selectAreas?.includes(area.menu)}
-                />
+          <S.searchSection>
+            <S.searchBar>
+              <img src="/assets/svg/search.svg" />
+              <input
+                type="search"
+                placeholder="보유 기술스택을 검색해주세요."
+              />
+            </S.searchBar>
+            <S.attentionText>
+              <img src="/assets/svg/attention.svg" width="15px" /> 최대 5개까지
+              선택 가능합니다.
+            </S.attentionText>
+            <S.stackList>
+              {stackData?.map((stack, index) => (
+                <S.stackBtnGroup key={index}>
+                  <Button
+                    type="button"
+                    color="stackButton"
+                    width="auto"
+                    value={stack.stack}
+                    select={selectStack?.includes(stack.stack)}
+                    disabled={
+                      selectStack?.includes(stack.stack) &&
+                      selectStack?.length >= 5
+                    }
+                    onClick={() =>
+                      handleStackChange && handleStackChange(stack.stack)
+                    }
+                  >
+                    {stack.stack}
+                  </Button>
+                </S.stackBtnGroup>
               ))}
-            </S.DropdownList>
-          </S.DropdownMiddle>
-
+            </S.stackList>
+          </S.searchSection>
+          <Style.ContourLine />
+          <S.BadgesButtonGroup>
+            {selectStack && selectStack.length > 0 ? (
+              <S.BadgesButton>
+                {selectStack.map((stack, index) => (
+                  <S.BadgesList key={index}>
+                    <Button type="button" color="badgesButton" width="auto">
+                      {stack}
+                      <span>
+                        <img
+                          src="/assets/svg/exist.svg"
+                          width="13px"
+                          onClick={() => handleTagRemove?.(stack)}
+                        />
+                      </span>
+                    </Button>
+                  </S.BadgesList>
+                ))}
+              </S.BadgesButton>
+            ) : (
+              <p></p>
+            )}
+          </S.BadgesButtonGroup>
           <S.DropdownBottom>
             <Button
               type="button"

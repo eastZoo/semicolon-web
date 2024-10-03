@@ -9,6 +9,7 @@ interface BaseInputProps {
   alt?: string;
   className?: string;
   src?: any;
+  color?: string;
 }
 
 interface InputTextProps extends BaseInputProps {
@@ -67,9 +68,10 @@ export const InputSearchBar: React.FC<InputSearchBarProps> = ({
   alt,
   className,
   children,
+  ...props
 }) => {
   return (
-    <S.InputCommon>
+    <S.InputCommon {...props}>
       <S.InputSearchBar className={className}>
         {children}
         <input type={type || "text"} placeholder={placeholder} value={value} />

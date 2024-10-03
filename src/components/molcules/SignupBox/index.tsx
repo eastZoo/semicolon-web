@@ -7,40 +7,30 @@ export const SignupBox = () => {
     <S.SignupBox>
       <S.SignupInputBox>
         <IconInputText
-          size="md"
-          width="100%"
           type="text"
           placeholder="이메일"
           src="/assets/svg/email.svg"
           alt="email"
         />
         <IconInputText
-          size="md"
-          width="100%"
           type="password"
           placeholder="비밀번호"
           src="/assets/svg/pw.svg"
           alt="password"
         />
         <IconInputText
-          size="md"
-          width="100%"
           type="password"
           placeholder="비밀번호 확인"
           src="/assets/svg/pw.svg"
           alt="passwordOk"
         />
         <IconInputText
-          size="md"
-          width="100%"
           type="text"
           placeholder="닉네임 or 이름"
           src="/assets/svg/nickname/nick.svg"
           alt="nickname"
         />
         <IconInputText
-          size="md"
-          width="100%"
           type="number"
           placeholder="휴대폰 번호"
           src="/assets/svg/phone.svg"

@@ -10,6 +10,8 @@ interface ButtonProps {
   onClick?: () => void;
   disabled?: boolean;
   onChange?: () => void;
+  select?: string[] | any; // 왜 드롭다운메뉴 컴포넌트에서 boolean타입으로 넘어옴 임시 처리
+  value?: any;
 }
 
 export const Button: React.FC<ButtonProps> = ({

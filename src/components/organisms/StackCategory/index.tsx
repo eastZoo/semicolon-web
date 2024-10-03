@@ -2,45 +2,47 @@ import {
   CheckboxDropdown,
   DropdownCategory,
   ShapeDropdown,
-  StatusDropdown,
+  SearchDropdown,
 } from "../../molcules/DropdownMenu";
 import * as S from "./StackCategory.style";
 
 export const StackCategory = ({
-  data,
+  //** 메인 */
   isOpenMajor,
   toggleDropdownMajor,
-  isOpenSubArea,
-  isOpenSubCareer,
-  isOpenSubStack,
-  isOpenSubStatus,
-  subDropdownArea,
-  subDropdownCareer,
-  subDropdownStack,
-  subDropdownStatus,
-  handleOptionsMajor,
-  handleOptionsArea,
-  handleOptionsCareer,
-  handleOptionsStack,
-  handleOptionsStatus,
-  selectedOptionsArea,
-  selectedOptionsCareer,
-  selectedOptionsStack,
-  selectedOptionsStatus,
   category,
-  onSelect,
   subCategory,
-  onClose,
-  handleBackground,
+  handleCategoryChange,
+  handleSubChange,
+  selectSub,
+  renderLabelMajor,
+  //** 지역 */
+  isOpenSubArea,
+  subDropdownArea,
   city,
   areaCategory,
   handleCityChange,
   handleCheckboxChange,
   selectCity,
   selectAreas,
+  selectedOptionsArea,
+  //** 경력 */
+  isOpenSubCareer,
+  subDropdownCareer,
   handleSliderChange,
-  rangeValue,
   getCareer,
+  rangeValue,
+  //** 기술 */
+  isOpenSubStack,
+  subDropdownStack,
+  stackData,
+  handleStackChange,
+  selectStack,
+
+  //** 공통 */
+  onClose,
+  handleBackground,
+  handleTagRemove,
 }: any) => {
   return (
     <S.category>
@@ -51,13 +53,15 @@ export const StackCategory = ({
           srcDown="/assets/svg/dropdown_up.svg"
           alt="개발 카테고리"
           category={category}
-          onSelect={onSelect}
-          onClose={onClose}
-          handleBackground={handleBackground}
           subCategory={subCategory}
-          isOpen={isOpenMajor}
+          handleCategoryChange={handleCategoryChange}
+          handleSubChange={handleSubChange}
+          handleBackground={handleBackground}
+          selectSub={selectSub}
           toggleDropdown={toggleDropdownMajor}
-          handleOptionChange={handleOptionsMajor}
+          isOpen={isOpenMajor}
+          onClose={onClose}
+          selectedOption={renderLabelMajor}
         />
       </S.mainStack>
       <S.subStack>
@@ -65,41 +69,35 @@ export const StackCategory = ({
           items="지역"
           city={city}
           areaCategory={areaCategory}
-          isOpen={isOpenSubArea}
           toggleDropdown={subDropdownArea}
           handleOptionChange={handleCityChange}
           handleCheckboxChange={handleCheckboxChange}
           selectCity={selectCity}
           selectAreas={selectAreas}
-          selectedOptions={selectedOptionsArea}
+          isOpen={isOpenSubArea}
           onClose={onClose}
+          handleTagRemove={handleTagRemove}
         />
 
         <ShapeDropdown
           items="경력"
           isOpen={isOpenSubCareer}
           toggleDropdown={subDropdownCareer}
-          handleOptionChange={handleOptionsCareer}
-          selectedOptions={selectedOptionsCareer}
           handleSliderChange={handleSliderChange}
           rangeValue={rangeValue}
           getCareer={getCareer}
+          onClose={onClose}
         />
 
-        <CheckboxDropdown
+        <SearchDropdown
           items="기술"
-          category_items={data}
+          stackData={stackData}
           isOpen={isOpenSubStack}
           toggleDropdown={subDropdownStack}
-          handleOptionChange={handleOptionsStack}
-          selectedOptions={selectedOptionsStack}
-        />
-        <StatusDropdown
-          items="모집"
-          isOpen={isOpenSubStatus}
-          toggleDropdown={subDropdownStatus}
-          handleOptionChange={handleOptionsStatus}
-          selectedOptions={selectedOptionsStatus}
+          handleStackChange={handleStackChange}
+          handleTagRemove={handleTagRemove}
+          selectStack={selectStack}
+          onClose={onClose}
         />
       </S.subStack>
     </S.category>

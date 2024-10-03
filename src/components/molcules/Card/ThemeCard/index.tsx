@@ -1,7 +1,6 @@
-import { BaseCard } from "..";
 import * as S from "../card.style";
 
-interface ThemeCardProps extends BaseCard {
+interface ThemeCardProps {
   title: string;
   src: any;
 }

@@ -1,10 +1,9 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const FindColonyPage = styled.section`
   display: flex;
   width: 100vw;
   height: auto;
-  padding: 100px 20px;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -13,27 +12,34 @@ export const FindColonyPage = styled.section`
 export const CategorySection = styled.div`
   display: flex;
   width: 80%;
-  height: auto;
+  height: 170px;
   align-items: center;
+  justify-content: center;
+  background-color: white;
+  position: sticky;
+  top: 0px;
+  z-index: 2;
 `;
 
 export const ColonyMainSection = styled.section`
   width: 80%;
-<<<<<<< Updated upstream
-  align-items: center;
-  justify-content: center;
-=======
   display: flex;
+
+  ${(props) =>
+    props.className === "loading" &&
+    css`
+      width: 100%;
+    `}
 `;
 
 export const ColonyMoreButton = styled.div`
-  width: 8%;
+  width: 6%;
   height: auto;
   position: fixed;
   right: 10px;
   bottom: 30px;
   margin-left: 10px;
-  img{
+  img {
     width: 50px;
   }
 `;
@@ -41,10 +47,18 @@ export const ColonyMoreButton = styled.div`
 export const hiddenButtonGroup = styled.div`
   width: 80%;
   display: flex;
-  margin-bottom: 10px;
   justify-content: space-between;
-  img{
+  img {
     width: 40px;
   }
->>>>>>> Stashed changes
+`;
+
+export const loadingSection = styled.div`
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const TopRightSection = styled.div`
+  width: 80%;
 `;

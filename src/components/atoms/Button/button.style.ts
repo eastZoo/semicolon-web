@@ -159,10 +159,50 @@ export const Button = styled.button<ButtonProps>`
           padding: 7px;
           margin-right: 3px;
           margin-left: 3px;
-          font-size: 12px;
-          font-weight: 300;
+          font-size: 13px;
+          font-weight: 400;
           background-color: #a9f5a9;
         `}
+        ${(props) =>
+          props.color === "btnList" &&
+          css`
+            width: auto;
+            color: black;
+            border-radius: 5px;
+            padding: 7px;
+            margin-right: 3px;
+            margin-left: 3px;
+            font-size: 12px;
+            font-weight: 350;
+            background-color: #f7f7f8;
+            &:hover {
+              background-color: ${(props) => props.theme.colors.white};
+              color: ${(props) => props.theme.colors.dark};
+              font-weight: 500;
+            }
+          `}
+          ${(props) =>
+            props.color === "stackButton" &&
+            css`
+              width: auto;
+              font-size: 14px;
+              color: black;
+              font-weight: 300;
+              border: 1px solid ${(props) => props.theme.colors.light};
+              border-radius: 5px;
+              padding: 12px;
+              background-color: ${(props) => props.theme.colors.white};
+              &:hover {
+                background-color: #f2f2f2;
+                color: ${(props) => props.theme.colors.dark};
+                font-weight: 400;
+              }
+              &:active {
+                background-color: #f2f2f2;
+                color: ${(props) => props.theme.colors.dark};
+                font-weight: 400;
+              }
+            `}
       
       
   }
@@ -181,10 +221,9 @@ export const IconButton = styled.button`
     css`
       width: 200px;
     `}
-<<<<<<< Updated upstream
-  img {
-    margin-left: 10px;
-  }
-=======
->>>>>>> Stashed changes
+  ${(props) =>
+    props.className === "write" &&
+    css`
+      margin-bottom: 40px;
+    `}
 `;
