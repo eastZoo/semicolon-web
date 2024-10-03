@@ -2,6 +2,9 @@ import "styled-components";
 
 declare module "styled-components" {
   export interface DefaultTheme {
+    shadow: {
+      card: string;
+    };
     colors: {
       primary: string;
       btnprimary: string;

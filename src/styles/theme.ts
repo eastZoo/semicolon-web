@@ -1,6 +1,9 @@
 import { DefaultTheme } from "styled-components";
 
 export const theme: DefaultTheme = {
+  shadow: {
+    card: "0px 4px 4px 1px rgba(0, 0, 0, 0.25)",
+  },
   colors: {
     primary: "#4EC990",
     btnprimary: "#A9D0F5",

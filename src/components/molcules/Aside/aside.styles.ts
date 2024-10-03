@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const Container = styled.div`
+  height: 100%;
   grid-area: AS;
   position: relative;
   background-color: ${(props) => props.theme.colors.white};
@@ -8,7 +9,9 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: calc(100% - 640px);
+  gap: calc(100% - 760px);
+  overflow: auto;
+
   /* display: grid;
   grid-template-rows: auto 160px; */
 

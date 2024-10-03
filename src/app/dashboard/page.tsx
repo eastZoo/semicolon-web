@@ -1,9 +1,10 @@
 "use client";
 
+import DashboardMainTemplate from "@/components/templates/DashboardMainTemplate";
 import React from "react";
 
 const DashBoard = () => {
-  return <div>DashBoard</div>;
+  return <DashboardMainTemplate />;
 };
 
 export default DashBoard;

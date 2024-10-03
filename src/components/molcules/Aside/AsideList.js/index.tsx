@@ -127,43 +127,41 @@ export default function AsideList(props: any) {
   return (
     // <>
     //   <div>{renderMenu(menuGroup[0], 0, "0")}</div>
-    //   {/* <div>
+    //   <div>
     //     <div className="m-dept01">
     //       <span>
-    //         <span>SETTINGS</span>
+    //         <span>Admin</span>
     //       </span>
     //     </div>
     //     <div className="m-dept02-list open">
     //       <div className="m-dept02 ">
     //         <span>
-    //           &nbsp;&nbsp;&nbsp;
     //           <Image
     //             src="/assets/svg/setting.svg"
     //             alt="setting"
-    //             width={15}
-    //             height={15}
+    //             width={20}
+    //             height={20}
+    //             className="d02-icon"
+    //           />
+    //           <span>Announce</span>
+    //         </span>
+    //       </div>
+    //     </div>
+    //     <div className="m-dept02-list open">
+    //       <div className="m-dept02 ">
+    //         <span>
+    //           <Image
+    //             src="/assets/svg/announce_icon.svg"
+    //             alt="announce"
+    //             width={20}
+    //             height={20}
     //             className="d02-icon"
     //           />
     //           <span>Setting</span>
     //         </span>
     //       </div>
     //     </div>
-    //     <div className="m-dept02-list open">
-    //       <div className="m-dept02 ">
-    //         <span>
-    //           &nbsp;&nbsp;&nbsp;
-    //           <Image
-    //             src="/assets/svg/logout.svg"
-    //             alt="setting"
-    //             width={15}
-    //             height={15}
-    //             className="d02-icon"
-    //           />
-    //           <span>Logout</span>
-    //         </span>
-    //       </div>
-    //     </div>
-    //   </div> */}
+    //   </div>
     // </>
     <div>{renderMenu(menuGroup[0], 0, "0")}</div>
   );
