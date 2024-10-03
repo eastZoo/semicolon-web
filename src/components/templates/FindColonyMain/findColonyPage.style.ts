@@ -58,3 +58,7 @@ export const loadingSection = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+export const TopRightSection = styled.div`
+  width: 80%;
+`;

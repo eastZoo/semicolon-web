@@ -44,6 +44,11 @@ export const InputCommon = styled.div<InputProps>`
   input {
     padding-left: 40px;
   }
+  ${(props) =>
+    props.color === "findColonySearch" &&
+  css`
+    float: right;
+    `}
 `;
 
 export const IconInputText = styled.div`
@@ -64,7 +69,7 @@ export const IconInputText = styled.div`
 `;
 
 export const InputSearchBar = styled.form`
-  width: 100%;
+  width: auto;
   height: 30px;
   display: flex;
   img {
@@ -78,6 +83,7 @@ export const InputSearchBar = styled.form`
     font-size: 13px;
     padding-left: 10px;
     padding-right: 30px;
+    outline: none;
   }
 
   button {

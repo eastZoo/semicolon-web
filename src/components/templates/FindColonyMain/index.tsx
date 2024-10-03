@@ -17,6 +17,7 @@ import * as React from "react";
 import { IconButton } from "@/components/atoms/Button";
 import { ButtonList } from "@/components/molcules/ButtonList";
 import { ContourLine, Line } from "@/components/atoms/Line";
+import { InputSearchBar } from "@/components/atoms/Input/InputText";
 
 export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
   /** 모집 상태  */
@@ -224,14 +225,13 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
 
   const renderLabelMajor = () => {
     if (selectedCategory?.length === 0) {
-      return '직군 - 직무';
+      return "직군 - 직무";
     } else if (selectSub.length === 1) {
       return selectedCategory + selectSub[0];
-    } else{
-      return `${selectedCategory} - ${selectSub[0]} 외 ${selectSub.length -1}`
+    } else {
+      return `${selectedCategory} - ${selectSub[0]} 외 ${selectSub.length - 1}`;
     }
-  }
-
+  };
 
   return (
     <S.FindColonyPage>
@@ -273,6 +273,9 @@ export const FindColonyMain: React.FC = ({ bookmarked }: any) => {
         />
         <ButtonList items={status} />
       </S.CategorySection>
+      <S.TopRightSection>
+        <InputSearchBar src="/assets/svg/search.svg" color="findColonySearch" placeholder="검색어를 입력해주세요."/>
+      </S.TopRightSection>
       <ContourLine name="findColonyTop" />
       <S.ColonyMainSection>
         <SColonySection.FindColonyCard color="findColonyPage">
