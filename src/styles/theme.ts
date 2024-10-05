@@ -28,4 +28,9 @@ export const theme: DefaultTheme = {
     gray: "#A4A4A4",
     dark: "#404040",
   },
+  status: {
+    new: "#FAE100",
+    progress: "#D4EF7A",
+    done: "#FF9D7D",
+  },
 };
