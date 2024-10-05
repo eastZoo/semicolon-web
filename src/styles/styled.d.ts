@@ -28,5 +28,10 @@ declare module "styled-components" {
       gray: string;
       dark: string;
     };
+    status: {
+      new: string;
+      progress: string;
+      done: string;
+    };
   }
 }
