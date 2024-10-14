@@ -1,7 +1,5 @@
 "use client";
 
-import { useRouter, usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
 import { findColonyData } from "../../../data/dummey";
 
 const PostDetailPage = ({ params }: { params: { id: string } }) => {
@@ -9,7 +7,7 @@ const PostDetailPage = ({ params }: { params: { id: string } }) => {
 
   if (!post) {
     console.log(post);
-    return <div>게시글을 불러오는 중입니다...</div>;
+    return <div>Loading...</div>;
   }
 
   return (
