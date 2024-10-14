@@ -17,7 +17,7 @@ interface ThemeCardProps extends BaseCard {
 interface ColonyCardProps extends BaseCard {
   category?: string;
   user?: string;
-  stack?: string;
+  stack?: string[];
   view?: string;
   view_src?: any;
   bookmark_count?: string;
