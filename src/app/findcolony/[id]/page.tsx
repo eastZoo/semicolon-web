@@ -1,5 +1,6 @@
 "use client";
 
+import { ColonyDetail } from "@/components/templates/ColonyDetail";
 import { findColonyData } from "../../../data/dummey";
 
 const PostDetailPage = ({ params }: { params: { id: string } }) => {
@@ -10,12 +11,7 @@ const PostDetailPage = ({ params }: { params: { id: string } }) => {
     return <div>Loading...</div>;
   }
 
-  return (
-    <div>
-      <h1>{post?.title}</h1>
-      <p>{post?.dec}</p>
-    </div>
-  );
+  return <ColonyDetail colony={post} />;
 };
 
 export default PostDetailPage;
