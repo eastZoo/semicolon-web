@@ -171,6 +171,30 @@ export const Button = styled.button<ButtonProps>`
       background-color: #a9f5a9;
     `}
     ${(props) =>
+    props.color === "applyButton" &&
+    css`
+      width: auto;
+      color: white;
+      font-weight: 400;
+      font-size: 17px;
+      border-radius: 5px;
+      padding: 10px 20px;
+      margin-left: 4px;
+      background-color: #27e484;
+    `}
+    ${(props) =>
+    props.color === "noticeButton" &&
+    css`
+      width: auto;
+      color: white;
+      font-weight: 400;
+      font-size: 17px;
+      border-radius: 5px;
+      padding: 10px 20px;
+      margin-left: 4px;
+      background-color: gray;
+    `}
+    ${(props) =>
     props.color === "btnList" &&
     css`
       width: auto;
@@ -240,5 +264,21 @@ export const IconButton = styled.button`
     props.className === "write" &&
     css`
       margin-bottom: 40px;
+    `}
+  ${(props) =>
+    props.className === "logoBtn" &&
+    css`
+      border-radius: 4px;
+      width: auto;
+      padding: 5px 15px;
+      gap: 10px;
+      background-color: #f4f4f4;
+    `}
+    ${(props) =>
+    props.className === "share_like" &&
+    css`
+      width: auto;
+      padding: 2px 10px;
+      gap: 10px;
     `}
 `;

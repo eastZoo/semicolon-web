@@ -215,7 +215,7 @@ export const findColonyData: ColonyData[] = [
     user: "Eastzoo",
     view: "200",
     bookmark: "300",
-    stack: ["HTML5", "CSS3", "JavaScript", "TypeScript"],
+    stack: ["HTML5", "CSS3", "JavaScript", "AngularJS"],
     src: "/assets/image/colonyCard.png",
     bookmark_isTure: true,
   },
